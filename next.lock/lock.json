@@ -1,0 +1,7 @@
+{
+  "https://cdn.jsdelivr.net/npm/@googleapis/youtube@6.0.0/build/v3.min.js": { "integrity": "sha512-JjNOI57JQPNebVVeIY0U/jDVJwNNaIiGBqc2dl63cZMHBPNxUtZLnL6aFI1OU5iDHUO5JIPt5oJ4r9Ye0RYljQ==", "contentType": "application/javascript; charset=utf-8" },
+  "https://cdn.jsdelivr.net/npm/google-auth-library@8.5.2/build/src/index.min.js": { "integrity": "sha512-dyt6VB2RJWTqXG8fM7K7oOE8PQFOTxk6O+VFRdGuy56JwnwlMn7BvcCQTZ7eksdCLdwLmpzl60l2hfe+SZ9WLg==", "contentType": "application/javascript; charset=utf-8" },
+  "https://cdn.jsdelivr.net/npm/rehype-prism-plus@1.5.0/dist/rehype-prism-plus.es.min.js": { "integrity": "sha512-I4sU4hF29jpnZ+j4jrEcaOWIGaJmOD1zJefKSGRAaPfNEjJOn9fIYuWB1//N6KuTu/ZwxLPitMrk3gVRLv+Rpw==", "contentType": "application/javascript; charset=utf-8" },
+  "https://cdn.jsdelivr.net/npm/remark-gfm@3.0.1/index.min.js": { "integrity": "sha512-NkCKIx6EzOKDV20gcBSy5s8+ORWanXymOaf+4wF5e+SRRa/azYOePooVbBmi8dD6rqHPzVmAOMzmsHwH+8nBjg==", "contentType": "application/javascript; charset=utf-8" },
+  "version": 1
+}
