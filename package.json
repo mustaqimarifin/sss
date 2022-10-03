@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@googleapis/youtube": "^6.0.0",
+    "@headlessui/react": "^1.7.3",
     "@prisma/client": "^4.4.0",
+    "@reach/portal": "^0.17.0",
     "@sanity/image-url": "^1.0.1",
     "@sanity/webhook": "^2.0.0",
     "@tailwindcss/typography": "0.5.3",

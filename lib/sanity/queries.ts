@@ -5,9 +5,8 @@ const postFields = groq`
   title,
   date,
   excerpt,
-  coverImage,
-  author,
-  tags,
+  "name" : author->name,
+  "tags": tags[]->title,
   "caption" : coverImage.caption,
   "slug": slug.current,
 `;

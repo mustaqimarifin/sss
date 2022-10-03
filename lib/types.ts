@@ -3,6 +3,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 export type Post = {
   _id: string;
   slug: string;
+  name: string;
   content: MDXRemoteSerializeResult;
   title: string;
   date: string;
@@ -11,6 +12,7 @@ export type Post = {
   caption: string;
   readingTime: string;
   tweets: any[];
+  tags: string[];
 };
 
 export type Snippet = {

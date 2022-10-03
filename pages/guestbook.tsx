@@ -13,8 +13,7 @@ export default function GuestbookPage({ fallbackData }) {
           Guestbook
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Leave a comment below. It could be anything – appreciation,
-          information, wisdom, or even humor. Surprise me!
+          Leave some kind words... or not! Go for it - early 90's style.
         </p>
         <Guestbook fallbackData={fallbackData} />
       </div>
@@ -33,7 +32,6 @@ export async function getStaticProps() {
     id: entry.id.toString(),
     body: entry.body,
     image: entry.image,
-    name: entry.name,
     created_by: entry.created_by.toString(),
     updated_at: entry.updated_at.toString()
   }));

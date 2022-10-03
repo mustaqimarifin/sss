@@ -10,7 +10,6 @@ generator client {
 model guestbook {
   id         Int       @id @default(autoincrement())
   email      String
-  name       String
   body       String
   image      String?
   created_by String

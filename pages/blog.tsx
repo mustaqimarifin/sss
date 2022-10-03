@@ -89,6 +89,8 @@ export default function Blog({
               slug={post.slug}
               title={post.title}
               excerpt={post.excerpt}
+              tags={[...post.tags]}
+              date={post.date}
             />
           ))}
         </Suspense>

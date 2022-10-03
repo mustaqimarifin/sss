@@ -7,6 +7,7 @@ import { urlForImage } from 'lib/sanity/sanity';
 import { XD } from 'services/xD';
 import ImageWithTheme from 'components/ImageWithTheme';
 import dayjs from 'dayjs';
+// import Tag from 'components/tag';
 //import { CoverImage } from 'components/CoverImage';
 //import SanityImg from 'components/SanityImg';
 export default function BlogLayout({
@@ -94,17 +95,24 @@ export default function BlogLayout({
               {dayjs(post.date).format('MMMM DD, YYYY')}
             </p>
           </div>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
+          <div className="flex gap-2 items-center mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
             {post.readingTime}
             {` • `}
             <ViewCounter slug={post.slug} />
-          </p>
+            {` • `}
+            <div className="flex">
+              {post.tags?.length &&
+                post.tags
+                  .slice(0)
+                  .map((tag, index) => <div key={index}>{tag}</div>)}
+            </div>
+          </div>
         </div>
         <Suspense fallback={null}>
           <div className="w-full mt-4 prose dark:prose-dark max-w-none">
             {children}
           </div>
-          <div className="mt-8">
+          <div className="my-4">
             <ImageWithTheme
               alt="Mustaqim Arifin"
               height={120}
