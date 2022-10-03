@@ -37,6 +37,7 @@ export default async function handler(
         email,
         body: (req.body.body || '').slice(0, 500),
         created_by: name,
+        name: name,
         image
       }
     });

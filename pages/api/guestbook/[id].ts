@@ -22,6 +22,7 @@ export default async function handler(
       id: entry.id.toString(),
       body: entry.body,
       image: entry.image,
+      name: entry.name,
       created_by: entry.created_by,
       updated_at: entry.updated_at
     });
