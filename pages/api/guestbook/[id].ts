@@ -9,7 +9,7 @@ export default async function handler(
   const session = await getSession({ req });
 
   const { id } = req.query;
-  const { email, image } = session.user;
+  const { email } = session.user;
 
   const entry = await prisma.guestbook.findUnique({
     where: {

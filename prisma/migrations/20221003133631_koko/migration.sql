@@ -2,6 +2,7 @@
 CREATE TABLE "guestbook" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
     "body" TEXT NOT NULL,
     "image" TEXT,
     "created_by" TEXT NOT NULL,
