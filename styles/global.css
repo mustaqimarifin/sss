@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Franklin';
+  src: url('/fonts/franklin-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franklin';
+  src: url('/fonts/franklin-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franklin';
+  src: url('/fonts/franklin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franklin';
+  src: url('/fonts/franklin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franklin';
+  src: url('/fonts/franklin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Franklin';
+  src: url('/fonts/franklin-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;

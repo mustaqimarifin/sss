@@ -41,7 +41,7 @@ export default function Container(props) {
   const meta = {
     title: 'Mustaqim Arifin – Developer, writer, creator.',
     description: `Front-end developer, JavaScript enthusiast, and course creator.`,
-    image: 'https://eff1gy.vercel.app/static/images/tt.jpg',
+    image: 'https://sss-lake.vercel.app/static/images/tt.jpg',
     type: 'website',
     ...customMeta
   };
@@ -54,11 +54,11 @@ export default function Container(props) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://eff1gy.vercel.app${router.asPath}`}
+          content={`https://sss-lake.vercel.app${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://eff1gy.vercel.app${router.asPath}`}
+          href={`https://sss-lake.vercel.app${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Mustaqim Arifin" />
@@ -85,7 +85,7 @@ export default function Container(props) {
             <NavItem href="/guestbook" text="Guestbook" />
             <NavItem href="/dashboard" text="Dashboard" />
             <NavItem href="/blog" text="Blog" />
-            <NavItem href="/snippets" text="Snippets" />
+            <NavItem href="/feed" text="JSON" />
           </div>
           <button
             aria-label="Toggle Dark Mode"

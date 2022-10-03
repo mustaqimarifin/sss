@@ -16,7 +16,7 @@ export default function About() {
           <h2>Links</h2>
           <ul>
             <li>
-              Twitter: <a href="https://twitter.com/leeerob">@leeerob</a>
+              Twitter: <a href="https://twitter.com/vmprmyth">@leeerob</a>
             </li>
             <li>
               GitHub:{' '}
@@ -24,8 +24,8 @@ export default function About() {
             </li>
             <li>
               Website:{' '}
-              <Link href="https://eff1gy.vercel.app">
-                <a>https://eff1gy.vercel.app</a>
+              <Link href="https://sss-lake.vercel.app">
+                <a>https://sss-lake.vercel.app</a>
               </Link>
             </li>
             <li>

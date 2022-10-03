@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
-import VideoCard from '../components/VideoCard';
-import ImageWithTheme from 'components/ImageWithTheme';
+//import VideoCard from '../components/VideoCard';
+// import ImageWithTheme from 'components/ImageWithTheme';
 
 export default function Home() {
   return (
@@ -31,10 +31,10 @@ export default function Home() {
                 alt="Mustaqim Arifin"
                 height={176}
                 width={176}
-                src="/avatar.jpg"
+                src="/wookie.png"
                 sizes="30vw"
                 priority
-                className="rounded-full filter grayscale"
+                className="rounded-full dark:invert transition-colors duration-200"
               />
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function Home() {
             </a>
           </Link>
 
-          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+          {/* <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
             Learn React & Next.js
           </h3>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
@@ -132,16 +132,8 @@ export default function Home() {
                 d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
               />
             </svg>
-          </a>
+          </a> */}
           <span className="h-16" />
-          <ImageWithTheme
-            alt="Mustaqim Arifin"
-            height={120}
-            width={120}
-            sizes="20vw"
-            src="/wookie.png"
-            className="rounded-full dark:invert transition-colors duration-200"
-          />
         </div>
       </Container>
     </Suspense>

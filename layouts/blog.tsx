@@ -118,7 +118,7 @@ export default function BlogLayout({
           <div className="text-sm text-gray-700 dark:text-gray-300">
             <a
               href={`https://mobile.twitter.com/search?q=${encodeURIComponent(
-                `https://eff1gy.vercel.app/blog/${post.slug}`
+                `https://sss-lake.vercel.app/blog/${post.slug}`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -127,7 +127,7 @@ export default function BlogLayout({
             </a>
             {` • `}
             <a
-              href="https://github.com/mustaqimarifin/eff1gy.vercel.app/issues"
+              href="https://github.com/mustaqimarifin/sss-lake.vercel.app/issues"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,5 +1,8 @@
 import Container from 'components/Container';
+// import LickPics from 'components/LickPics';
+import desk from '../public/static/images/gear/desk.jpg';
 import Image from 'next/future/image';
+// import DickPics from '../components/Pics';
 
 export default function Uses() {
   return (
@@ -19,10 +22,10 @@ export default function Uses() {
         <Image
           className="rounded-lg"
           alt={`My computer desk`}
-          src={`/static/images/setup.png`}
-          width={2164 / 2}
-          height={1546 / 2}
-          priority
+          src={desk}
+          width={3624 / 2}
+          height={2448 / 2}
+          placeholder="blur"
         />
         <div className="prose dark:prose-dark w-full">
           <h3 id="computer-office">Computer / Office</h3>
