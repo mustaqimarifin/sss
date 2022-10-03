@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
-import Subscribe from '../components/Subscribe';
 import VideoCard from '../components/VideoCard';
+import ImageWithTheme from 'components/ImageWithTheme';
 
 export default function Home() {
   return (
@@ -134,7 +134,14 @@ export default function Home() {
             </svg>
           </a>
           <span className="h-16" />
-          <Subscribe />
+          <ImageWithTheme
+            alt="Mustaqim Arifin"
+            height={120}
+            width={120}
+            sizes="20vw"
+            src="/wookie.png"
+            className="rounded-full dark:invert transition-colors duration-200"
+          />
         </div>
       </Container>
     </Suspense>

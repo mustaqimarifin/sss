@@ -1,0 +1,1 @@
+var p={}.hasOwnProperty;function l(r,e){var t=e&&r&&typeof r=="object"&&r.type==="element"&&r.properties&&p.call(r.properties,e)&&r.properties[e];return t!=null&&t!==!1}export{l as hasProperty};export default null;

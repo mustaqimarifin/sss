@@ -10,6 +10,7 @@ import SuccessMessage from 'components/SuccessMessage';
 import ErrorMessage from 'components/ErrorMessage';
 import LoadingSpinner from 'components/LoadingSpinner';
 import dayjs from 'dayjs';
+import { XD } from 'services/xD';
 
 function GuestbookEntry({ entry, user }) {
   const { data: session } = useSession();
@@ -25,7 +26,7 @@ function GuestbookEntry({ entry, user }) {
     mutate('/api/guestbook');
   };
 
-  function cn(arg0: string, flip: any): string {
+  function XD(arg0: string, flip: any): string {
     throw new Error('Function not implemented.');
   }
 

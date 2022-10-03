@@ -17,17 +17,17 @@ module.exports = {
     browsersListForSwc: true,
     urlImports: ['https://cdn.skypack.dev/', 'https://cdn.jsdelivr.net/']
   },
-  async headers() {
+  /* async headers() {
     return [
       {
         source: '/(.*)',
         headers: securityHeaders
       }
     ];
-  }
+  } */
 };
 
-// https://nextjs.org/docs/advanced-features/security-headers
+/* // https://nextjs.org/docs/advanced-features/security-headers
 const ContentSecurityPolicy = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.jsdelivr.net cdn.skypack.dev *.youtube.com *.twitter.com nicethreads.vercel.app;
@@ -74,3 +74,4 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()'
   }
 ];
+ */

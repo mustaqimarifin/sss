@@ -2,7 +2,8 @@
 import { urlForImage } from 'lib/sanity/sanity';
 import Image from 'next/future/image';
 import { useState } from 'react';
-import cn from 'classnames';
+import { XD } from 'services/xD';
+// import XD from 'classnames';
 export const CoverImage = ({ title, coverImage, alt }) => {
   const [isLoading, setLoading] = useState(true);
 
@@ -11,7 +12,7 @@ export const CoverImage = ({ title, coverImage, alt }) => {
       <Image
         src={urlForImage(coverImage).url()}
         alt={alt}
-        className={cn(
+        className={XD(
           'duration-700 ease-in-out group-hover:opacity-75',
           isLoading
             ? 'scale-110 blur-2xl grayscale'

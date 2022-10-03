@@ -56,6 +56,7 @@ export async function getStaticProps({ params, preview = false }) {
         tweets,
         readingTime
       }
-    }
+    },
+    revalidate: 120
   };
 }

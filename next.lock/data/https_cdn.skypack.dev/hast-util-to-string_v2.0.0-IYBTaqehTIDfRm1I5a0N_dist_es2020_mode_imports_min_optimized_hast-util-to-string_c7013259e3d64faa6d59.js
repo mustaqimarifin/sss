@@ -1,0 +1,1 @@
+function i(t){return"children"in t?e(t):"value"in t?t.value:""}function l(t){return t.type==="text"?t.value:"children"in t?e(t):""}function e(t){let n=-1;const r=[];for(;++n<t.children.length;)r[n]=l(t.children[n]);return r.join("")}export{i as toString};export default null;

@@ -1,12 +1,10 @@
 import Image from 'next/future/image';
-// import { parseISO, format } from 'date-fns';
 import { PropsWithChildren, Suspense, useState } from 'react';
 import Container from 'components/Container';
-import Subscribe from 'components/Subscribe';
 import ViewCounter from 'components/ViewCounter';
 import { Post } from 'lib/types';
 import { urlForImage } from 'lib/sanity/sanity';
-import cn from 'classnames';
+import { XD } from 'services/xD';
 import ImageWithTheme from 'components/ImageWithTheme';
 import dayjs from 'dayjs';
 //import { CoverImage } from 'components/CoverImage';
@@ -33,7 +31,7 @@ export default function BlogLayout({
           alt={''}
           width={680}
           height={503}
-          className={cn(
+          className={XD(
             ' flex object-cover object-top justify-center items-center w-full aspect-[21/9] lg:max-w-7xl mx-auto duration-700 ease-in-out group-hover:opacity-75',
             isLoading
               ? 'scale-110 blur-2xl grayscale'
@@ -52,7 +50,7 @@ export default function BlogLayout({
         <Image
           src={urlForImage(post.coverImage).url()}
           alt={post?.title}
-          className={cn(
+          className={XD(
             'duration-700 ease-in-out aspect-[21/9] object-cover group-hover:opacity-75 -z-10 md:rounded-lg ',
             isLoading
               ? 'scale-110 blur-2xl grayscale'
@@ -107,7 +105,14 @@ export default function BlogLayout({
             {children}
           </div>
           <div className="mt-8">
-            <Subscribe />
+            <ImageWithTheme
+              alt="Mustaqim Arifin"
+              height={120}
+              width={120}
+              sizes="20vw"
+              src="/wookie.png"
+              className="rounded-full dark:invert transition-colors duration-200"
+            />
           </div>
 
           <div className="text-sm text-gray-700 dark:text-gray-300">
