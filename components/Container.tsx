@@ -7,6 +7,7 @@ import Kitteh from 'lib/Kitteh';
 import Footer from 'components/Footer';
 import MobileMenu from 'components/MobileMenu';
 import { XD } from 'services/xD';
+import { NewSide } from './newSide';
 
 export function NavItem({ href, text }) {
   const router = useRouter();
@@ -80,7 +81,6 @@ export default function Container(props) {
             Skip to content
           </a>
           <div className="ml-[-0.60rem]">
-            <MobileMenu />
             <NavItem href="/" text="Home" />
             <NavItem href="/guestbook" text="Guestbook" />
             <NavItem href="/dashboard" text="Dashboard" />

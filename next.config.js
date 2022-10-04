@@ -9,14 +9,15 @@ module.exports = {
       'i.scdn.co', // Spotify Album Art
       'pbs.twimg.com', // Twi,
       'cdn.sanity.io',
-      'lh3.googleusercontent.com'
+      'lh3.googleusercontent.com',
+      'i.ytimg.com'
     ]
   },
   experimental: {
     legacyBrowsers: false,
     browsersListForSwc: true,
     urlImports: ['https://cdn.skypack.dev/', 'https://cdn.jsdelivr.net/']
-  },
+  }
   /* async headers() {
     return [
       {
