@@ -46,7 +46,7 @@ export default function MobileMenu() {
         <ul
           className={XD(
             styles.menu,
-            'flex flex-col absolute ',
+            'flex flex-col absolute  bg-slate-50 dark:bg-gray-800 border-2 shadow-lg shadow-violet-300  rounded-lg ',
             isMenuRendered && styles.menuRendered
           )}
         >

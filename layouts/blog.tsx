@@ -32,6 +32,7 @@ export default function BlogLayout({
           alt={''}
           width={680}
           height={503}
+          priority
           className={XD(
             ' flex object-cover object-top justify-center items-center w-full aspect-[21/9] lg:max-w-7xl mx-auto duration-700 ease-in-out group-hover:opacity-75',
             isLoading

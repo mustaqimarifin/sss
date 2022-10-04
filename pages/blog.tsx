@@ -85,12 +85,13 @@ export default function Blog({
           )}
           {filteredBlogPosts.map((post) => (
             <BlogPost
-              key={post.title}
+              key={post._id}
               slug={post.slug}
               title={post.title}
               excerpt={post.excerpt}
               tags={[...post.tags]}
               date={post.date}
+              _id={post._id}
             />
           ))}
         </Suspense>

@@ -6,12 +6,14 @@ import { Views } from 'lib/types';
 import dayjs from 'dayjs';
 
 export default function BlogPost({
+  _id,
   slug,
   title,
   excerpt,
   tags,
   date
 }: {
+  _id: string;
   slug: string;
   title: string;
   excerpt: string;
@@ -22,12 +24,12 @@ export default function BlogPost({
   const views = data?.total;
 
   return (
-    <Link href={`/blog/${slug}`}>
-      <a className="w-full mb-4">
-        <div className="dark:bg-gray-800 dark:text-gray-100">
-          <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
+    <Link key={_id} href={`/blog/${slug}`}>
+      <a className="w-full mb-2">
+        <div className="">
+          <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm hover:shadow-md">
             <div className="flex items-center">
-              <span className="text-sm dark:text-gray-400">
+              <span className="text-sm pr-2 dark:text-gray-400">
                 {dayjs(date).format('MMMM DD, YYYY')}
               </span>
 
@@ -36,7 +38,7 @@ export default function BlogPost({
                   <>
                     <div
                       key={index}
-                      className=" mr-3 text-sm font-bold uppercase text-pink-400 transition duration-300 ease-in-out hover:scale-[1.03] hover:text-rose-300"
+                      className="flex  space-x-2 text-sm font-bold uppercase text-pink-400 transition duration-300 ease-in-out hover:scale-[1.03] hover:text-rose-300"
                     >
                       {tag}
                     </div>
