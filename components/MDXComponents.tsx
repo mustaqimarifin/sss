@@ -1,11 +1,13 @@
-import Link from 'next/link';
-import Image from 'next/future/image';
-import DickPics from './Pics';
-import ProsCard from 'components/ProsCard';
+/* eslint-disable react/jsx-no-target-blank */
 import ConsCard from 'components/ConsCard';
-import Analytics from 'components/metrics/Analytics';
-import Step from 'components/Step';
 import ImageWithTheme from 'components/ImageWithTheme';
+import Analytics from 'components/metrics/Analytics';
+import ProsCard from 'components/ProsCard';
+import Step from 'components/Step';
+import Image from 'next/future/image';
+import Link from 'next/link';
+
+import DickPics from './Pics';
 
 const CustomLink = (props) => {
   const href = props.href;

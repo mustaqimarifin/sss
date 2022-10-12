@@ -1,5 +1,5 @@
+import { DesignDetail } from 'data/appDissections';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-
 export type Post = {
   _id: string;
   slug: string;
@@ -12,18 +12,45 @@ export type Post = {
   caption: string;
   readingTime: string;
   tweets: any[];
-  tags: string[];
+  tags?: string[];
 };
 
-export type Snippet = {
+export type Snippets = {
   _id: string;
   slug: string;
+  name: string;
   content: MDXRemoteSerializeResult;
   title: string;
-  description: string;
-  logo: string;
+  date: string;
+  excerpt: string;
+  coverImage: string;
+  caption: string;
+  readingTime: string;
+  tweets: any[];
+  tags?: string[];
 };
 
+export type ADD = {
+  slug: string;
+  title: string;
+  description: MDXRemoteSerializeResult;
+  createdAt: string;
+  details: Array<DesignDetail>;
+  tint: string;
+};
+export type PostPage = {
+  _id: string;
+  slug: string;
+  title: string;
+  date: string;
+  caption?: string;
+  excerpt?: string;
+};
+
+export type PostPageGroup = {
+  map(arg0: (post: any) => JSX.Element): import('react').ReactNode;
+  posts: Array<PostPage>;
+};
 export enum Form {
   Initial,
   Loading,
@@ -68,6 +95,13 @@ export type YouTube = {
   viewCount: number;
 };
 
+export type SafeSex = {
+  title: string;
+  _id: string;
+  slug: string;
+  date: string;
+};
+
 export type GitHub = {
   stars: number;
 };
@@ -75,4 +109,18 @@ export type GitHub = {
 export type Unsplash = {
   downloads: number;
   views: number;
+};
+
+export type Video = {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  thumbnail: string;
+};
+
+export type Stat = {
+  videoCount: string;
+  viewCount: string;
+  SubscriberCount: string;
 };

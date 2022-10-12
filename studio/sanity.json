@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "project": {
+    "name": "sausbaus",
+    "basePath": "/studio"
+  },
+  "api": {
+    "projectId": "do33z8xq",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "markdown"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    }
+  ]
+}

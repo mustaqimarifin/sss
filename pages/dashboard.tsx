@@ -1,49 +1,29 @@
-import Link from 'next/link';
+import { NextSeo } from 'next-seo';
+import * as React from 'react';
 
-import Analytics from 'components/metrics/Analytics';
-import Container from 'components/Container';
+import { ListDetailView, SiteLayout } from 'components/Layouts';
+import { withProviders } from 'components/Providers/withProviders';
+import routes from 'config/routes';
+import { DashPage } from 'components/Dash/Index';
 
-import YouTube from 'components/metrics/Youtube';
-import TopTracks from 'components/TopTracks';
-
-export default function Dashboard() {
+function DashIndex() {
   return (
-    <Container
-      title="Dashboard – Mustaqim Arifin"
-      description="My personal dashboard, built with Next.js API routes deployed as serverless functions."
-    >
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 px-8">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-          Dashboard
-        </h1>
-        <div className="mb-8">
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            This is my personal dashboard, built with Next.js API routes
-            deployed as serverless functions. I use this dashboard to track
-            various metrics across platforms like Unsplash, YouTube, GitHub, and
-            more. Want to build your own? Check out my&nbsp;
-            <Link href="/blog/fetching-data-with-swr">
-              <a className="text-gray-900 dark:text-gray-100 underline">
-                blog series.
-              </a>
-            </Link>
-          </p>
-        </div>
-        <div className="flex flex-col w-full">
-          <YouTube />
-        </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
-          <Analytics />
-        </div>
-        <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
-          Top Tracks
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Curious what I'm currently jamming to? Here's my top tracks on Spotify
-          updated daily.
-        </p>
-        <TopTracks />
-      </div>
-    </Container>
+    <NextSeo
+      title={routes.dashboard.seo.title}
+      description={routes.dashboard.seo.description}
+      openGraph={routes.dashboard.seo.openGraph}
+    />
   );
 }
+
+DashIndex.getLayout = withProviders(function getLayout(
+  page: React.ReactElement<any, string | React.JSXElementConstructor<any>>
+) {
+  return (
+    <SiteLayout>
+      <ListDetailView list={null} hasDetail detail={<DashPage />} />
+    </SiteLayout>
+  );
+});
+
+export default DashIndex;
