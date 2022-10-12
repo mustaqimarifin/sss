@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { useModal } from 'services/use-modal';
 import SignInModal from 'supabase/SBComponents/comments/SignInModal';
 import supabase from 'supabase/supaPublic';
-import {
-  AuthModal,
-  Comments,
-  CommentsProvider
-} from 'supabase-comments-extension';
+import { Comments, CommentsProvider } from 'components';
 
 const Spender = ({ slug }) => {
   const { open } = useModal({

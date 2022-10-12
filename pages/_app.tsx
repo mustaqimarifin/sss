@@ -4,27 +4,10 @@ import 'styles/global.css';
 //import 'styles/prism.css'
 import 'styles/prose-styles.css';
 
-//import 'supabase/supabase.css';
-// import { ModalProvider } from 'services/use-modal';
-// import { Session } from 'next-auth/react';
 import { SiteLayout } from 'components/Layouts';
 import { Providers } from 'components/Providers';
-import type { NextComponentType } from 'next';
-import {
-  AppContext,
-  AppInitialProps,
-  AppLayoutProps,
-  AppProps
-} from 'next/app';
-import { Session } from 'next-auth/core/types';
-import { SessionProvider } from 'next-auth/react';
-//import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'next-themes';
+
 import * as React from 'react';
-import { ModalProvider } from 'supabase/hooks/useModal';
-import { UserContextProvider } from 'supabase/hooks/useUser';
-import supabase from 'supabase/supaPublic';
-import { CommentsProvider } from 'supabase-comments-extension';
 
 /* function MyApp({
   Component,
