@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Google = (props) => {
+const Google = (
+  props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
+) => {
   return (
     <svg
       {...props}

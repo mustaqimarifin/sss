@@ -1,5 +1,5 @@
 import { Auth } from '@supabase/ui';
-import { useCommentsContext } from '../components/CommentsProvider';
+import { useCommentsContext } from 'components/Comments/CommentsProvider';
 
 // run callback if authenticated
 const useAuthUtils = () => {
@@ -19,7 +19,7 @@ const useAuthUtils = () => {
   return {
     runIfAuthenticated,
     isAuthenticated,
-    auth,
+    auth
   };
 };
 

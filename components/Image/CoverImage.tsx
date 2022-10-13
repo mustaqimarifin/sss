@@ -1,8 +1,7 @@
-/* eslint-disable react/jsx-no-undef */
 import Image from 'next/future/image';
 import { useState } from 'react';
 import { XD } from 'services/xD';
-export const CoverImage = ({ src }) => {
+export default function CoverImage({ src }) {
   const [isLoading, setLoading] = useState(true);
 
   return (
@@ -30,4 +29,4 @@ export const CoverImage = ({ src }) => {
       </figcaption> */}
     </div>
   );
-};
+}

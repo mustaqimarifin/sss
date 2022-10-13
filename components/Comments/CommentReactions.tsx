@@ -1,8 +1,8 @@
+import type * as api from 'api';
 import React, { FC } from 'react';
-import type * as api from '../api';
+
 import CommentReaction from './CommentReaction';
 import ReactionSelector from './ReactionSelector';
-
 export interface CommentReactionsProps {
   activeReactions: Set<string>;
   reactionsMetadata: api.CommentReactionMetadata[];
@@ -12,7 +12,7 @@ export interface CommentReactionsProps {
 export const CommentReactions: FC<CommentReactionsProps> = ({
   activeReactions,
   reactionsMetadata,
-  toggleReaction,
+  toggleReaction
 }) => {
   return (
     <div className="flex h-6 space-x-2">

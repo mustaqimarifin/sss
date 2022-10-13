@@ -5,14 +5,14 @@ import { definitions } from 'supabase/types/supabase';
 
 interface Props {
   comment?: definitions['comments'] | null;
-  profile?: definitions['profiles'] | null;
+  user?: any;
   flip?: string;
   isDeleted?: boolean;
   firstLetter?: string;
 }
 const Avatar = ({
   comment,
-  profile,
+  user,
   flip = 'w-7 h-7 text-sm ',
   isDeleted,
   firstLetter
@@ -44,7 +44,7 @@ const Avatar = ({
   }
   if (comment) {
     return (
-      <img
+      <Image
         src={comment.image}
         className={cn(
           'rounded-full border dark:border-white border-gray-600  shadow-sm object-cover',
@@ -56,22 +56,22 @@ const Avatar = ({
       />
     );
   }
-  if (profile?.avatar_url) {
+  if (user?.avatar) {
     return (
-      <img
-        src={profile.avatar_url}
+      <Image
+        src={user.avatar}
         className={cn(
           'rounded-full border dark:border-white border-gray-600 shadow-lg object-cover',
           flip
         )}
-        alt={profile?.full_name}
+        alt={user.name}
         width={32}
         height={32}
       />
     );
   }
 
-  if (profile?.full_name) {
+  /*   if (profile?.full_name) {
     return (
       <div
         className={cn(
@@ -82,7 +82,7 @@ const Avatar = ({
         {profile?.full_name?.[0]}
       </div>
     );
-  }
+  } */
 
   return (
     <div

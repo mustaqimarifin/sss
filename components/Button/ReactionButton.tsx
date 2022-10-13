@@ -1,8 +1,8 @@
+import Button from 'components/Button';
 import * as React from 'react';
 import { useUser } from 'supabase/hooks/useUser';
-import Button from 'components/Button';
-// import { useViewerQuery } from 'graphql/types.generated';
 
+// import { useViewerQuery } from 'graphql/types.generated';
 import { HeartFillIcon, HeartIcon } from '../Icon';
 import { SignInDialog } from '../SignInDialog';
 

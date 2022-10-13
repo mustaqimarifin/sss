@@ -1,20 +1,21 @@
 import { SupabaseClient } from '@supabase/supabase-js';
 
-export interface CommentReactionMetadata {
+export type CommentReactionMetadata = {
   comment_id: string;
   reaction_type: string;
   reaction_count: number;
   active_for_user: boolean;
-}
+};
 
-export interface DisplayUser {
+export type DisplayUser = {
   id: string;
   name: string;
   avatar: string;
-}
+  handle?: string;
+};
 
-export interface Comment {
-  children: any;
+export type Comment = {
+  children: React.ReactNode;
   id: string;
   user_id: string;
   parent_id: string | null;
@@ -25,24 +26,24 @@ export interface Comment {
   reactions_metadata: CommentReactionMetadata[];
   user: DisplayUser;
   mentioned_user_ids: string[];
-}
+};
 
-export interface Reaction {
+export type Reaction = {
   type: string;
   created_at: string;
   label: string;
   url: string;
   metadata: any;
-}
+};
 
-export interface CommentReaction {
+export type CommentReaction = {
   id: string;
   user_id: string;
   comment_id: string;
   reaction_type: string;
   created_at: string;
   user: DisplayUser;
-}
+};
 
 export const assertResponseOk = (response: { error: any }) => {
   if (response.error) {
@@ -65,37 +66,37 @@ export class ApiError extends Error {
   }
 }
 
-export interface GetCommentsOptions {
+export type GetCommentsOptions = {
   topic: string;
   parentId: string | null;
-}
+};
 
-export interface AddCommentPayload {
+export type AddCommentPayload = {
   comment: string;
   topic: string;
   parent_id: string | null;
   mentioned_user_ids: string[];
-}
+};
 
-export interface UpdateCommentPayload {
+export type UpdateCommentPayload = {
   comment: string;
   mentioned_user_ids: string[];
-}
+};
 
-export interface GetCommentReactionsOptions {
+export type GetCommentReactionsOptions = {
   reaction_type: string;
   comment_id: string;
-}
+};
 
-export interface AddCommentReactionPayload {
+export type AddCommentReactionPayload = {
   reaction_type: string;
   comment_id: string;
-}
+};
 
-export interface RemoveCommentReactionPayload {
+export type RemoveCommentReactionPayload = {
   reaction_type: string;
   comment_id: string;
-}
+};
 
 export const createApiClient = (supabase: SupabaseClient) => {
   const getComments = async ({

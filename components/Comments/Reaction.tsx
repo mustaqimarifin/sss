@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
-import { Image } from '@supabase/ui';
 import { useReaction } from 'hooks';
-import clsx from 'clsx';
+import React, { FC } from 'react';
+import { XD } from 'services/xD';
+
+import { Image } from '@supabase/ui';
 
 export interface ReactionProps {
   type: string;
@@ -12,7 +13,7 @@ const Reaction: FC<ReactionProps> = ({ type }) => {
 
   return (
     <div
-      className={clsx(
+      className={XD(
         'h-4 w-4 rounded-full grid place-items-center text-alpha-50'
       )}
     >

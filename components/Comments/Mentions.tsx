@@ -1,14 +1,15 @@
-import tippy from 'tippy.js';
-import { ReactRenderer } from '@tiptap/react';
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle
-} from 'react';
-import { useSearchUsers } from 'hooks';
 import { Loading, Menu, Typography } from '@supabase/ui';
 import Mention from '@tiptap/extension-mention';
+import { ReactRenderer } from '@tiptap/react';
+import { useSearchUsers } from 'hooks';
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState
+} from 'react';
+import tippy from 'tippy.js';
+
 import User from './User';
 
 const MentionList = forwardRef((props: any, ref) => {

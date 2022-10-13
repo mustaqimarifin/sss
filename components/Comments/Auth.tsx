@@ -1,21 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { SupabaseClient, Provider } from '@supabase/supabase-js';
-import {
-  Input,
-  Checkbox,
-  Button,
-  Space,
-  Typography,
-  Divider,
-  IconKey,
-  IconMail,
-  IconLock,
-  IconUser,
-  Auth as SupabaseAuth,
-} from '@supabase/ui';
 import md5 from 'md5';
+import React, { useEffect, useRef, useState } from 'react';
 // @ts-ignore
 import { jsx, jsxs } from 'react/jsx-runtime';
+
+import { Provider, SupabaseClient } from '@supabase/supabase-js';
+import {
+    Auth as SupabaseAuth, Button, Checkbox, Divider, IconKey, IconLock, IconMail, IconUser, Input,
+    Space, Typography
+} from '@supabase/ui';
 
 /**
  * This is a slightly modified version of @supabase/ui/Auth

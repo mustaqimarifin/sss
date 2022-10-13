@@ -1,11 +1,11 @@
-import { DashPage } from 'components/Dash/Index';
+import PP from 'components/Home/PP';
 import { ListDetailView, SiteLayout } from 'components/Layouts';
 import { withProviders } from 'components/Providers/withProviders';
 import routes from 'config/routes';
 import { NextSeo } from 'next-seo';
 import * as React from 'react';
 
-function DashIndex() {
+function Privacy() {
   return (
     <NextSeo
       title={routes.dashboard.seo.title}
@@ -15,14 +15,14 @@ function DashIndex() {
   );
 }
 
-DashIndex.getLayout = withProviders(function getLayout(
+Privacy.getLayout = withProviders(function getLayout(
   page: React.ReactElement<any, string | React.JSXElementConstructor<any>>
 ) {
   return (
     <SiteLayout>
-      <ListDetailView list={null} hasDetail detail={<DashPage />} />
+      <ListDetailView list={null} hasDetail detail={<PP />} />
     </SiteLayout>
   );
 });
 
-export default DashIndex;
+export default Privacy;

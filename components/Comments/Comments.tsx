@@ -1,19 +1,20 @@
-import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Loading, Button, Typography, IconAlertCircle } from '@supabase/ui';
-import clsx from 'clsx';
+import { Button, IconAlertCircle, Loading, Typography } from '@supabase/ui';
 import {
+  useAddComment,
   useComments,
   useReactions,
-  useAddComment,
-  useUncontrolledState,
-} from '../hooks';
-import Editor, { EditorRefHandle } from './Editor';
+  useUncontrolledState
+} from 'hooks';
+import useAuthUtils from 'hooks/useAuthUtils';
+import useUser from 'hooks/useUser';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { XD } from 'services/xD';
+import { getMentionedUserIds } from 'utils';
+
 import Comment from './Comment';
-import { useReplyManager } from './ReplyManagerProvider';
-import { getMentionedUserIds } from '../utils';
-import useAuthUtils from '../hooks/useAuthUtils';
 import { useCommentsContext } from './CommentsProvider';
-import useUser from '../hooks/useUser';
+import Editor, { EditorRefHandle } from './Editor';
+import { useReplyManager } from './ReplyManagerProvider';
 import User from './User';
 
 export interface CommentsProps {
@@ -31,11 +32,11 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
 
   const queries = {
     comments: useComments({ topic, parentId }),
-    user: useUser({ id: auth.user?.id! }, { enabled: !!auth.user?.id }),
+    user: useUser({ id: auth.user?.id! }, { enabled: !!auth.user?.id })
   };
 
   const mutations = {
-    addComment: useAddComment(),
+    addComment: useAddComment()
   };
 
   // preload reactions
@@ -58,7 +59,7 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
     }
   }, [mutations.addComment.isSuccess]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (queries.comments.isSuccess) {
       // this is neccessary because tiptap on first render has different height than on second render
       // which causes layout shift. this just hides content on the first render to avoid ugly layout
@@ -70,7 +71,7 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
   const user = queries.user.data;
 
   return (
-    <div className={clsx(context.mode, 'sce-comments relative')}>
+    <div className={XD(context.mode, 'sce-comments relative')}>
       {queries.comments.isLoading && (
         <div className="grid p-4 place-items-center">
           <div className="mr-4">
@@ -90,7 +91,7 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
       )}
       {queries.comments.data && (
         <div
-          className={clsx(
+          className={XD(
             'relative space-y-1 rounded-md',
             !layoutReady ? 'invisible' : 'visible'
           )}
@@ -123,7 +124,7 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
                           comment: commentState.value,
                           mentionedUserIds: getMentionedUserIds(
                             commentState.value
-                          ),
+                          )
                         });
                       });
                     }}

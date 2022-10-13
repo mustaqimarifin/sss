@@ -1,21 +1,16 @@
-import rehypePrism from 'rehype-prism-plus';
-import * as fs from 'fs';
 import { serialize } from 'next-mdx-remote/serialize';
 import readingTime from 'reading-time';
-import reCODE from 'rehype-code-titles';
 import reLINK from 'rehype-autolink-headings';
+import reCODE from 'rehype-code-titles';
 //!! DONT DELETE YET !!//
 import rehypePrettyCode from 'rehype-pretty-code';
 import reSLUG from 'rehype-slug';
 import reSHART from 'remark-gfm';
-
-
-import {remarkCodeHike} from "@code-hike/mdx"
-import { createRequire } from "module"
 //const require = createRequire(import.meta.url)
 // import theme from "shiki/themes/slack-ochin.json";
 //const remarkCodeHike = require('@code-hike/mdx')
 //import { BUNDLED_LANGUAGES, getHighlighter } from 'shiki';
+// import rehypePrism from 'rehype-prism-plus';
 
 // ?? `Just goin full on stupid with URL Imports since it got me all nostalgic on how webdev was for a good while XD //
 
@@ -37,7 +32,7 @@ import rehypePrism from 'https://cdn.jsdelivr.net/npm/rehype-prism-plus@1.5.0/di
   return;
 }
 console.log(customer.address); */
- const options = {
+const options = {
   //theme: JSON.parse(fs.readFileSync('./lib/moonlight-ii.json', 'utf-8')),
   theme: 'slack-ochin',
   onVisitLine(node) {
@@ -54,7 +49,7 @@ console.log(customer.address); */
   onVisitHighlightedWord(node) {
     node.properties.className = ['word'];
   }
-}; 
+};
 
 export async function mdxToHtml(source: string) {
   const mdxSource = await serialize(source, {
@@ -64,8 +59,8 @@ export async function mdxToHtml(source: string) {
         reSLUG,
         reCODE,
         [rehypePrettyCode, options],
-       
-       [ 
+
+        [
           reLINK,
           {
             properties: {

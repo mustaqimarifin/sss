@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
 import { Typography } from '@supabase/ui';
-import useUser from '../hooks/useUser';
+import { useUser } from 'hooks';
+import React, { FC } from 'react';
+import { XD } from 'services/xD';
+
 import Avatar from './Avatar';
 import { useCommentsContext } from './CommentsProvider';
-import clsx from 'clsx';
 
 export interface UserProps {
   id?: string;
@@ -20,7 +21,7 @@ const User: FC<UserProps> = ({
   showName = true,
   showAvatar = true,
   propagateClick = true,
-  className,
+  className
 }) => {
   const context = useCommentsContext();
   const query = useUser({ id: id! }, { enabled: !!id });
@@ -28,11 +29,11 @@ const User: FC<UserProps> = ({
   const user = query.data;
 
   return (
-    <div className={clsx('flex items-center space-x-2', className)}>
+    <div className={XD('flex items-center space-x-2', className)}>
       {showAvatar && (
         <Avatar
           key={user?.avatar}
-          className={clsx(user && 'cursor-pointer')}
+          className={XD(user && 'cursor-pointer')}
           onClick={() => {
             if (user && propagateClick) {
               context.onUserClick?.(user);

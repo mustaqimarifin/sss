@@ -1,13 +1,12 @@
 export const baseUrl =
   process.env.NODE_ENV === 'production'
-    ? 'http://localhost:3000'
+    ? 'https://sss-lake.vercel.app'
     : 'http://localhost:3000';
-export const baseEmail = 'hi@brianlovin.com';
+// export const baseEmail = 'hi@brianlovin.com';
 
 export const defaultSEO = {
   title: 'Mustaqim Arifin',
-  description:
-    'Product designer, podcaster, and writer, living in Kuala Lumpur.',
+  description: 'Marketing Manager | Music Producer living in Kuala Lumpur.',
   openGraph: {
     type: 'website',
     locale: 'en_US',

@@ -28,7 +28,7 @@ const useSearchUsers = (
         data?.forEach((user) => {
           queryClient.setQueryData(['users', user.id], user);
         });
-      },
+      }
     }
   );
 };

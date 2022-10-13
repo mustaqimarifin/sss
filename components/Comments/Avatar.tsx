@@ -1,7 +1,9 @@
-import { Image } from '@supabase/ui';
-import clsx from 'clsx';
-import React, { FC } from 'react';
-import { useImage } from 'react-image';
+// import { Image } from '@supabase/ui';
+import Image from 'next/future/image';
+import React, { FC, useState } from 'react';
+import { XD } from 'services/xD';
+
+// import { useImage } from 'react-image';
 
 export interface AvatarProps
   extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
@@ -15,26 +17,27 @@ const Avatar: FC<AvatarProps> = ({
   size = 'lg',
   ...otherProps
 }) => {
-  const image = useImage({ srcList: src || [], useSuspense: false });
-
+  // const image = useImage({ srcList: src || [], useSuspense: false });
+  const [isLoading, isError] = useState();
   return (
     <div
       {...otherProps}
-      className={clsx(
+      className={XD(
         size === 'sm' ? 'w-6 h-6' : 'w-10 h-10',
         'relative inline-block overflow-hidden rounded-full bg-alpha-10',
         className
       )}
     >
-      {image.src && (
+      {src && (
         <Image
           className="object-cover w-full h-full rounded-full"
-          source={image.src}
+          src={src}
+          alt={''}
         />
       )}
 
-      {image.isLoading && <div className="absolute inset-0"></div>}
-      {image.error && (
+      {isLoading && <div className="absolute inset-0"></div>}
+      {isError && (
         <div className="absolute inset-0">
           <svg
             className="text-alpha-60"

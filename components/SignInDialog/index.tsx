@@ -1,6 +1,5 @@
-import * as React from 'react';
-
 import { DialogComponent } from 'components/Dialog';
+import * as React from 'react';
 
 import { SignInDialogContent } from './SignInDialogContent';
 

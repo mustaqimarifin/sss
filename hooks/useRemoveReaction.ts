@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
+
 import { Comment } from '../api';
 import useApi from './useApi';
 
@@ -16,7 +17,7 @@ const removeOrDecrement = (reactionType: string, comment: Comment): Comment => {
       return {
         ...item,
         reaction_count: item.reaction_count - 1,
-        active_for_user: false,
+        active_for_user: false
       };
     } else {
       return item;
@@ -28,7 +29,7 @@ const removeOrDecrement = (reactionType: string, comment: Comment): Comment => {
   newArray.sort((a, b) => a.reaction_type.localeCompare(b.reaction_type));
   return {
     ...comment,
-    reactions_metadata: newArray,
+    reactions_metadata: newArray
   };
 };
 
@@ -40,7 +41,7 @@ const useRemoveReaction = () => {
     (payload: UseRemoveReactionPayload) => {
       return api.removeCommentReaction({
         reaction_type: payload.reactionType,
-        comment_id: payload.commentId,
+        comment_id: payload.commentId
       });
     },
     {
@@ -53,9 +54,9 @@ const useRemoveReaction = () => {
         queryClient.invalidateQueries(['comments', params.commentId]);
         queryClient.invalidateQueries([
           'comment-reactions',
-          { commentId: params.commentId, reactionType: params.reactionType },
+          { commentId: params.commentId, reactionType: params.reactionType }
         ]);
-      },
+      }
     }
   );
 };

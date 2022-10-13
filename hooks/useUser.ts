@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseUserQuery {
@@ -19,7 +20,7 @@ const useUser = ({ id }: UseUserQuery, options: UseUserOptions = {}) => {
     },
     {
       staleTime: Infinity,
-      enabled: options.enabled,
+      enabled: options.enabled
     }
   );
 };

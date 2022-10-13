@@ -6,7 +6,7 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     // Call our stored procedure with the page_slug set by the request params slug
-    await supabase.rpc('addPageView', {
+    await supabase.rpc('viewcount', {
       page_slug: req.query.slug as string
     });
     return res.status(200).json({
@@ -18,12 +18,12 @@ export default async function handler(
     // Query the pages table in the database where slug equals the request params slug.
     const { data } = await supabase
       .from('pages')
-      .select('views, likes')
+      .select('views')
       .eq('slug', req.query.slug);
 
     if (data) {
       return res.status(200).json({
-        total: data[0]?.views || data[0]?.likes || null
+        total: data[0]?.views || null
       });
     }
   }

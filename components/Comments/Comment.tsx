@@ -1,32 +1,32 @@
 import {
-  Loading,
+  Button,
   Dropdown,
-  Typography,
   IconMoreVertical,
-  Button
+  Loading,
+  Typography
 } from '@supabase/ui';
-import React, { FC, useEffect, useRef, useState } from 'react';
-import type * as api from '../api';
-import {
-  useComment,
-  useDeleteComment,
-  useUpdateComment,
-  useAddReaction,
-  useRemoveReaction,
-  useUncontrolledState
-} from '../hooks';
-import Editor, { EditorRefHandle } from './Editor';
-import Comments from './Comments';
-import ReplyManagerProvider, { useReplyManager } from './ReplyManagerProvider';
-import { useCommentsContext } from './CommentsProvider';
-import { getMentionedUserIds } from '../utils';
-import useAuthUtils from '../hooks/useAuthUtils';
-import User from './User';
+import type * as api from 'api';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import {
+  useAddReaction,
+  useAuthUtils,
+  useComment,
+  useDeleteComment,
+  useRemoveReaction,
+  useUncontrolledState,
+  useUpdateComment
+} from 'hooks';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { getMentionedUserIds } from 'utils';
 
+import Comments from './Comments';
+import { useCommentsContext } from './CommentsProvider';
+import Editor, { EditorRefHandle } from './Editor';
+import ReplyManagerProvider, { useReplyManager } from './ReplyManagerProvider';
+import User from './User';
 dayjs.extend(relativeTime, {
   rounding: Math.floor
 });

@@ -1,5 +1,5 @@
-import React, { createContext, FC, useContext, useMemo, useState } from 'react';
-import type * as api from '../api';
+import type * as api from 'api';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 
 interface ReplyManagerContextApi {
   children?: React.ReactNode;

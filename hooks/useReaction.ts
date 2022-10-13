@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseReactionQuery {
@@ -22,7 +23,7 @@ const useReaction = (
     },
     {
       enabled: options.enabled,
-      staleTime: Infinity,
+      staleTime: Infinity
     }
   );
 };

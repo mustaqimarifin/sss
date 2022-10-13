@@ -1,4 +1,6 @@
-import { Query, QueryClient, QueryClientProvider } from 'react-query';
+import { SupabaseClient } from '@supabase/supabase-js';
+import { ApiError, DisplayUser } from 'api';
+import { useCssPalette } from 'hooks';
 import React, {
   ComponentType,
   createContext,
@@ -7,13 +9,12 @@ import React, {
   useEffect,
   useMemo
 } from 'react';
+import { Query, QueryClient, QueryClientProvider } from 'react-query';
+
 import Auth from './Auth';
-import { SupabaseClient } from '@supabase/supabase-js';
-import { ApiError, DisplayUser } from '../api';
-import { useCssPalette } from 'hooks';
 import {
-  CommentReactionsProps,
-  CommentReactions as DefaultCommentReactions
+  CommentReactions as DefaultCommentReactions,
+  CommentReactionsProps
 } from './CommentReactions';
 
 const defaultQueryClient = new QueryClient();
@@ -55,7 +56,7 @@ export const useCommentsContext = () => {
 };
 
 export interface CommentsProviderProps {
-  children;
+  children: React.ReactNode;
   queryClient?: QueryClient;
   supabaseClient: SupabaseClient;
   onAuthRequested?: () => void;

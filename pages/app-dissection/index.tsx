@@ -1,10 +1,9 @@
-import { NextSeo } from 'next-seo';
-import * as React from 'react';
-
 import { AppDissectionList } from 'components/AppDissection/AppDissectionList';
 import { ListDetailView, SiteLayout } from 'components/Layouts';
 import { withProviders } from 'components/Providers/withProviders';
 import routes from 'config/routes';
+import { NextSeo } from 'next-seo';
+import * as React from 'react';
 
 function AppDissectionsPage() {
   return (

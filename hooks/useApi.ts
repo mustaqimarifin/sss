@@ -1,6 +1,6 @@
+import { createApiClient } from 'api';
+import { useSupabaseClient } from 'components/Comments/CommentsProvider';
 import { useMemo } from 'react';
-import { createApiClient } from '../api';
-import { useSupabaseClient } from '../components/CommentsProvider';
 
 const useApi = () => {
   const supabase = useSupabaseClient();

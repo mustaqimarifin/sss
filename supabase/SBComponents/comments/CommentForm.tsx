@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import cn from 'classnames';
-import { Textarea } from 'components/Input';
 //import { useRouter } from 'next/router';
-import fetcher from 'lib/fetcher';
 // import { CommentType } from 'db/types/interface';
 import React, { useEffect, useRef, useState } from 'react';
 import { User } from 'react-feather';
@@ -11,16 +8,14 @@ import { useModal } from 'supabase/hooks/useModal';
 //import punctuationRegex from 'threads/utils/regex/punctuationRegex';
 import { useUser } from 'supabase/hooks/useUser';
 import supabase from 'supabase/supaPublic';
-import useSWR from 'swr';
 
 // import { useComments } from 'lib/supabase/hooks/use-comments';
 import Avatar from './Avatar';
-import NewUserModal from './NewUserModal';
 import SignInModal from './SignInModal';
 
 interface Props {
   parentId?: string | null;
-  handleSubmit;
+  handleSubmit: any;
   cnp_id?: number | null;
   placeholder?: string;
   submitLabel?: string;
@@ -103,7 +98,7 @@ const CommentForm = ({
     setIsLoading(false);
   }
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     handleSubmit(text);
     setIsLoading(true);
@@ -145,7 +140,7 @@ const CommentForm = ({
             <User className="text-gray-600 w-7 h-7" />
           </button>
         )}
-        {user && <Avatar profile={profile} />}
+        {user && <Avatar user={user} />}
 
         <label className="flex-grow flex items-center cursor-text select-none focus-within-ring min-h-10">
           <span className="sr-only">Enter a comment</span>

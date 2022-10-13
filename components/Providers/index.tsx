@@ -1,5 +1,4 @@
 import { NextPageContext } from 'next';
-
 import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
 import { ModalProvider, useModal } from 'supabase/hooks/useModal';
@@ -37,13 +36,15 @@ export function Providers({ children }: Props) {
   return (
     <>
       <Toast />
-      <ThemeProvider attribute="class">
-        <GlobalNavigationContext.Provider value={state}>
-          <UserContextProvider supabaseClient={supabase}>
-            <ModalProvider>{children}</ModalProvider>
-          </UserContextProvider>
-        </GlobalNavigationContext.Provider>
-      </ThemeProvider>
+      <UserContextProvider supabaseClient={supabase}>
+        <ModalProvider>
+          <ThemeProvider attribute="class">
+            <GlobalNavigationContext.Provider value={state}>
+              {children}
+            </GlobalNavigationContext.Provider>
+          </ThemeProvider>
+        </ModalProvider>
+      </UserContextProvider>
     </>
   );
 }

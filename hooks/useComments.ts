@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from 'react-query';
+
 import { timeout } from '../utils';
 import useApi from './useApi';
 
@@ -35,7 +36,7 @@ const useComments = (
           queryClient.setQueryData(['comments', comment.id], comment);
           queryClient.setQueryData(['users', comment.user.id], comment.user);
         });
-      },
+      }
     }
   );
 };

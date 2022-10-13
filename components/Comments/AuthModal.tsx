@@ -1,10 +1,11 @@
-import React, { ComponentProps, FC, useEffect } from 'react';
+import { Session } from '@supabase/gotrue-js';
 import { Modal } from '@supabase/ui';
+import { useLatestRef } from 'hooks/useLatestRef';
+import React, { ComponentProps, FC, useEffect } from 'react';
+import { XD } from 'services/xD';
+
 import Auth from './Auth';
 import { useSupabaseClient } from './CommentsProvider';
-import { useLatestRef } from '../hooks/useLatestRef';
-import { Session } from '@supabase/gotrue-js';
-import clsx from 'clsx';
 
 export interface AuthModalProps
   extends Omit<ComponentProps<typeof Auth>, 'supabaseClient'> {
@@ -20,7 +21,7 @@ const AuthModal: FC<AuthModalProps> = ({
   onAuthenticate,
   onClose,
   view = 'sign_in',
-  title = 'Please Sign In',
+  title = 'Sign in to leave a comment!',
   description,
   className,
   ...otherProps
@@ -46,10 +47,10 @@ const AuthModal: FC<AuthModalProps> = ({
       onCancel={onClose}
       hideFooter
       size="medium"
-      className={clsx(' min-w-[300px]', className)}
+      className={XD(' min-w-[300px]', className)}
     >
       <div
-        className={clsx(
+        className={XD(
           'w-full',
           otherProps.providers && otherProps.providers?.length > 0
             ? null

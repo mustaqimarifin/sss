@@ -1,5 +1,5 @@
-import { useLayoutEffect } from 'react';
 import Color from 'color';
+import { useEffect } from 'react';
 
 const generatePalette = (baseColor: string) => {
   const color = Color(baseColor);
@@ -15,12 +15,12 @@ const generatePalette = (baseColor: string) => {
     600: Color({ h, s, l: 35 }).string(),
     700: Color({ h, s, l: 25 }).string(),
     800: Color({ h, s, l: 15 }).string(),
-    900: Color({ h, s, l: 5 }).string(),
+    900: Color({ h, s, l: 5 }).string()
   };
 };
 
 const useCssPalette = (baseColor: string, variablePrefix: string) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const palette = generatePalette(baseColor);
     Object.entries(palette).map(([key, val]) => {
       document.documentElement.style.setProperty(

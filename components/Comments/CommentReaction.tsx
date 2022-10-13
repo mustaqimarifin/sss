@@ -1,22 +1,22 @@
+import { Loading, Modal } from '@supabase/ui';
+import { CommentReactionMetadata } from 'api';
+import { useCommentReactions } from 'hooks';
 import React, { FC, useState } from 'react';
-import { Loading, Modal, Typography } from '@supabase/ui';
-import { useCommentReactions } from '../hooks';
-import Avatar from './Avatar';
+import { XD } from 'services/xD';
+
 import Reaction from './Reaction';
-import { CommentReactionMetadata } from '../api';
-import clsx from 'clsx';
 import User from './User';
 
 const CommentReactionsModal = ({
   visible,
   commentId,
   reactionType,
-  onClose,
+  onClose
 }: any) => {
   const query = useCommentReactions(
     {
       commentId,
-      reactionType,
+      reactionType
     },
     { enabled: visible }
   );
@@ -62,7 +62,7 @@ export interface CommentReactionProps {
 
 const CommentReaction: FC<CommentReactionProps> = ({
   metadata,
-  toggleReaction,
+  toggleReaction
 }) => {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -76,7 +76,7 @@ const CommentReaction: FC<CommentReactionProps> = ({
         size="small"
       />
       <div
-        className={clsx(
+        className={XD(
           'flex space-x-2 py-0.5 px-1 rounded-full items-center border-2',
           metadata.active_for_user
             ? `bg-[color:var(--sce-accent-50)] dark:bg-[color:var(--sce-accent-900)] border-[color:var(--sce-accent-200)] dark:border-[color:var(--sce-accent-600)]`

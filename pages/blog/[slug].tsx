@@ -67,8 +67,7 @@ export async function getStaticProps({ params, preview = false }) {
         content: html,
         tweets
       }
-    },
-    revalidate: 120
+    }
   };
 }
 PostPage.getLayout = withProviders(function getLayout(page) {

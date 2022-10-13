@@ -1,9 +1,8 @@
+import { GlobalNavigationContext } from 'components/Providers';
 import Link from 'next/link';
 import * as React from 'react';
-// import { ArrowLeft, Menu, X } from 'react-feather'
-
-import { GlobalNavigationContext } from 'components/Providers';
-import { GreenTick } from 'components/ProsCard';
+import { ArrowLeft, Menu, X } from 'react-feather';
+//import { GreenTick } from 'components/ProsCard';
 
 interface Props {
   title: string;
@@ -126,9 +125,9 @@ export function TitleBar({
                 className="flex cursor-pointer items-center justify-center rounded-md p-2 hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden"
               >
                 {isOpen ? (
-                  <GreenTick className="text-primary" />
+                  <X size={16} className="text-primary" />
                 ) : (
-                  <GreenTick className="text-primary" />
+                  <Menu size={16} className="text-primary" />
                 )}
               </span>
             )}
@@ -136,7 +135,7 @@ export function TitleBar({
             {backButton && (
               <Link href={backButtonHref}>
                 <a className="text-primary flex items-center justify-center rounded-md p-2 hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden">
-                  <GreenTick className="text-primary" />
+                  <ArrowLeft className="text-primary" />
                 </a>
               </Link>
             )}

@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import useSWR from 'swr';
+import dayjs from 'dayjs';
 // import Tag from './Tag';
 import fetcher from 'lib/fetcher';
 import { Post, Views } from 'lib/types';
-import dayjs from 'dayjs';
+import Link from 'next/link';
 import { Fragment } from 'react';
+import useSWR from 'swr';
 
 interface Props {
   allPosts: Post;

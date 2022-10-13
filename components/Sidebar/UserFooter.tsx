@@ -2,10 +2,11 @@
 //import { Avatar } from 'components/Avatar';
 import { GhostButton } from 'components/Button';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { SignInDialog } from 'components/SignInDialog';
 import Link from 'next/link';
 // import { useSession } from 'next-auth/react';
 import * as React from 'react';
-import { SignOut } from 'supabase/funkshunz/SignOut';
+import { SignOut, TwitterLogin } from 'supabase/funkshunz/SignOut';
 import { useModal } from 'supabase/hooks/useModal';
 import { useUser } from 'supabase/hooks/useUser';
 import Avatar from 'supabase/SBComponents/comments/Avatar';
@@ -41,16 +42,26 @@ export function UserFooter() {
     }
   }, [isOpen]);
 
-  function signInButton() {
+  if (!user) {
+    return (
+      <SignInDialog
+        trigger={<GhostButton style={{ width: '100%' }}>Sign in</GhostButton>}
+      />
+    );
+  }
+  /*   function signInButton() {
     return (
       <GhostButton
-        onClick={() => open('signInModal')}
+        onClick={(e) => {
+          e.preventDefault();
+          TwitterLogin();
+        }}
         style={{ width: '100%' }}
       >
         Sign in
       </GhostButton>
     );
-  }
+  } */
 
   if (user) {
     return (
@@ -63,12 +74,12 @@ export function UserFooter() {
           }}
           className="flex flex-none items-center rounded-full hover:shadow-md hover:shadow-green-200"
         >
-          <Avatar profile={profile} />
+          <Avatar user={user} />
         </a>
         <GhostButton size="small-square"></GhostButton>
       </Container>
     );
   }
 
-  return <Container>{signInButton()}</Container>;
+  //return <Container>{SignInDialog()}</Container>;
 }

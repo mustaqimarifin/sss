@@ -1,9 +1,9 @@
-import { generateJSON } from '@tiptap/html';
-import Link from '@tiptap/extension-link';
-import StarterKit from '@tiptap/starter-kit';
-import Placeholder from '@tiptap/extension-placeholder';
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
-import MentionsExtension from './components/Mentions';
+import Link from '@tiptap/extension-link';
+import Placeholder from '@tiptap/extension-placeholder';
+import { generateJSON } from '@tiptap/html';
+import StarterKit from '@tiptap/starter-kit';
+import { MentionsExtension } from 'components/Comments';
 import traverse from 'traverse';
 
 export const getMentionedUserIds = (doc: string): string[] => {
@@ -13,7 +13,7 @@ export const getMentionedUserIds = (doc: string): string[] => {
     Placeholder,
     MentionsExtension,
     CodeBlockLowlight,
-    Link,
+    Link
   ]);
   traverse(json).forEach(function (node) {
     if (node?.type === 'mention') {

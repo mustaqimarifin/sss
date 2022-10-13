@@ -1,12 +1,13 @@
 /* eslint-disable react/no-children-prop */
 //import Link from 'next/link';
-//import { MDXRemote } from 'next-mdx-remote';
-import { CoverImage } from 'components/CoverImage';
+import { CoverImage } from 'components/Image';
 import ImageWithTheme from 'components/ImageWithTheme';
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
+import LoadingSpinner from 'components/LoadingSpinner';
 import ViewCounter from 'components/ViewCounter';
 import dayjs from 'dayjs';
+import dynamic from 'next/dynamic';
 import * as React from 'react';
 import {
   CommentsContextProvider,
@@ -21,13 +22,18 @@ import supabase from 'supabase/supaPublic';
 
 //import { Comments, CommentsProvider } from 'SupaComponents';
 import PageTitle from './PageTitle';
-import Spender from './PostComments';
 //import { MarkdownRenderer } from 'components/MarkdownRenderer';
 //import { CommentType, useGetPostQuery } from 'graphql/types.generated'
 //import { timestampToCleanTime } from 'lib/transformers'
 
 //import { PostActions } from './PostActions'
 //import { PostSEO } from './PostSEO'
+const Spender = dynamic(
+  () => {
+    return import('./PostComments');
+  },
+  { ssr: false }
+);
 
 export function PostDetail({ post, children }) {
   const scrollContainerRef = React.useRef(null);
@@ -114,7 +120,7 @@ export function PostDetail({ post, children }) {
               </div>
             </div>
 
-            <React.Suspense fallback={null}>
+            <React.Suspense fallback={<LoadingSpinner />}>
               <div className="prose min-h-screen max-w-3xl">{children}</div>
               {/*           <div className="my-4">
             <ImageWithTheme
