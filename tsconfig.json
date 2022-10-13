@@ -16,6 +16,13 @@
     "baseUrl": ".",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types", "custom.d.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "supabase/*.tsx",
+    "types",
+    "custom.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

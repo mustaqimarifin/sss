@@ -9,8 +9,8 @@
     "es6": true
   },
   "rules": {
-    "simple-import-sort/imports": "warn",
-    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": 0,
+    "simple-import-sort/exports": 0,
     "prettier/prettier": [
       0,
       {

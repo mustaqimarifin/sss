@@ -1,10 +1,9 @@
 import cn from 'classnames';
 import Image from 'next/future/image';
 import React from 'react';
-import { definitions } from 'supabase/types/supabase';
 
 interface Props {
-  comment?: definitions['comments'] | null;
+  comment?: any;
   user?: any;
   flip?: string;
   isDeleted?: boolean;
