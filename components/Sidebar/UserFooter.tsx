@@ -11,6 +11,7 @@ import { useModal } from 'supabase/hooks/useModal';
 import { useUser } from 'supabase/hooks/useUser';
 import Avatar from 'supabase/SBComponents/comments/Avatar';
 import SignInModal from 'supabase/SBComponents/comments/SignInModal';
+import { User } from 'components/Comments';
 
 //import { useViewerQuery } from 'graphql/types.generated';
 import { GlobalNavigationContext } from '../Providers';
@@ -31,11 +32,11 @@ export function UserFooter() {
   const { open, isOpen } = useModal({
     signInModal: SignInModal
   });
-  React.useEffect(() => {
+  /*   React.useEffect(() => {
     if (user && profile && !profile.full_name) {
       open('newUserModal');
     }
-  }, [user, profile]);
+  }, [user, profile]); */
   React.useEffect(() => {
     if (!isOpen) {
       setIsOpen(false);
@@ -74,7 +75,7 @@ export function UserFooter() {
           }}
           className="flex flex-none items-center rounded-full hover:shadow-md hover:shadow-green-200"
         >
-          <Avatar user={user} />
+          <Avatar profile={profile} />
         </a>
         <GhostButton size="small-square"></GhostButton>
       </Container>

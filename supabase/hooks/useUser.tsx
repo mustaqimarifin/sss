@@ -1,14 +1,14 @@
 import { AuthUser, Session, SupabaseClient, User } from '@supabase/supabase-js';
 import { createContext, useContext, useEffect, useState } from 'react';
 import supabase from 'supabase/supaPublic';
-import { definitions } from 'supabase/types/supabase';
+import { definitions } from 'types/supabase';
 import useSWR from 'swr';
 
 interface AuthSessionProps {
   user: User | null;
 
   session: Session | null;
-  profile?: definitions['profiles'] | null;
+  profile?: definitions['sce_display_users'] | null;
   loading: boolean;
   refresh: any;
 }
@@ -35,17 +35,17 @@ export const UserContextProvider = (props: Props): JSX.Element => {
     error,
     isValidating,
     mutate
-  } = useSWR<definitions['profiles']>(
+  } = useSWR<definitions['sce_display_users']>(
     user?.id ? ['user_data', user.id] : null,
     async (_, authorId) =>
       supabase
-        .from<definitions['profiles']>('profiles')
+        .from<definitions['sce_display_users']>('sce_display_users')
         .select('*')
         .eq('id', authorId)
         .single()
         .then(({ data, error }) => {
           if (error) throw error;
-          return data as definitions['profiles'];
+          return data as definitions['sce_display_users'];
         }),
     { revalidateOnFocus: false }
   );

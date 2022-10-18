@@ -1,10 +1,12 @@
 import cn from 'classnames';
 import Image from 'next/future/image';
 import React from 'react';
+import { definitions } from 'types/supabase';
 
 interface Props {
   comment?: any;
   user?: any;
+  profile?: definitions['sce_display_users'] | null;
   flip?: string;
   isDeleted?: boolean;
   firstLetter?: string;
@@ -12,6 +14,7 @@ interface Props {
 const Avatar = ({
   comment,
   user,
+  profile,
   flip = 'w-7 h-7 text-sm ',
   isDeleted,
   firstLetter
@@ -55,33 +58,20 @@ const Avatar = ({
       />
     );
   }
-  if (user?.avatar) {
+  if (profile?.avatar) {
     return (
       <Image
-        src={user.avatar}
+        src={profile.avatar}
         className={cn(
           'rounded-full border dark:border-white border-gray-600 shadow-lg object-cover',
           flip
         )}
-        alt={user.name}
+        alt={profile.name}
         width={32}
         height={32}
       />
     );
   }
-
-  /*   if (profile?.full_name) {
-    return (
-      <div
-        className={cn(
-          'rounded-full border border-white bg-indigo-600 text-white shadow-sm flex items-center justify-center capitalize font-light',
-          flip
-        )}
-      >
-        {profile?.full_name?.[0]}
-      </div>
-    );
-  } */
 
   return (
     <div
