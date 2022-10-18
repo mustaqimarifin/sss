@@ -75,7 +75,7 @@ const CommentsProvider: FC<CommentsProviderProps> = ({
   onAuthRequested,
   onUserClick,
   mode = 'light',
-  accentColor = 'rgb(36, 180, 126)',
+  accentColor = 'rgb(251 113 133)',
   onError,
   components,
   enableMentions = true

@@ -20,7 +20,7 @@ const Spender = ({ slug }) => {
     <div>
       <CommentsProvider supabaseClient={supabase}>
         <Comments topic={slug} />
-        <div className="flex justify-end ">
+        {/*         <div className="flex justify-end -mt-8 mr-1 z-50 ">
           {!user ? (
             <SignInDialog
               trigger={
@@ -32,7 +32,7 @@ const Spender = ({ slug }) => {
           ) : (
             <></>
           )}
-        </div>
+        </div> */}
       </CommentsProvider>
     </div>
   );

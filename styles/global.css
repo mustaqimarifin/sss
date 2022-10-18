@@ -531,7 +531,8 @@ table {
 }
 
 .tiptap-editor .sbui-btn-primary {
-  display: none !important;
+  background-color: var(--sce-accent-500) !important;
+  color: var(--sce-accent-50) !important;
 }
 
 .tiptap-editor .sbui-btn-primary:hover {

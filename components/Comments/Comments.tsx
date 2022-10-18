@@ -1,4 +1,7 @@
 import { Button, IconAlertCircle, Loading, Typography } from '@supabase/ui';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { XD } from 'services/xD';
+
 import {
   useAddComment,
   useComments,
@@ -7,15 +10,14 @@ import {
 } from 'hooks';
 import useAuthUtils from 'hooks/useAuthUtils';
 import useUser from 'hooks/useUser';
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { XD } from 'services/xD';
 import { getMentionedUserIds } from 'utils';
-
 import Comment from './Comment';
 import { useCommentsContext } from './CommentsProvider';
 import Editor, { EditorRefHandle } from './Editor';
 import { useReplyManager } from './ReplyManagerProvider';
 import User from './User';
+import { GhostButton } from 'components/Button';
+import { SignInDialog } from 'components/SignInDialog';
 
 export interface CommentsProps {
   topic: string;
@@ -29,6 +31,41 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
   const replyManager = useReplyManager();
   const commentState = useUncontrolledState({ defaultValue: '' });
   const { auth, isAuthenticated, runIfAuthenticated } = useAuthUtils();
+
+  function SubmitButton() {
+    return (
+      <Button
+        onClick={() => {
+          runIfAuthenticated(() => {
+            mutations.addComment.mutate({
+              topic,
+              parentId,
+              comment: commentState.value,
+              mentionedUserIds: getMentionedUserIds(commentState.value)
+            });
+          });
+        }}
+        loading={mutations.addComment.isLoading}
+        size="tiny"
+        className="!px-[6px] !py-[3px] m-[3px]"
+        disabled={isAuthenticated && editorRef.current?.editor()?.isEmpty}
+      >
+        Submit
+      </Button>
+    );
+  }
+
+  function SignInButton() {
+    return (
+      <SignInDialog
+        trigger={
+          <GhostButton className=" py-1 px-2 rounded bg-rose-400  text-xs text-white hover:text-gray-700 disabled:opacity-40 hover:bg-rose-300">
+            Sign in
+          </GhostButton>
+        }
+      />
+    );
+  }
 
   const queries = {
     comments: useComments({ topic, parentId }),
@@ -114,30 +151,7 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
                   commentState.setValue(val);
                 }}
                 autoFocus={!!replyManager?.replyingTo}
-                actions={
-                  <Button
-                    onClick={() => {
-                      runIfAuthenticated(() => {
-                        mutations.addComment.mutate({
-                          topic,
-                          parentId,
-                          comment: commentState.value,
-                          mentionedUserIds: getMentionedUserIds(
-                            commentState.value
-                          )
-                        });
-                      });
-                    }}
-                    loading={mutations.addComment.isLoading}
-                    size="tiny"
-                    className="!px-[6px] !py-[3px] m-[3px]"
-                    disabled={
-                      isAuthenticated && editorRef.current?.editor()?.isEmpty
-                    }
-                  >
-                    {!isAuthenticated ? 'Sign In' : 'Submit'}
-                  </Button>
-                }
+                actions={!isAuthenticated ? SignInButton() : SubmitButton()}
               />
             </div>
           </div>
