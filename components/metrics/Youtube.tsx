@@ -3,12 +3,14 @@ import useSWR from 'swr';
 import fetcher from 'lib/fetcher';
 import { YouTube } from 'lib/types';
 import MetricCard from 'components/metrics/Card';
+import Analytics from './Analytics';
 
 export default function YouTubeCard() {
   const { data } = useSWR<YouTube>('/api/youtube', fetcher);
 
   const subscriberCount = new Number(data?.subscriberCount);
   const viewCount = new Number(data?.viewCount);
+  const videoCount = new Number(data?.videoCount);
   const link = 'https://www.youtube.com/channel/UCd-pjthLQYLYVdN7GNwJgyA';
 
   return (
@@ -25,6 +27,13 @@ export default function YouTubeCard() {
         metric={viewCount}
         isCurrency={false}
       />
+      <MetricCard
+        header="YouTube Uploads"
+        link={link}
+        metric={videoCount}
+        isCurrency={false}
+      />
+      <Analytics />
     </div>
   );
 }

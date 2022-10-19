@@ -8,6 +8,7 @@ import YouTube from 'components/metrics/Youtube';
 import TopTracks from 'components/TopTracks';
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
+import dynamic from 'next/dynamic';
 
 function SectionTitle(props) {
   return (
@@ -31,7 +32,16 @@ function SectionContainer(props) {
   );
 }
 
+const SBComments = dynamic(
+  () => {
+    return import('components/Comments/SBComments');
+  },
+  { ssr: false }
+);
+
 export function DashPage() {
+  const [loadComments, setComments] = React.useState(false);
+  const canReply = Boolean(true);
   const scrollContainerRef = React.useRef(null);
   const titleRef = React.useRef(null);
 
@@ -48,17 +58,6 @@ export function DashPage() {
       <div className="p-4" ref={titleRef} />
 
       <Detail.ContentContainer>
-        <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
-          <Image
-            alt="Mustaqim Arifin"
-            height={176}
-            width={176}
-            src="/wookie.png"
-            sizes="30vw"
-            priority
-            className="rounded-full dark:invert transition-colors duration-200"
-          />
-        </div>
         <div className="pb-24 space-y-8 md:space-y-16">
           <SectionContainer>
             <SectionTitle />
@@ -85,9 +84,7 @@ export function DashPage() {
                 <div className="flex flex-col w-full">
                   <YouTube />
                 </div>
-                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
-                  <Analytics />
-                </div>
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full"></div>
                 <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
                   Top Tracks
                 </h2>
@@ -101,6 +98,22 @@ export function DashPage() {
           </SectionContainer>
         </div>
       </Detail.ContentContainer>
+      <div className="py-6 px-8 ">
+        {canReply && !loadComments ? (
+          <>
+            <div className="flex justify-center space-y-2">
+              <button
+                className=" text-gray-600 hover:shadow-lg hover:bg-pink-400 hover:text-gray-50 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
+                onClick={() => setComments(!loadComments)}
+              >
+                Load Comments 👺
+              </button>
+            </div>
+          </>
+        ) : (
+          <SBComments id={`Dashboard`} />
+        )}
+      </div>
     </Detail.Container>
   );
 }

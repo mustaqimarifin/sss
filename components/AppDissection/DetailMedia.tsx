@@ -9,19 +9,19 @@ interface Props {
 }
 
 export function DesignDetailMedia(props: Props) {
+  const visibilityRef: React.RefObject<HTMLDivElement> = React.useRef(null);
   const { detail } = props;
-  const [isVisible, setIsVisible] = useState(false);
+  //const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <VisibilitySensor
-      partialVisibility
-      onChange={(visible: boolean) => !isVisible && setIsVisible(visible)}
-    >
-      <div className="flex flex-col">
-        <h2 className="text-primary mb-4 text-lg font-bold">{detail.title}</h2>
-        <div className="prose">{detail.description}</div>
+    <VisibilitySensor partialVisibility ref={visibilityRef}>
+      <React.Fragment>
+        <div className="flex flex-col">
+          <h2 className="text-primary mb-4 text-lg font-bold">
+            {detail.title}
+          </h2>
+          <div className="prose">{detail.description}</div>
 
-        {isVisible && (
           <div className="-mx-4 mt-8 mb-4 flex items-center justify-center rounded-none bg-gray-100 p-2 dark:bg-gray-900 md:-mx-8 md:p-4 xl:rounded-md">
             {detail.media.map((src) => (
               <video
@@ -45,8 +45,8 @@ export function DesignDetailMedia(props: Props) {
               </video>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      </React.Fragment>
     </VisibilitySensor>
   );
 }

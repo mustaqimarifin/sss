@@ -27,10 +27,10 @@ import PageTitle from './PageTitle';
 //import { timestampToCleanTime } from 'lib/transformers'
 
 //import { PostActions } from './PostActions'
-//import { PostSEO } from './PostSEO'
-const Spender = dynamic(
+import { PostSEO } from './PostSEO';
+const SBComments = dynamic(
   () => {
-    return import('./PostComments');
+    return import('components/Comments/SBComments');
   },
   { ssr: false }
 );
@@ -38,11 +38,7 @@ const Spender = dynamic(
 export function PostDetail({ post, children }) {
   const scrollContainerRef = React.useRef(null);
   const titleRef = React.useRef(null);
-  const [modalVisible, setModalVisible] = React.useState(false);
-  const { open } = useModal({
-    signInModal: SignInModal
-  });
-  const { commentId } = useComments();
+
   const [loadComments, setComments] = React.useState(false);
   const canReply = Boolean(true);
 
@@ -69,6 +65,8 @@ export function PostDetail({ post, children }) {
   //  const publishedAt = timestampToCleanTime({ timestamp: post.publishedAt });
   return (
     <>
+      <PostSEO post={post} />
+
       <Detail.Container data-cy="post-detail" ref={scrollContainerRef}>
         <TitleBar
           backButton
@@ -91,7 +89,7 @@ export function PostDetail({ post, children }) {
               </Detail.Title>
             </Detail.Header>
 
-            <div className="flex flex-col items-start  justify-between w-full mt-2 md:flex-row md:items-center">
+            <div className="mb-16 flex flex-col items-start  justify-between w-full mt-2 md:flex-row md:items-center">
               <div className="flex items-center">
                 <ImageWithTheme
                   alt="Mustaqim Arifin"
@@ -121,18 +119,9 @@ export function PostDetail({ post, children }) {
             </div>
 
             <React.Suspense fallback={<LoadingSpinner />}>
-              <div className="prose min-h-screen max-w-3xl">{children}</div>
-              {/*           <div className="my-4">
-            <ImageWithTheme
-              alt="Mustaqim Arifin"
-              height={ 120 }
-              width={ 120 }
-              sizes="20vw"
-              src="/wookie.png"
-              className="rounded-full dark:invert transition-colors duration-200" />
-          </div> */}
+              <div className="prose w-full max-w-3xl">{children}</div>
 
-              <div className="text-sm text-gray-700 dark:text-gray-300">
+              <div className=" my-4 text-sm text-gray-700 dark:text-gray-300">
                 <a
                   href={`https://mobile.twitter.com/search?q=${encodeURIComponent(
                     `https://sss-lake.vercel.app/blog/${post.slug}`
@@ -151,30 +140,25 @@ export function PostDetail({ post, children }) {
                   {'Suggest Change'}
                 </a>
               </div>
-              <div className="py-6">
-                <Spender slug={post.slug} />
-                {/*                 {canReply && !loadComments ? (
-                  <>
-                    <div className="flex justify-center space-y-2">
-                      <button
-                        className=" text-gray-600 hover:shadow-lg hover:bg-rose-400 hover:text-gray-700 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
-                        onClick={() => setComments(!loadComments)}
-                      >
-                        Load Comments 👺
-                      </button>
-                    </div>
-                  </>
-                ) : (
-                  <CommentsContextProvider commentId={commentId}>
-                    <ModalProvider>
-                      <Comments slug={post.slug} />
-                    </ModalProvider>
-                  </CommentsContextProvider>
-                )} */}
-              </div>
             </React.Suspense>
           </article>
         </Detail.ContentContainer>
+        <div className="py-6">
+          {canReply && !loadComments ? (
+            <>
+              <div className="flex justify-center space-y-2">
+                <button
+                  className=" text-gray-600 hover:shadow-lg hover:bg-pink-400 hover:text-gray-50 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
+                  onClick={() => setComments(!loadComments)}
+                >
+                  Load Comments 👺
+                </button>
+              </div>
+            </>
+          ) : (
+            <SBComments slug={post.slug} />
+          )}
+        </div>
       </Detail.Container>
     </>
   );

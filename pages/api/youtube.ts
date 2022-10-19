@@ -19,7 +19,7 @@ export default async function handler(
   });
 
   const channel = response.data.items[0];
-  const { subscriberCount, viewCount } = channel.statistics;
+  const { subscriberCount, viewCount, videoCount } = channel.statistics;
 
   res.setHeader(
     'Cache-Control',
@@ -28,6 +28,7 @@ export default async function handler(
 
   return res.status(200).json({
     subscriberCount,
-    viewCount
+    viewCount,
+    videoCount
   });
 }

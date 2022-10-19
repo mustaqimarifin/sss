@@ -27,7 +27,7 @@ function Container(props) {
 }
 
 export function UserFooter() {
-  const { user, profile, loading } = useUser();
+  const { profile, loading } = useUser();
   const { setIsOpen } = React.useContext(GlobalNavigationContext);
   const { open, isOpen } = useModal({
     signInModal: SignInModal
@@ -43,13 +43,20 @@ export function UserFooter() {
     }
   }, [isOpen]);
 
-  if (!user) {
+  if (!profile) {
     return (
       <SignInDialog
         trigger={<GhostButton style={{ width: '100%' }}>Sign in</GhostButton>}
       />
     );
   }
+  /*   if (!loading) {
+    return (
+      <Container>
+        <LoadingSpinner />
+      </Container>
+    );
+  } */
   /*   function signInButton() {
     return (
       <GhostButton
@@ -64,10 +71,10 @@ export function UserFooter() {
     );
   } */
 
-  if (user) {
+  if (profile) {
     return (
       <Container>
-        <a
+        <button
           aria-label="Sign Out"
           onClick={(e) => {
             e.preventDefault();
@@ -76,7 +83,7 @@ export function UserFooter() {
           className="flex flex-none items-center rounded-full hover:shadow-md hover:shadow-green-200"
         >
           <Avatar profile={profile} />
-        </a>
+        </button>
         <GhostButton size="small-square"></GhostButton>
       </Container>
     );

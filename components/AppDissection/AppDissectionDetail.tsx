@@ -4,17 +4,24 @@ import * as React from 'react';
 import { DesignDetailMedia } from 'components/AppDissection/DetailMedia';
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
-// import { MarkdownRenderer } from 'components/MarkdownRenderer';
+import dynamic from 'next/dynamic';
 import { DesignDetailsPost } from 'data/appDissections';
 import dayjs from 'dayjs';
 import { MDXRemote } from 'next-mdx-remote';
 // import { Post } from 'lib/types';
 //import { timestampToCleanTime } from 'lib/transformers';
+const SBComments = dynamic(
+  () => {
+    return import('components/Comments/SBComments');
+  },
+  { ssr: false }
+);
 
 export function AppDissectionDetail({ post }) {
   const scrollContainerRef = React.useRef(null);
   const titleRef = React.useRef(null);
-
+  const [loadComments, setComments] = React.useState(false);
+  const canReply = Boolean(true);
   const date = dayjs(post.createdAt).format('h:mm a - MMM D, YYYY');
 
   return (
@@ -60,6 +67,22 @@ export function AppDissectionDetail({ post }) {
           ))}
         </div>
       </Detail.ContentContainer>
+      <div className="py-6 px-8 ">
+        {canReply && !loadComments ? (
+          <>
+            <div className="flex justify-center space-y-2">
+              <button
+                className=" text-gray-600 hover:shadow-lg hover:bg-pink-400 hover:text-gray-50 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
+                onClick={() => setComments(!loadComments)}
+              >
+                Load Comments 👺
+              </button>
+            </div>
+          </>
+        ) : (
+          <SBComments slug={post.slug} />
+        )}
+      </div>
     </Detail.Container>
   );
 }

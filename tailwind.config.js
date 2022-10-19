@@ -1,8 +1,9 @@
 const colors = require('tailwindcss/colors');
 
-const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 const mono = [
+  'sfmono',
   'ui-monospace',
   'SFMono-Regular',
   'Menlo',
@@ -13,7 +14,9 @@ const mono = [
   'monospace'
 ];
 module.exports = {
-  mode: 'jit',
+  experimental: {
+    optimizeUniversalDefaults: true
+  },
   content: [
     './pages/**/*.tsx',
     './components/**/*.tsx',
@@ -66,6 +69,7 @@ module.exports = {
           '100%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }
         }
       },
+
       spacing: {
         '9/16': '56.25%',
         '2px': '2px'
@@ -122,63 +126,128 @@ module.exports = {
         css: {
           color: theme('colors.gray.700'),
           a: {
-            color: theme('colors.blue.500'),
+            color: theme('colors.primary.500'),
             '&:hover': {
-              color: theme('colors.blue.700')
+              color: `${theme('colors.primary.600')} !important`
             },
-            code: { color: theme('colors.blue.400') }
+            code: { color: theme('colors.primary.400') }
           },
-          'h2,h3,h4': {
-            'scroll-margin-top': spacing[32]
+          h1: {
+            fontWeight: '700',
+            letterSpacing: theme('letterSpacing.tight'),
+            color: theme('colors.gray.900')
           },
-          thead: {
-            borderBottomColor: theme('colors.gray.200')
+          h2: {
+            fontWeight: '700',
+            letterSpacing: theme('letterSpacing.tight'),
+            color: theme('colors.gray.900')
           },
-          code: { color: theme('colors.pink.500') },
-          'blockquote p:first-of-type::before': false,
-          'blockquote p:last-of-type::after': false
+          h3: {
+            fontWeight: '600',
+            color: theme('colors.gray.900')
+          },
+          'h4,h5,h6': {
+            color: theme('colors.gray.900')
+          },
+          pre: {
+            backgroundColor: theme('colors.gray.100')
+          },
+          code: {
+            color: theme('colors.pink.500'),
+            backgroundColor: theme('colors.gray.100'),
+            paddingLeft: '4px',
+            paddingRight: '4px',
+            paddingTop: '2px',
+            paddingBottom: '2px',
+            borderRadius: '0.25rem'
+          },
+          'code::before': {
+            content: 'none'
+          },
+          'code::after': {
+            content: 'none'
+          },
+          details: {
+            backgroundColor: theme('colors.gray.100'),
+            paddingLeft: '4px',
+            paddingRight: '4px',
+            paddingTop: '2px',
+            paddingBottom: '2px',
+            borderRadius: '0.25rem'
+          },
+          hr: { borderColor: theme('colors.gray.200') },
+          'ol li::marker': {
+            fontWeight: '600',
+            color: theme('colors.gray.500')
+          },
+          'ul li::marker': {
+            backgroundColor: theme('colors.gray.500')
+          },
+          strong: { color: theme('colors.gray.600') },
+          blockquote: {
+            color: theme('colors.gray.900'),
+            borderLeftColor: theme('colors.gray.200')
+          }
         }
       },
       dark: {
         css: {
-          color: theme('colors.gray.200'),
+          color: theme('colors.gray.300'),
           a: {
-            color: theme('colors.blue.400'),
+            color: theme('colors.primary.500'),
             '&:hover': {
-              color: theme('colors.blue.600')
+              color: `${theme('colors.primary.400')} !important`
             },
-            code: { color: theme('colors.blue.400') }
+            code: { color: theme('colors.primary.400') }
           },
-          blockquote: {
-            borderLeftColor: theme('colors.gray.700'),
-            color: theme('colors.gray.300')
+          h1: {
+            fontWeight: '700',
+            letterSpacing: theme('letterSpacing.tight'),
+            color: theme('colors.gray.100')
           },
-          'h2,h3,h4': {
-            color: theme('colors.gray.100'),
-            'scroll-margin-top': spacing[32]
+          h2: {
+            fontWeight: '700',
+            letterSpacing: theme('letterSpacing.tight'),
+            color: theme('colors.gray.100')
+          },
+          h3: {
+            fontWeight: '600',
+            color: theme('colors.gray.100')
+          },
+          'h4,h5,h6': {
+            color: theme('colors.gray.100')
+          },
+          pre: {
+            backgroundColor: theme('colors.gray.800')
+          },
+          code: {
+            backgroundColor: theme('colors.gray.800')
+          },
+          details: {
+            backgroundColor: theme('colors.gray.800')
           },
           hr: { borderColor: theme('colors.gray.700') },
-          ol: {
-            li: {
-              '&:before': { color: theme('colors.gray.500') }
-            }
+          'ol li::marker': {
+            fontWeight: '600',
+            color: theme('colors.gray.400')
           },
-          ul: {
-            li: {
-              '&:before': { backgroundColor: theme('colors.gray.500') }
-            }
+          'ul li::marker': {
+            backgroundColor: theme('colors.gray.400')
           },
           strong: { color: theme('colors.gray.100') },
           thead: {
             th: {
               color: theme('colors.gray.100')
-            },
-            borderBottomColor: theme('colors.gray.600')
+            }
           },
           tbody: {
             tr: {
               borderBottomColor: theme('colors.gray.700')
             }
+          },
+          blockquote: {
+            color: theme('colors.gray.100'),
+            borderLeftColor: theme('colors.gray.700')
           }
         }
       }

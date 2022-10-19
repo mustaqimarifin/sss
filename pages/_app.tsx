@@ -2,7 +2,7 @@ import 'styles/global.css';
 //import 'styles/global-copy.css';
 //import 'styles/custom-styles.css';
 //import 'styles/prism.css'
-import 'styles/prose-styles.css';
+//import 'styles/prose-styles.css';
 
 import { SiteLayout } from 'components/Layouts';
 import { Providers } from 'components/Providers';

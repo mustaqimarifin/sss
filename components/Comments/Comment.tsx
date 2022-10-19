@@ -180,8 +180,16 @@ const CommentData: FC<CommentDataProps> = ({ comment }) => {
             >
               {comment.user.name}
             </span>
+            <a
+              className="text-xs text-gray-300 cursor-pointer"
+              href={`https://mobile.twitter.com/${comment.user.handle}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {` `} {`@${comment.user.handle}`}
+            </a>
           </p>
-          <p>
+          <div>
             {!editing && (
               <Editor
                 key={comment.comment}
@@ -231,13 +239,13 @@ const CommentData: FC<CommentDataProps> = ({ comment }) => {
                 }
               />
             )}
-          </p>
+          </div>
 
-          <p className="text-sm text-alpha-40">
+          <span className="text-xs text-alpha-40">
             {dayjs().diff(comment.created_at, 'seconds', true) < 30
               ? 'just now'
               : dayjs(comment.created_at).fromNow()}
-          </p>
+          </span>
         </div>
         <div className="flex items-center justify-between">
           <div className="relative h-6 sce-comment-reactions">

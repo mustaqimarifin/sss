@@ -44,7 +44,7 @@ export async function getStaticPaths() {
   const paths = await sanityClient.fetch(postSlugsQuery);
   return {
     paths: paths.map((slug) => ({ params: { slug } })),
-    fallback: 'blocking'
+    fallback: false
   };
 }
 
@@ -66,7 +66,8 @@ export async function getStaticProps({ params, preview = false }) {
         ...post,
         content: html,
         tweets
-      }
+      },
+      revalidate: 60 * 60
     }
   };
 }

@@ -40,7 +40,9 @@ const Editor: FC<EditorProps> = forwardRef(
   ) => {
     const context = useCommentsContext();
     const extensions: any[] = [
-      StarterKit,
+      StarterKit.configure({
+        codeBlock: false
+      }),
       Placeholder.configure({
         placeholder: 'Write a message...'
       }),

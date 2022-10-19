@@ -56,7 +56,7 @@ function SectionContainer(props) {
   );
 }
 
-const workHistory = [
+/* const workHistory = [
   {
     href: 'https://github.com/mobile',
     title: 'GitHub',
@@ -87,9 +87,9 @@ const workHistory = [
     subtitle: 'Product Designer',
     date: '2013—15'
   }
-];
+]; */
 
-const speakingData = [
+/* const speakingData = [
   {
     href: 'https://maze.co/podcast/#brian-lovin',
     title: 'The Optimal Path Podcast',
@@ -150,7 +150,7 @@ const speakingData = [
     title: 'Design Details',
     date: "Aug '17"
   }
-];
+]; */
 
 export function Intro() {
   const scrollContainerRef = React.useRef(null);
@@ -269,6 +269,7 @@ export function Intro() {
                 layout="intrinsic"
                 className="rounded-2xl"
                 quality={100}
+                priority
                 alt="Map of KL with a wookie in the middle"
               />
               <p className="flex items-center justify-end pt-2 space-x-2 text-sm text-quaternary md:text-right">
@@ -278,7 +279,7 @@ export function Intro() {
             </SectionContent>
           </SectionContainer>
 
-          <SectionContainer>
+          {/*    <SectionContainer>
             <SectionTitle>Work</SectionTitle>
             <SectionContent>
               <div className="flex flex-col space-y-3">
@@ -293,9 +294,9 @@ export function Intro() {
                 ))}
               </div>
             </SectionContent>
-          </SectionContainer>
+          </SectionContainer> */}
 
-          <SectionContainer>
+          {/*  <SectionContainer>
             <SectionTitle>Speaking</SectionTitle>
             <SectionContent>
               <div className="flex flex-col space-y-3">
@@ -309,7 +310,7 @@ export function Intro() {
                 ))}
               </div>
             </SectionContent>
-          </SectionContainer>
+          </SectionContainer> */}
         </div>
       </Detail.ContentContainer>
     </Detail.Container>

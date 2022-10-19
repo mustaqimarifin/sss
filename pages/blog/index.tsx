@@ -23,9 +23,9 @@ import { pathquery } from '../../lib/sanity/queries';
 function PostIndex() {
   return (
     <NextSeo
-      title={routes.appDissection.seo.title}
-      description={routes.appDissection.seo.description}
-      openGraph={routes.appDissection.seo.openGraph}
+      title={routes.blog.seo.title}
+      description={routes.blog.seo.description}
+      openGraph={routes.blog.seo.openGraph}
     />
   );
 }

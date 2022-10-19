@@ -18,13 +18,23 @@ import { useReplyManager } from './ReplyManagerProvider';
 import User from './User';
 import { GhostButton } from 'components/Button';
 import { SignInDialog } from 'components/SignInDialog';
+import { SignOut } from 'supabase/funkshunz/SignOut';
 
+export enum CommentType {
+  AppDissection = 'APPDX',
+  Post = 'POST',
+  Dashboard = 'DASH',
+  Press = 'PRESS',
+  Security = 'SECURITY'
+}
 export interface CommentsProps {
   topic: string;
   parentId?: string | null;
+  section?: CommentType;
 }
 
-const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
+const Comments: FC<CommentsProps> = ({ topic, section, parentId = null }) => {
+  const messagesEndRef: React.RefObject<HTMLDivElement> = React.useRef(null);
   const editorRef = useRef<EditorRefHandle | null>(null);
   const context = useCommentsContext();
   const [layoutReady, setLayoutReady] = useState(false);
@@ -34,24 +44,39 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
 
   function SubmitButton() {
     return (
-      <Button
-        onClick={() => {
-          runIfAuthenticated(() => {
-            mutations.addComment.mutate({
-              topic,
-              parentId,
-              comment: commentState.value,
-              mentionedUserIds: getMentionedUserIds(commentState.value)
+      <div className=" mr-1 flex items-center">
+        <Button
+          onClick={() => {
+            runIfAuthenticated(() => {
+              mutations.addComment.mutate({
+                topic,
+                parentId,
+                section,
+                comment: commentState.value,
+                mentionedUserIds: getMentionedUserIds(commentState.value)
+              });
             });
-          });
-        }}
-        loading={mutations.addComment.isLoading}
-        size="tiny"
-        className="!px-[6px] !py-[3px] m-[3px]"
-        disabled={isAuthenticated && editorRef.current?.editor()?.isEmpty}
-      >
-        Submit
-      </Button>
+          }}
+          loading={mutations.addComment.isLoading}
+          size="tiny"
+          className="!px-[6px] !py-[3px] m-[3px]"
+          disabled={isAuthenticated && editorRef.current?.editor()?.isEmpty}
+        >
+          Submit
+        </Button>
+        <button
+          className={XD(
+            '!px-[6px] !py-[3px] m-[3px] text-pink-400 hover:text-gray-50 hover:bg-teal-400  text-xs border border-transparent duration-200 ease-in-out focus-ring rounded'
+          )}
+          aria-label="Sign Out"
+          onClick={(e) => {
+            e.preventDefault();
+            SignOut();
+          }}
+        >
+          Sign Out
+        </button>
+      </div>
     );
   }
 
@@ -138,6 +163,8 @@ const Comments: FC<CommentsProps> = ({ topic, parentId = null }) => {
               <Comment key={comment.id} id={comment.id} />
             ))}
           </div>
+          <div ref={messagesEndRef} />
+
           <div className="flex space-x-2">
             <div className="min-w-fit">
               <User id={user?.id} showAvatar showName={false} />

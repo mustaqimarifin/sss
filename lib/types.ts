@@ -9,8 +9,8 @@ export type Post = {
   date: string;
   excerpt: string;
   coverImage: string;
-  caption: string;
-  readingTime: string;
+  caption?: string;
+  readingTime?: string;
   tweets: any[];
   tags?: string[];
 };
@@ -46,6 +46,11 @@ export type PostPage = {
   caption?: string;
   excerpt?: string;
 };
+
+export interface VideoPage {
+  id: string;
+  snippet: string;
+}
 
 export type PostPageGroup = {
   map(arg0: (post: any) => JSX.Element): import('react').ReactNode;
@@ -93,6 +98,7 @@ export type TopTracks = {
 export type YouTube = {
   subscriberCount: number;
   viewCount: number;
+  videoCount: number;
 };
 
 export type SafeSex = {
@@ -112,6 +118,7 @@ export type Unsplash = {
 };
 
 export type Video = {
+  [key: string]: any;
   id: string;
   title: string;
   description: string;

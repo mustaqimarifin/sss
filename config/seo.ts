@@ -11,7 +11,7 @@ export const defaultSEO = {
     type: 'website',
     locale: 'en_US',
     url: baseUrl,
-    site_name: 'Mustaqim Arifin',
+    site_name: '[eff1gy] - Mustaqim Arifin',
     images: [
       {
         url: `${baseUrl}/static/og/default.png`,
@@ -20,8 +20,8 @@ export const defaultSEO = {
     ]
   },
   twitter: {
-    handle: '@brian_lovin',
-    site: '@brian_lovin',
+    handle: '@vmprmyth',
+    site: '@vmprmyth',
     cardType: 'summary_large_image'
   }
 };

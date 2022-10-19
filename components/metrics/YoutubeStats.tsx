@@ -1,6 +1,13 @@
-import { subs, viewCount, uploads } from 'services/cons';
+import useSWR from 'swr';
 
-export default function YoutubeStats() {
+import fetcher from 'lib/fetcher';
+import { YouTube } from 'lib/types';
+
+interface Props {
+  stats: YouTube;
+}
+
+export default function YTStats({ stats }: Props) {
   return (
     <div>
       <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
@@ -8,13 +15,15 @@ export default function YoutubeStats() {
           <dt className="font-medium text-cyan-300 truncate">
             Total Subscribers
           </dt>
-          <dd className="mt-1 text-3xl font-semibold text-gray-200">{subs}</dd>
+          <dd className="mt-1 text-3xl font-semibold text-gray-200">
+            {stats.subscriberCount}
+          </dd>
         </div>
 
         <div className="px-4 py-5 bg-gray-800 shadow rounded-md overflow-hidden sm:p-6">
           <dt className="font-medium text-cyan-300 truncate">Total Views</dt>
           <dd className="mt-1 text-3xl font-semibold text-gray-200">
-            {viewCount}
+            {stats.viewCount}
           </dd>
         </div>
 
@@ -23,7 +32,7 @@ export default function YoutubeStats() {
             Videos Uploaded
           </dt>
           <dd className="mt-1 text-3xl font-semibold text-gray-200">
-            {uploads}
+            {stats.videoCount}
           </dd>
         </div>
       </dl>

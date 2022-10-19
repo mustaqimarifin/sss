@@ -20,11 +20,41 @@ const routes = {
     seo: extendSEO({
       title: 'Blog',
       description: 'Thinking out loud about software design and development.',
-      image: 'og/writing.png',
+      image: 'og/blog.png',
       url: 'blog'
     })
   },
-  crit: {
+  security: {
+    label: 'Security Checklist',
+    path: '/security',
+    seo: extendSEO({
+      title: 'Security Checklist',
+      description: 'Staying safe on the internet.',
+      image: 'og/security.png',
+      url: 'security'
+    })
+  },
+  videos: {
+    label: 'Videos',
+    path: '/videos',
+    seo: extendSEO({
+      title: 'Videos',
+      description: 'Various releases from the Youtube API.',
+      image: 'og/videos.png',
+      url: 'videos'
+    })
+  },
+  appDissection: {
+    label: 'App Dissection',
+    path: '/app-dissection',
+    seo: extendSEO({
+      title: 'App Dissection',
+      description: 'In-depth design explorations.',
+      image: 'og/app-dissection.png',
+      url: 'app-dissection'
+    })
+  },
+  /*  crit: {
     label: 'Crit',
     path: '/crit',
     seo: extendSEO({
@@ -54,16 +84,7 @@ const routes = {
       url: 'bookmarks'
     })
   },
-  appDissection: {
-    label: 'App Dissection',
-    path: '/app-dissection',
-    seo: extendSEO({
-      title: 'App Dissection',
-      description: 'In-depth design explorations.',
-      image: 'og/app-dissection.png',
-      url: 'app-dissection'
-    })
-  },
+
   ama: {
     label: 'AMA',
     path: '/ama',
@@ -83,7 +104,7 @@ const routes = {
       image: 'og/security.png',
       url: 'security'
     })
-  },
+  }, */
   dashboard: {
     label: 'Dashboard',
     path: '/dashboard',
@@ -93,8 +114,8 @@ const routes = {
       image: 'og/stack.png',
       url: 'dashboard'
     })
-  },
-  settings: {
+  }
+  /*  settings: {
     label: 'Settings',
     path: '/settings',
     seo: extendSEO({
@@ -103,7 +124,7 @@ const routes = {
       image: 'og/settings.png',
       url: 'settings'
     })
-  }
+  } */
 };
 
 export default routes;

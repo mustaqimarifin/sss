@@ -47,7 +47,7 @@ export async function getStaticPaths() {
     params: { slug }
   }));
 
-  return { paths, fallback: 'blocking' };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params: { slug } }) {
@@ -60,6 +60,23 @@ export async function getStaticProps({ params: { slug } }) {
     }
   };
 }
+
+/* export const getStaticProps = async (context) => {
+  try {
+    const post = context.params.slug as string;
+
+    return {
+      props: {
+        post
+      },
+      revalidate: 10
+    };
+  } catch (err) {
+    // we don't want to publish the error version of this page, so
+    // let next.js know explicitly that incremental SSG failed
+    throw err;
+  }
+}; */
 
 AppDissectionPage.getLayout = withProviders(function getLayout(page) {
   return (

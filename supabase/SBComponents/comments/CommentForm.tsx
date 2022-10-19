@@ -64,7 +64,7 @@ const CommentForm = ({
    */
 
   useEffect(() => {
-    if (user && profile && (!profile.full_name || !profile.username)) {
+    if (user && profile && !profile.name) {
       open('signInModal');
     }
   }, [user, profile]);

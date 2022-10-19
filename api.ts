@@ -1,4 +1,5 @@
 import { SupabaseClient } from '@supabase/supabase-js';
+import { CommentType } from 'components/Comments/Comments';
 
 export type CommentReactionMetadata = {
   comment_id: string;
@@ -18,6 +19,7 @@ export type Comment = {
   children: React.ReactNode;
   id: string;
   user_id: string;
+  section: CommentType;
   parent_id: string | null;
   topic: string;
   comment: string;
