@@ -1,10 +1,10 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import type { Offer } from '../types'
+import type { Offer } from '../types';
 
 type Props = {
-  offer: Offer
-}
+  offer: Offer;
+};
 
 export function AppOffer({ offer }: Props) {
   return (
@@ -14,5 +14,5 @@ export function AppOffer({ offer }: Props) {
     >
       <p className="text-sm font-medium">{offer.label}</p>
     </a>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-// import XD from 'classnames';
+// import clsx from ''clsx';
 import Link from 'next/link';
 import useDelayedRender from 'use-delayed-render';
 import { useState, useEffect } from 'react';
 import styles from 'styles/mobile-menu.module.css';
-import { XD } from 'services/xD';
+import clsx from 'clsx';
 
 export default function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +34,7 @@ export default function MobileMenu() {
   return (
     <>
       <button
-        className={XD(styles.burger, 'visible md:hidden')}
+        className={clsx(styles.burger, 'visible md:hidden')}
         aria-label="Toggle menu"
         type="button"
         onClick={toggleMenu}
@@ -44,7 +44,7 @@ export default function MobileMenu() {
       </button>
       {isMenuMounted && (
         <ul
-          className={XD(
+          className={clsx(
             styles.menu,
             'flex flex-col absolute  bg-slate-50 dark:bg-gray-800 border-2 shadow-lg shadow-violet-300  rounded-lg ',
             isMenuRendered && styles.menuRendered

@@ -1,4 +1,4 @@
-import { XD } from 'services/xD';
+import clsx from 'clsx';
 export default function Label(props) {
   const color = {
     green: 'text-emerald-700',
@@ -8,7 +8,7 @@ export default function Label(props) {
   };
   return (
     <span
-      className={XD(
+      className={clsx(
         'inline-block mt-5 text-xs font-medium tracking-wider uppercase ',
         color[props.color] || color[props.purple]
       )}

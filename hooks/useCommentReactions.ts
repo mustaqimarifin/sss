@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseCommentReactionsQuery {
@@ -22,7 +23,7 @@ const useCommentReactions = (
     () => {
       return api.getCommentReactions({
         comment_id: commentId,
-        reaction_type: reactionType,
+        reaction_type: reactionType
       });
     },
     {
@@ -35,7 +36,7 @@ const useCommentReactions = (
             commentReaction.user
           );
         });
-      },
+      }
     }
   );
 };

@@ -1,7 +1,8 @@
 import Container from 'components/Container';
+import Image from 'next/future/image';
+
 // import LickPics from 'components/LickPics';
 import desk from '../public/static/images/gear/desk.jpg';
-import Image from 'next/future/image';
 // import DickPics from '../components/Pics';
 
 export default function Uses() {

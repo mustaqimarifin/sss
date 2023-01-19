@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 /* jsx-a11y/no-static-element-interactions */
 
-import cn from 'classnames';
+import cn from ''clsx';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';

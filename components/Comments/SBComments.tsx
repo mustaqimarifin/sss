@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Comments, CommentsProvider } from 'components/Comments';
+import * as React from 'react';
 import supabase from 'supabase/supaPublic';
 
 interface Props {

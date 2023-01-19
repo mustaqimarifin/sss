@@ -7,19 +7,19 @@ export default {
   resources: [
     {
       name: 'How long it takes to break a passcode',
-      url: 'http://fortune.com/2016/03/18/apple-fbi-iphone-passcode-hack/',
+      url: 'http://fortune.com/2016/03/18/apple-fbi-iphone-passcode-hack/'
     },
     {
       name: 'How to temporarily disable TouchID or FaceID',
-      url: 'https://www.iphonelife.com/content/how-to-temporarily-disable-touch-id-or-face-id-your-iphone',
+      url: 'https://www.iphonelife.com/content/how-to-temporarily-disable-touch-id-or-face-id-your-iphone'
     },
     {
       name: 'Changing your iOS passcode',
-      url: 'https://support.apple.com/en-us/HT204060',
+      url: 'https://support.apple.com/en-us/HT204060'
     },
     {
       name: 'Changing your Android passcode',
-      url: 'https://phandroid.com/2014/03/20/android-101-lock-screen/',
-    },
-  ],
-}
+      url: 'https://phandroid.com/2014/03/20/android-101-lock-screen/'
+    }
+  ]
+};

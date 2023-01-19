@@ -19,6 +19,6 @@ export default {
   twitterUsername: 'designdetailsfm',
   colors: {
     text: '#3D7B79',
-    button: '#499290',
-  },
-}
+    button: '#499290'
+  }
+};

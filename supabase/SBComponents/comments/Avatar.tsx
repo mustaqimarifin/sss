@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import cn from 'clsx';
 import Image from 'next/future/image';
 import React from 'react';
 import { definitions } from 'types/supabase';
@@ -6,7 +6,7 @@ import { definitions } from 'types/supabase';
 interface Props {
   comment?: any;
   user?: any;
-  profile?: definitions['sce_display_users'] | null;
+  profile?: definitions['display_users'] | null;
   flip?: string;
   isDeleted?: boolean;
   firstLetter?: string;

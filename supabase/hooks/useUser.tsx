@@ -8,7 +8,7 @@ interface AuthSessionProps {
   user: User | null;
 
   session: Session | null;
-  profile?: definitions['sce_display_users'] | null;
+  profile?: definitions['display_users'] | null;
   loading: boolean;
   refresh: any;
 }
@@ -35,17 +35,17 @@ export const UserContextProvider = (props: Props): JSX.Element => {
     error,
     isValidating,
     mutate
-  } = useSWR<definitions['sce_display_users']>(
+  } = useSWR<definitions['display_users']>(
     user?.id ? ['user_data', user.id] : null,
     async (_, authorId) =>
       supabase
-        .from<definitions['sce_display_users']>('sce_display_users')
+        .from<definitions['display_users']>('display_users')
         .select('*')
         .eq('id', authorId)
         .single()
         .then(({ data, error }) => {
           if (error) throw error;
-          return data as definitions['sce_display_users'];
+          return data as definitions['display_users'];
         }),
     { revalidateOnFocus: false }
   );

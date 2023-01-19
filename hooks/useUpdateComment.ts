@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseUpdateCommentPayload {
@@ -15,13 +16,13 @@ const useUpdateComment = () => {
     ({ id, comment, mentionedUserIds }: UseUpdateCommentPayload) => {
       return api.updateComment(id, {
         comment,
-        mentioned_user_ids: mentionedUserIds,
+        mentioned_user_ids: mentionedUserIds
       });
     },
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries(['comments', data.id]);
-      },
+      }
     }
   );
 };

@@ -1,5 +1,5 @@
-import { Item } from '@supabase/ui/dist/cjs/components/Accordion/Accordion';
 import { useMutation, useQueryClient } from 'react-query';
+
 import { Comment, CommentReactionMetadata } from '../api';
 import useApi from './useApi';
 
@@ -13,7 +13,7 @@ interface UseAddReactionPayload {
 // reactions array.
 const addOrIncrement = (reactionType: string, comment: Comment): Comment => {
   const isInArray = !!comment.reactions_metadata.find(
-    (val) => val.reaction_type === reactionType
+    (val: CommentReactionMetadata) => val.reaction_type === reactionType
   );
   let newArray = [...comment.reactions_metadata];
   if (!isInArray) {
@@ -21,7 +21,7 @@ const addOrIncrement = (reactionType: string, comment: Comment): Comment => {
       comment_id: comment.id,
       reaction_type: reactionType,
       reaction_count: 1,
-      active_for_user: true,
+      active_for_user: true
     });
   } else {
     newArray = newArray.map((item) => {
@@ -29,7 +29,7 @@ const addOrIncrement = (reactionType: string, comment: Comment): Comment => {
         return {
           ...item,
           reaction_count: item.reaction_count + 1,
-          active_for_user: true,
+          active_for_user: true
         };
       } else {
         return item;
@@ -39,7 +39,7 @@ const addOrIncrement = (reactionType: string, comment: Comment): Comment => {
   newArray.sort((a, b) => a.reaction_type.localeCompare(b.reaction_type));
   return {
     ...comment,
-    reactions_metadata: newArray,
+    reactions_metadata: newArray
   };
 };
 
@@ -51,7 +51,7 @@ const useAddReaction = () => {
     (payload: UseAddReactionPayload) => {
       return api.addCommentReaction({
         reaction_type: payload.reactionType,
-        comment_id: payload.commentId,
+        comment_id: payload.commentId
       });
     },
     {
@@ -64,9 +64,9 @@ const useAddReaction = () => {
         queryClient.invalidateQueries(['comments', params.commentId]);
         queryClient.invalidateQueries([
           'comment-reactions',
-          { commentId: params.commentId, reactionType: params.reactionType },
+          { commentId: params.commentId, reactionType: params.reactionType }
         ]);
-      },
+      }
     }
   );
 };

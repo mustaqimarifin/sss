@@ -20,11 +20,13 @@ module.exports = {
       'pbs.twimg.com', // Twi,
       'cdn.sanity.io',
       'lh3.googleusercontent.com',
-      'i.ytimg.com'
+      'i.ytimg.com',
+      'avatars.githubusercontent.com'
     ]
   },
   experimental: {
     legacyBrowsers: false,
+    esmExternals: 'loose',
     browsersListForSwc: true,
     urlImports: ['https://cdn.skypack.dev/', 'https://cdn.jsdelivr.net/']
   }

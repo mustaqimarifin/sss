@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/": {
+  '/': {
     get: {
       responses: {
         /** OK */
@@ -12,39 +12,39 @@ export interface paths {
       };
     };
   };
-  "/sce_comments": {
+  '/comments': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comments.id"];
-          created_at?: parameters["rowFilter.sce_comments.created_at"];
-          topic?: parameters["rowFilter.sce_comments.topic"];
-          comment?: parameters["rowFilter.sce_comments.comment"];
-          user_id?: parameters["rowFilter.sce_comments.user_id"];
-          parent_id?: parameters["rowFilter.sce_comments.parent_id"];
-          mentioned_user_ids?: parameters["rowFilter.sce_comments.mentioned_user_ids"];
+          id?: parameters['rowFilter.comments.id'];
+          created_at?: parameters['rowFilter.comments.created_at'];
+          topic?: parameters['rowFilter.comments.topic'];
+          comment?: parameters['rowFilter.comments.comment'];
+          user_id?: parameters['rowFilter.comments.user_id'];
+          parent_id?: parameters['rowFilter.comments.parent_id'];
+          mentioned_user_ids?: parameters['rowFilter.comments.mentioned_user_ids'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["sce_comments"][];
+          schema: definitions['comments'][];
         };
         /** Partial Content */
         206: unknown;
@@ -53,16 +53,16 @@ export interface paths {
     post: {
       parameters: {
         body: {
-          /** sce_comments */
-          sce_comments?: definitions["sce_comments"];
+          /** comments */
+          comments?: definitions['comments'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -73,17 +73,17 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comments.id"];
-          created_at?: parameters["rowFilter.sce_comments.created_at"];
-          topic?: parameters["rowFilter.sce_comments.topic"];
-          comment?: parameters["rowFilter.sce_comments.comment"];
-          user_id?: parameters["rowFilter.sce_comments.user_id"];
-          parent_id?: parameters["rowFilter.sce_comments.parent_id"];
-          mentioned_user_ids?: parameters["rowFilter.sce_comments.mentioned_user_ids"];
+          id?: parameters['rowFilter.comments.id'];
+          created_at?: parameters['rowFilter.comments.created_at'];
+          topic?: parameters['rowFilter.comments.topic'];
+          comment?: parameters['rowFilter.comments.comment'];
+          user_id?: parameters['rowFilter.comments.user_id'];
+          parent_id?: parameters['rowFilter.comments.parent_id'];
+          mentioned_user_ids?: parameters['rowFilter.comments.mentioned_user_ids'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -94,21 +94,21 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comments.id"];
-          created_at?: parameters["rowFilter.sce_comments.created_at"];
-          topic?: parameters["rowFilter.sce_comments.topic"];
-          comment?: parameters["rowFilter.sce_comments.comment"];
-          user_id?: parameters["rowFilter.sce_comments.user_id"];
-          parent_id?: parameters["rowFilter.sce_comments.parent_id"];
-          mentioned_user_ids?: parameters["rowFilter.sce_comments.mentioned_user_ids"];
+          id?: parameters['rowFilter.comments.id'];
+          created_at?: parameters['rowFilter.comments.created_at'];
+          topic?: parameters['rowFilter.comments.topic'];
+          comment?: parameters['rowFilter.comments.comment'];
+          user_id?: parameters['rowFilter.comments.user_id'];
+          parent_id?: parameters['rowFilter.comments.parent_id'];
+          mentioned_user_ids?: parameters['rowFilter.comments.mentioned_user_ids'];
         };
         body: {
-          /** sce_comments */
-          sce_comments?: definitions["sce_comments"];
+          /** comments */
+          comments?: definitions['comments'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -117,37 +117,37 @@ export interface paths {
       };
     };
   };
-  "/sce_comment_reactions": {
+  '/comment_reactions': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comment_reactions.id"];
-          created_at?: parameters["rowFilter.sce_comment_reactions.created_at"];
-          comment_id?: parameters["rowFilter.sce_comment_reactions.comment_id"];
-          user_id?: parameters["rowFilter.sce_comment_reactions.user_id"];
-          reaction_type?: parameters["rowFilter.sce_comment_reactions.reaction_type"];
+          id?: parameters['rowFilter.comment_reactions.id'];
+          created_at?: parameters['rowFilter.comment_reactions.created_at'];
+          comment_id?: parameters['rowFilter.comment_reactions.comment_id'];
+          user_id?: parameters['rowFilter.comment_reactions.user_id'];
+          reaction_type?: parameters['rowFilter.comment_reactions.reaction_type'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["sce_comment_reactions"][];
+          schema: definitions['comment_reactions'][];
         };
         /** Partial Content */
         206: unknown;
@@ -156,16 +156,16 @@ export interface paths {
     post: {
       parameters: {
         body: {
-          /** sce_comment_reactions */
-          sce_comment_reactions?: definitions["sce_comment_reactions"];
+          /** comment_reactions */
+          comment_reactions?: definitions['comment_reactions'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -176,15 +176,15 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comment_reactions.id"];
-          created_at?: parameters["rowFilter.sce_comment_reactions.created_at"];
-          comment_id?: parameters["rowFilter.sce_comment_reactions.comment_id"];
-          user_id?: parameters["rowFilter.sce_comment_reactions.user_id"];
-          reaction_type?: parameters["rowFilter.sce_comment_reactions.reaction_type"];
+          id?: parameters['rowFilter.comment_reactions.id'];
+          created_at?: parameters['rowFilter.comment_reactions.created_at'];
+          comment_id?: parameters['rowFilter.comment_reactions.comment_id'];
+          user_id?: parameters['rowFilter.comment_reactions.user_id'];
+          reaction_type?: parameters['rowFilter.comment_reactions.reaction_type'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -195,19 +195,19 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comment_reactions.id"];
-          created_at?: parameters["rowFilter.sce_comment_reactions.created_at"];
-          comment_id?: parameters["rowFilter.sce_comment_reactions.comment_id"];
-          user_id?: parameters["rowFilter.sce_comment_reactions.user_id"];
-          reaction_type?: parameters["rowFilter.sce_comment_reactions.reaction_type"];
+          id?: parameters['rowFilter.comment_reactions.id'];
+          created_at?: parameters['rowFilter.comment_reactions.created_at'];
+          comment_id?: parameters['rowFilter.comment_reactions.comment_id'];
+          user_id?: parameters['rowFilter.comment_reactions.user_id'];
+          reaction_type?: parameters['rowFilter.comment_reactions.reaction_type'];
         };
         body: {
-          /** sce_comment_reactions */
-          sce_comment_reactions?: definitions["sce_comment_reactions"];
+          /** comment_reactions */
+          comment_reactions?: definitions['comment_reactions'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -216,37 +216,37 @@ export interface paths {
       };
     };
   };
-  "/pages": {
+  '/pages': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.pages.id"];
-          slug?: parameters["rowFilter.pages.slug"];
-          url?: parameters["rowFilter.pages.url"];
-          views?: parameters["rowFilter.pages.views"];
-          updated_at?: parameters["rowFilter.pages.updated_at"];
+          id?: parameters['rowFilter.pages.id'];
+          slug?: parameters['rowFilter.pages.slug'];
+          url?: parameters['rowFilter.pages.url'];
+          views?: parameters['rowFilter.pages.views'];
+          updated_at?: parameters['rowFilter.pages.updated_at'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["pages"][];
+          schema: definitions['pages'][];
         };
         /** Partial Content */
         206: unknown;
@@ -256,15 +256,15 @@ export interface paths {
       parameters: {
         body: {
           /** pages */
-          pages?: definitions["pages"];
+          pages?: definitions['pages'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -275,15 +275,15 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.pages.id"];
-          slug?: parameters["rowFilter.pages.slug"];
-          url?: parameters["rowFilter.pages.url"];
-          views?: parameters["rowFilter.pages.views"];
-          updated_at?: parameters["rowFilter.pages.updated_at"];
+          id?: parameters['rowFilter.pages.id'];
+          slug?: parameters['rowFilter.pages.slug'];
+          url?: parameters['rowFilter.pages.url'];
+          views?: parameters['rowFilter.pages.views'];
+          updated_at?: parameters['rowFilter.pages.updated_at'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -294,19 +294,19 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.pages.id"];
-          slug?: parameters["rowFilter.pages.slug"];
-          url?: parameters["rowFilter.pages.url"];
-          views?: parameters["rowFilter.pages.views"];
-          updated_at?: parameters["rowFilter.pages.updated_at"];
+          id?: parameters['rowFilter.pages.id'];
+          slug?: parameters['rowFilter.pages.slug'];
+          url?: parameters['rowFilter.pages.url'];
+          views?: parameters['rowFilter.pages.views'];
+          updated_at?: parameters['rowFilter.pages.updated_at'];
         };
         body: {
           /** pages */
-          pages?: definitions["pages"];
+          pages?: definitions['pages'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -315,37 +315,37 @@ export interface paths {
       };
     };
   };
-  "/sce_reactions": {
+  '/reactions': {
     get: {
       parameters: {
         query: {
-          type?: parameters["rowFilter.sce_reactions.type"];
-          created_at?: parameters["rowFilter.sce_reactions.created_at"];
-          label?: parameters["rowFilter.sce_reactions.label"];
-          url?: parameters["rowFilter.sce_reactions.url"];
-          metadata?: parameters["rowFilter.sce_reactions.metadata"];
+          type?: parameters['rowFilter.reactions.type'];
+          created_at?: parameters['rowFilter.reactions.created_at'];
+          label?: parameters['rowFilter.reactions.label'];
+          url?: parameters['rowFilter.reactions.url'];
+          metadata?: parameters['rowFilter.reactions.metadata'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["sce_reactions"][];
+          schema: definitions['reactions'][];
         };
         /** Partial Content */
         206: unknown;
@@ -354,16 +354,16 @@ export interface paths {
     post: {
       parameters: {
         body: {
-          /** sce_reactions */
-          sce_reactions?: definitions["sce_reactions"];
+          /** reactions */
+          reactions?: definitions['reactions'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -374,15 +374,15 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          type?: parameters["rowFilter.sce_reactions.type"];
-          created_at?: parameters["rowFilter.sce_reactions.created_at"];
-          label?: parameters["rowFilter.sce_reactions.label"];
-          url?: parameters["rowFilter.sce_reactions.url"];
-          metadata?: parameters["rowFilter.sce_reactions.metadata"];
+          type?: parameters['rowFilter.reactions.type'];
+          created_at?: parameters['rowFilter.reactions.created_at'];
+          label?: parameters['rowFilter.reactions.label'];
+          url?: parameters['rowFilter.reactions.url'];
+          metadata?: parameters['rowFilter.reactions.metadata'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -393,19 +393,19 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          type?: parameters["rowFilter.sce_reactions.type"];
-          created_at?: parameters["rowFilter.sce_reactions.created_at"];
-          label?: parameters["rowFilter.sce_reactions.label"];
-          url?: parameters["rowFilter.sce_reactions.url"];
-          metadata?: parameters["rowFilter.sce_reactions.metadata"];
+          type?: parameters['rowFilter.reactions.type'];
+          created_at?: parameters['rowFilter.reactions.created_at'];
+          label?: parameters['rowFilter.reactions.label'];
+          url?: parameters['rowFilter.reactions.url'];
+          metadata?: parameters['rowFilter.reactions.metadata'];
         };
         body: {
-          /** sce_reactions */
-          sce_reactions?: definitions["sce_reactions"];
+          /** reactions */
+          reactions?: definitions['reactions'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -414,72 +414,72 @@ export interface paths {
       };
     };
   };
-  "/sce_comment_reactions_metadata": {
+  '/comment_reactions_metadata': {
     get: {
       parameters: {
         query: {
-          comment_id?: parameters["rowFilter.sce_comment_reactions_metadata.comment_id"];
-          reaction_type?: parameters["rowFilter.sce_comment_reactions_metadata.reaction_type"];
-          reaction_count?: parameters["rowFilter.sce_comment_reactions_metadata.reaction_count"];
-          active_for_user?: parameters["rowFilter.sce_comment_reactions_metadata.active_for_user"];
+          comment_id?: parameters['rowFilter.comment_reactions_metadata.comment_id'];
+          reaction_type?: parameters['rowFilter.comment_reactions_metadata.reaction_type'];
+          reaction_count?: parameters['rowFilter.comment_reactions_metadata.reaction_count'];
+          active_for_user?: parameters['rowFilter.comment_reactions_metadata.active_for_user'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["sce_comment_reactions_metadata"][];
+          schema: definitions['comment_reactions_metadata'][];
         };
         /** Partial Content */
         206: unknown;
       };
     };
   };
-  "/sce_display_users": {
+  '/display_users': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_display_users.id"];
-          name?: parameters["rowFilter.sce_display_users.name"];
-          handle?: parameters["rowFilter.sce_display_users.handle"];
-          avatar?: parameters["rowFilter.sce_display_users.avatar"];
+          id?: parameters['rowFilter.display_users.id'];
+          name?: parameters['rowFilter.display_users.name'];
+          handle?: parameters['rowFilter.display_users.handle'];
+          avatar?: parameters['rowFilter.display_users.avatar'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["sce_display_users"][];
+          schema: definitions['display_users'][];
         };
         /** Partial Content */
         206: unknown;
@@ -488,16 +488,16 @@ export interface paths {
     post: {
       parameters: {
         body: {
-          /** sce_display_users */
-          sce_display_users?: definitions["sce_display_users"];
+          /** display_users */
+          display_users?: definitions['display_users'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -508,14 +508,14 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_display_users.id"];
-          name?: parameters["rowFilter.sce_display_users.name"];
-          handle?: parameters["rowFilter.sce_display_users.handle"];
-          avatar?: parameters["rowFilter.sce_display_users.avatar"];
+          id?: parameters['rowFilter.display_users.id'];
+          name?: parameters['rowFilter.display_users.name'];
+          handle?: parameters['rowFilter.display_users.handle'];
+          avatar?: parameters['rowFilter.display_users.avatar'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -526,18 +526,18 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_display_users.id"];
-          name?: parameters["rowFilter.sce_display_users.name"];
-          handle?: parameters["rowFilter.sce_display_users.handle"];
-          avatar?: parameters["rowFilter.sce_display_users.avatar"];
+          id?: parameters['rowFilter.display_users.id'];
+          name?: parameters['rowFilter.display_users.name'];
+          handle?: parameters['rowFilter.display_users.handle'];
+          avatar?: parameters['rowFilter.display_users.avatar'];
         };
         body: {
-          /** sce_display_users */
-          sce_display_users?: definitions["sce_display_users"];
+          /** display_users */
+          display_users?: definitions['display_users'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -546,40 +546,40 @@ export interface paths {
       };
     };
   };
-  "/sce_comments_with_metadata": {
+  '/comments_with_metadata': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comments_with_metadata.id"];
-          created_at?: parameters["rowFilter.sce_comments_with_metadata.created_at"];
-          topic?: parameters["rowFilter.sce_comments_with_metadata.topic"];
-          comment?: parameters["rowFilter.sce_comments_with_metadata.comment"];
-          user_id?: parameters["rowFilter.sce_comments_with_metadata.user_id"];
-          parent_id?: parameters["rowFilter.sce_comments_with_metadata.parent_id"];
-          mentioned_user_ids?: parameters["rowFilter.sce_comments_with_metadata.mentioned_user_ids"];
-          replies_count?: parameters["rowFilter.sce_comments_with_metadata.replies_count"];
+          id?: parameters['rowFilter.comments_with_metadata.id'];
+          created_at?: parameters['rowFilter.comments_with_metadata.created_at'];
+          topic?: parameters['rowFilter.comments_with_metadata.topic'];
+          comment?: parameters['rowFilter.comments_with_metadata.comment'];
+          user_id?: parameters['rowFilter.comments_with_metadata.user_id'];
+          parent_id?: parameters['rowFilter.comments_with_metadata.parent_id'];
+          mentioned_user_ids?: parameters['rowFilter.comments_with_metadata.mentioned_user_ids'];
+          replies_count?: parameters['rowFilter.comments_with_metadata.replies_count'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["sce_comments_with_metadata"][];
+          schema: definitions['comments_with_metadata'][];
         };
         /** Partial Content */
         206: unknown;
@@ -588,16 +588,16 @@ export interface paths {
     post: {
       parameters: {
         body: {
-          /** sce_comments_with_metadata */
-          sce_comments_with_metadata?: definitions["sce_comments_with_metadata"];
+          /** comments_with_metadata */
+          comments_with_metadata?: definitions['comments_with_metadata'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -608,18 +608,18 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comments_with_metadata.id"];
-          created_at?: parameters["rowFilter.sce_comments_with_metadata.created_at"];
-          topic?: parameters["rowFilter.sce_comments_with_metadata.topic"];
-          comment?: parameters["rowFilter.sce_comments_with_metadata.comment"];
-          user_id?: parameters["rowFilter.sce_comments_with_metadata.user_id"];
-          parent_id?: parameters["rowFilter.sce_comments_with_metadata.parent_id"];
-          mentioned_user_ids?: parameters["rowFilter.sce_comments_with_metadata.mentioned_user_ids"];
-          replies_count?: parameters["rowFilter.sce_comments_with_metadata.replies_count"];
+          id?: parameters['rowFilter.comments_with_metadata.id'];
+          created_at?: parameters['rowFilter.comments_with_metadata.created_at'];
+          topic?: parameters['rowFilter.comments_with_metadata.topic'];
+          comment?: parameters['rowFilter.comments_with_metadata.comment'];
+          user_id?: parameters['rowFilter.comments_with_metadata.user_id'];
+          parent_id?: parameters['rowFilter.comments_with_metadata.parent_id'];
+          mentioned_user_ids?: parameters['rowFilter.comments_with_metadata.mentioned_user_ids'];
+          replies_count?: parameters['rowFilter.comments_with_metadata.replies_count'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -630,22 +630,22 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.sce_comments_with_metadata.id"];
-          created_at?: parameters["rowFilter.sce_comments_with_metadata.created_at"];
-          topic?: parameters["rowFilter.sce_comments_with_metadata.topic"];
-          comment?: parameters["rowFilter.sce_comments_with_metadata.comment"];
-          user_id?: parameters["rowFilter.sce_comments_with_metadata.user_id"];
-          parent_id?: parameters["rowFilter.sce_comments_with_metadata.parent_id"];
-          mentioned_user_ids?: parameters["rowFilter.sce_comments_with_metadata.mentioned_user_ids"];
-          replies_count?: parameters["rowFilter.sce_comments_with_metadata.replies_count"];
+          id?: parameters['rowFilter.comments_with_metadata.id'];
+          created_at?: parameters['rowFilter.comments_with_metadata.created_at'];
+          topic?: parameters['rowFilter.comments_with_metadata.topic'];
+          comment?: parameters['rowFilter.comments_with_metadata.comment'];
+          user_id?: parameters['rowFilter.comments_with_metadata.user_id'];
+          parent_id?: parameters['rowFilter.comments_with_metadata.parent_id'];
+          mentioned_user_ids?: parameters['rowFilter.comments_with_metadata.mentioned_user_ids'];
+          replies_count?: parameters['rowFilter.comments_with_metadata.replies_count'];
         };
         body: {
-          /** sce_comments_with_metadata */
-          sce_comments_with_metadata?: definitions["sce_comments_with_metadata"];
+          /** comments_with_metadata */
+          comments_with_metadata?: definitions['comments_with_metadata'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -654,7 +654,7 @@ export interface paths {
       };
     };
   };
-  "/rpc/viewcount": {
+  '/rpc/viewcount': {
     post: {
       parameters: {
         body: {
@@ -665,7 +665,7 @@ export interface paths {
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferParams"];
+          Prefer?: parameters['preferParams'];
         };
       };
       responses: {
@@ -674,7 +674,7 @@ export interface paths {
       };
     };
   };
-  "/rpc/viewcounturl": {
+  '/rpc/viewcounturl': {
     post: {
       parameters: {
         body: {
@@ -685,7 +685,7 @@ export interface paths {
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferParams"];
+          Prefer?: parameters['preferParams'];
         };
       };
       responses: {
@@ -697,7 +697,7 @@ export interface paths {
 }
 
 export interface definitions {
-  sce_comments: {
+  comments: {
     /**
      * Format: uuid
      * @description Note:
@@ -717,19 +717,19 @@ export interface definitions {
     /**
      * Format: uuid
      * @description Note:
-     * This is a Foreign Key to `sce_display_users.id`.<fk table='sce_display_users' column='id'/>
+     * This is a Foreign Key to `display_users.id`.<fk table='display_users' column='id'/>
      */
     user_id: string;
     /**
      * Format: uuid
      * @description Note:
-     * This is a Foreign Key to `sce_comments.id`.<fk table='sce_comments' column='id'/>
+     * This is a Foreign Key to `comments.id`.<fk table='comments' column='id'/>
      */
     parent_id?: string;
     /** Format: ARRAY */
     mentioned_user_ids: unknown[];
   };
-  sce_comment_reactions: {
+  comment_reactions: {
     /**
      * Format: uuid
      * @description Note:
@@ -745,19 +745,19 @@ export interface definitions {
     /**
      * Format: uuid
      * @description Note:
-     * This is a Foreign Key to `sce_comments.id`.<fk table='sce_comments' column='id'/>
+     * This is a Foreign Key to `comments.id`.<fk table='comments' column='id'/>
      */
     comment_id: string;
     /**
      * Format: uuid
      * @description Note:
-     * This is a Foreign Key to `sce_display_users.id`.<fk table='sce_display_users' column='id'/>
+     * This is a Foreign Key to `display_users.id`.<fk table='display_users' column='id'/>
      */
     user_id: string;
     /**
      * Format: character varying
      * @description Note:
-     * This is a Foreign Key to `sce_reactions.type`.<fk table='sce_reactions' column='type'/>
+     * This is a Foreign Key to `reactions.type`.<fk table='reactions' column='type'/>
      */
     reaction_type: string;
   };
@@ -783,7 +783,7 @@ export interface definitions {
      */
     updated_at: string;
   };
-  sce_reactions: {
+  reactions: {
     /**
      * Format: character varying
      * @description Note:
@@ -802,17 +802,17 @@ export interface definitions {
     /** Format: jsonb */
     metadata?: unknown;
   };
-  sce_comment_reactions_metadata: {
+  comment_reactions_metadata: {
     /**
      * Format: uuid
      * @description Note:
-     * This is a Foreign Key to `sce_comments.id`.<fk table='sce_comments' column='id'/>
+     * This is a Foreign Key to `comments.id`.<fk table='comments' column='id'/>
      */
     comment_id?: string;
     /**
      * Format: character varying
      * @description Note:
-     * This is a Foreign Key to `sce_reactions.type`.<fk table='sce_reactions' column='type'/>
+     * This is a Foreign Key to `reactions.type`.<fk table='reactions' column='type'/>
      */
     reaction_type?: string;
     /** Format: bigint */
@@ -820,7 +820,7 @@ export interface definitions {
     /** Format: boolean */
     active_for_user?: boolean;
   };
-  sce_display_users: {
+  display_users: {
     /**
      * Format: uuid
      * @description Note:
@@ -834,7 +834,7 @@ export interface definitions {
     /** Format: text */
     avatar?: string;
   };
-  sce_comments_with_metadata: {
+  comments_with_metadata: {
     /**
      * Format: uuid
      * @description Note:
@@ -850,13 +850,13 @@ export interface definitions {
     /**
      * Format: uuid
      * @description Note:
-     * This is a Foreign Key to `sce_display_users.id`.<fk table='sce_display_users' column='id'/>
+     * This is a Foreign Key to `display_users.id`.<fk table='display_users' column='id'/>
      */
     user_id?: string;
     /**
      * Format: uuid
      * @description Note:
-     * This is a Foreign Key to `sce_comments.id`.<fk table='sce_comments' column='id'/>
+     * This is a Foreign Key to `comments.id`.<fk table='comments' column='id'/>
      */
     parent_id?: string;
     /** Format: ARRAY */
@@ -871,17 +871,17 @@ export interface parameters {
    * @description Preference
    * @enum {string}
    */
-  preferParams: "params=single-object";
+  preferParams: 'params=single-object';
   /**
    * @description Preference
    * @enum {string}
    */
-  preferReturn: "return=representation" | "return=minimal" | "return=none";
+  preferReturn: 'return=representation' | 'return=minimal' | 'return=none';
   /**
    * @description Preference
    * @enum {string}
    */
-  preferCount: "count=none";
+  preferCount: 'count=none';
   /** @description Filtering Columns */
   select: string;
   /** @description On Conflict */
@@ -899,96 +899,96 @@ export interface parameters {
   offset: string;
   /** @description Limiting and Pagination */
   limit: string;
-  /** @description sce_comments */
-  "body.sce_comments": definitions["sce_comments"];
+  /** @description comments */
+  'body.comments': definitions['comments'];
   /** Format: uuid */
-  "rowFilter.sce_comments.id": string;
+  'rowFilter.comments.id': string;
   /** Format: timestamp with time zone */
-  "rowFilter.sce_comments.created_at": string;
+  'rowFilter.comments.created_at': string;
   /** Format: character varying */
-  "rowFilter.sce_comments.topic": string;
+  'rowFilter.comments.topic': string;
   /** Format: character varying */
-  "rowFilter.sce_comments.comment": string;
+  'rowFilter.comments.comment': string;
   /** Format: uuid */
-  "rowFilter.sce_comments.user_id": string;
+  'rowFilter.comments.user_id': string;
   /** Format: uuid */
-  "rowFilter.sce_comments.parent_id": string;
+  'rowFilter.comments.parent_id': string;
   /** Format: ARRAY */
-  "rowFilter.sce_comments.mentioned_user_ids": string;
-  /** @description sce_comment_reactions */
-  "body.sce_comment_reactions": definitions["sce_comment_reactions"];
+  'rowFilter.comments.mentioned_user_ids': string;
+  /** @description comment_reactions */
+  'body.comment_reactions': definitions['comment_reactions'];
   /** Format: uuid */
-  "rowFilter.sce_comment_reactions.id": string;
+  'rowFilter.comment_reactions.id': string;
   /** Format: timestamp with time zone */
-  "rowFilter.sce_comment_reactions.created_at": string;
+  'rowFilter.comment_reactions.created_at': string;
   /** Format: uuid */
-  "rowFilter.sce_comment_reactions.comment_id": string;
+  'rowFilter.comment_reactions.comment_id': string;
   /** Format: uuid */
-  "rowFilter.sce_comment_reactions.user_id": string;
+  'rowFilter.comment_reactions.user_id': string;
   /** Format: character varying */
-  "rowFilter.sce_comment_reactions.reaction_type": string;
+  'rowFilter.comment_reactions.reaction_type': string;
   /** @description pages */
-  "body.pages": definitions["pages"];
+  'body.pages': definitions['pages'];
   /** Format: bigint */
-  "rowFilter.pages.id": string;
+  'rowFilter.pages.id': string;
   /** Format: text */
-  "rowFilter.pages.slug": string;
+  'rowFilter.pages.slug': string;
   /** Format: text */
-  "rowFilter.pages.url": string;
+  'rowFilter.pages.url': string;
   /** Format: bigint */
-  "rowFilter.pages.views": string;
+  'rowFilter.pages.views': string;
   /** Format: timestamp with time zone */
-  "rowFilter.pages.updated_at": string;
-  /** @description sce_reactions */
-  "body.sce_reactions": definitions["sce_reactions"];
+  'rowFilter.pages.updated_at': string;
+  /** @description reactions */
+  'body.reactions': definitions['reactions'];
   /** Format: character varying */
-  "rowFilter.sce_reactions.type": string;
+  'rowFilter.reactions.type': string;
   /** Format: timestamp with time zone */
-  "rowFilter.sce_reactions.created_at": string;
+  'rowFilter.reactions.created_at': string;
   /** Format: character varying */
-  "rowFilter.sce_reactions.label": string;
+  'rowFilter.reactions.label': string;
   /** Format: character varying */
-  "rowFilter.sce_reactions.url": string;
+  'rowFilter.reactions.url': string;
   /** Format: jsonb */
-  "rowFilter.sce_reactions.metadata": string;
-  /** @description sce_comment_reactions_metadata */
-  "body.sce_comment_reactions_metadata": definitions["sce_comment_reactions_metadata"];
+  'rowFilter.reactions.metadata': string;
+  /** @description comment_reactions_metadata */
+  'body.comment_reactions_metadata': definitions['comment_reactions_metadata'];
   /** Format: uuid */
-  "rowFilter.sce_comment_reactions_metadata.comment_id": string;
+  'rowFilter.comment_reactions_metadata.comment_id': string;
   /** Format: character varying */
-  "rowFilter.sce_comment_reactions_metadata.reaction_type": string;
+  'rowFilter.comment_reactions_metadata.reaction_type': string;
   /** Format: bigint */
-  "rowFilter.sce_comment_reactions_metadata.reaction_count": string;
+  'rowFilter.comment_reactions_metadata.reaction_count': string;
   /** Format: boolean */
-  "rowFilter.sce_comment_reactions_metadata.active_for_user": string;
-  /** @description sce_display_users */
-  "body.sce_display_users": definitions["sce_display_users"];
+  'rowFilter.comment_reactions_metadata.active_for_user': string;
+  /** @description display_users */
+  'body.display_users': definitions['display_users'];
   /** Format: uuid */
-  "rowFilter.sce_display_users.id": string;
+  'rowFilter.display_users.id': string;
   /** Format: text */
-  "rowFilter.sce_display_users.name": string;
+  'rowFilter.display_users.name': string;
   /** Format: text */
-  "rowFilter.sce_display_users.handle": string;
+  'rowFilter.display_users.handle': string;
   /** Format: text */
-  "rowFilter.sce_display_users.avatar": string;
-  /** @description sce_comments_with_metadata */
-  "body.sce_comments_with_metadata": definitions["sce_comments_with_metadata"];
+  'rowFilter.display_users.avatar': string;
+  /** @description comments_with_metadata */
+  'body.comments_with_metadata': definitions['comments_with_metadata'];
   /** Format: uuid */
-  "rowFilter.sce_comments_with_metadata.id": string;
+  'rowFilter.comments_with_metadata.id': string;
   /** Format: timestamp with time zone */
-  "rowFilter.sce_comments_with_metadata.created_at": string;
+  'rowFilter.comments_with_metadata.created_at': string;
   /** Format: character varying */
-  "rowFilter.sce_comments_with_metadata.topic": string;
+  'rowFilter.comments_with_metadata.topic': string;
   /** Format: character varying */
-  "rowFilter.sce_comments_with_metadata.comment": string;
+  'rowFilter.comments_with_metadata.comment': string;
   /** Format: uuid */
-  "rowFilter.sce_comments_with_metadata.user_id": string;
+  'rowFilter.comments_with_metadata.user_id': string;
   /** Format: uuid */
-  "rowFilter.sce_comments_with_metadata.parent_id": string;
+  'rowFilter.comments_with_metadata.parent_id': string;
   /** Format: ARRAY */
-  "rowFilter.sce_comments_with_metadata.mentioned_user_ids": string;
+  'rowFilter.comments_with_metadata.mentioned_user_ids': string;
   /** Format: bigint */
-  "rowFilter.sce_comments_with_metadata.replies_count": string;
+  'rowFilter.comments_with_metadata.replies_count': string;
 }
 
 export interface operations {}

@@ -14,26 +14,26 @@ export default {
         ios: 'https://itunes.apple.com/us/app/duckduckgo-search-stories/id663592361?mt=8',
         android:
           'https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android',
-        linux: 'https://duckduckgo.com',
-      },
-    },
+        linux: 'https://duckduckgo.com'
+      }
+    }
   ],
   resources: [
     {
       name: 'DuckDuckGo Privacy',
-      url: 'https://duckduckgo.com/privacy',
+      url: 'https://duckduckgo.com/privacy'
     },
     {
       name: 'About DuckDuckGo',
-      url: 'https://duckduckgo.com/about',
+      url: 'https://duckduckgo.com/about'
     },
     {
       name: 'DuckDuckGo: No, we’re not using fingerprinting to track you',
-      url: 'https://techcrunch.com/2019/01/07/duckduckgo-browser-fingerprinting/',
+      url: 'https://techcrunch.com/2019/01/07/duckduckgo-browser-fingerprinting/'
     },
     {
       name: 'Everything Google knows about you',
-      url: 'https://myactivity.google.com/myactivity',
-    },
-  ],
-}
+      url: 'https://myactivity.google.com/myactivity'
+    }
+  ]
+};

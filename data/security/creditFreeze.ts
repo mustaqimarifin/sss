@@ -9,27 +9,27 @@ export default {
   resources: [
     {
       name: 'FTC Credit Freeze FAQs',
-      url: 'https://www.consumer.ftc.gov/articles/0497-credit-freeze-faqs',
+      url: 'https://www.consumer.ftc.gov/articles/0497-credit-freeze-faqs'
     },
     {
       name: 'Freezing credit will now be free; here’s why you should go for it',
-      url: 'https://www.nytimes.com/2018/09/14/your-money/credit-freeze-free.html',
+      url: 'https://www.nytimes.com/2018/09/14/your-money/credit-freeze-free.html'
     },
     {
       name: '7 things you should know before freezing your credit',
-      url: 'https://www.experian.com/blogs/ask-experian/7-things-you-need-to-know-before-freezing-your-credit/',
+      url: 'https://www.experian.com/blogs/ask-experian/7-things-you-need-to-know-before-freezing-your-credit/'
     },
     {
       name: 'Experian Freeze',
-      url: 'https://www.experian.com/freeze/center.html',
+      url: 'https://www.experian.com/freeze/center.html'
     },
     {
       name: 'Equifax Freeze',
-      url: 'https://www.equifax.com/personal/credit-report-services/',
+      url: 'https://www.equifax.com/personal/credit-report-services/'
     },
     {
       name: 'TransUnion Freeze',
-      url: 'https://www.transunion.com/credit-freeze',
-    },
-  ],
-}
+      url: 'https://www.transunion.com/credit-freeze'
+    }
+  ]
+};

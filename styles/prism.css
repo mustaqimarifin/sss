@@ -105,7 +105,7 @@
   color: rgb(173, 219, 103);
   font-style: italic;
 }
-.token.string{
+.token.string {
   @apply break-normal !important;
 }
 .token.string,

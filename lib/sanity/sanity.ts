@@ -1,7 +1,7 @@
 import imageUrlBuilder from '@sanity/image-url';
-import { sanityConfig } from './config';
-
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+
+import { sanityConfig } from './config';
 
 export const imageBuilder = imageUrlBuilder(sanityConfig);
 

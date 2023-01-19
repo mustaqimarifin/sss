@@ -10,15 +10,15 @@ export default {
   resources: [
     {
       name: 'Opt out of Whitepages',
-      url: 'https://support.whitepages.com/hc/en-us/requests/new?ticket_form_id=580868',
+      url: 'https://support.whitepages.com/hc/en-us/requests/new?ticket_form_id=580868'
     },
     {
       name: 'Opt out of Intelius',
-      url: 'https://www.intelius.com/opt-out/submit/',
+      url: 'https://www.intelius.com/opt-out/submit/'
     },
     {
       name: 'Opt out of BeenVerified',
-      url: 'https://www.beenverified.com/app/optout/search',
-    },
-  ],
-}
+      url: 'https://www.beenverified.com/app/optout/search'
+    }
+  ]
+};

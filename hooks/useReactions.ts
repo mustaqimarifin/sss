@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseReactionsOptions {
@@ -20,7 +21,7 @@ const useReactions = (options: UseReactionsOptions = {}) => {
         data?.forEach((reaction) => {
           queryClient.setQueryData(['reactions', reaction.type], reaction);
         });
-      },
+      }
     }
   );
 };

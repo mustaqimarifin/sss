@@ -1,8 +1,8 @@
 import { Loading, Modal } from '@supabase/ui';
 import { CommentReactionMetadata } from 'api';
+import clsx from 'clsx';
 import { useCommentReactions } from 'hooks';
 import React, { FC, useState } from 'react';
-import { XD } from 'services/xD';
 
 import Reaction from './Reaction';
 import User from './User';
@@ -76,7 +76,7 @@ const CommentReaction: FC<CommentReactionProps> = ({
         size="small"
       />
       <div
-        className={XD(
+        className={clsx(
           'flex space-x-2 py-0.5 px-1 rounded-full items-center border-2',
           metadata.active_for_user
             ? `bg-[color:var(--sce-accent-50)] dark:bg-[color:var(--sce-accent-900)] border-[color:var(--sce-accent-200)] dark:border-[color:var(--sce-accent-600)]`

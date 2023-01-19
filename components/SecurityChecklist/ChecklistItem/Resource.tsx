@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Link } from 'react-feather'
+import * as React from 'react';
+import { Link } from 'react-feather';
 
-import type { Resource } from '../types'
+import type { Resource } from '../types';
 
 type Props = {
-  resource: Resource
-}
+  resource: Resource;
+};
 
 export const ResourceRow = ({ resource }: Props) => (
   <div className="block">
@@ -17,4 +17,4 @@ export const ResourceRow = ({ resource }: Props) => (
       <span>{resource.name}</span>
     </a>
   </div>
-)
+);

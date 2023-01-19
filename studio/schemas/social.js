@@ -4,6 +4,6 @@ const social = {
   title: 'Social Links',
   description: 'Enter your Social Media URLs',
   validation: (Rule) => Rule.unique(),
-  of: [{type: 'media'}],
-}
-export default social
+  of: [{ type: 'media' }]
+};
+export default social;

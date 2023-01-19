@@ -1,5 +1,10 @@
 {
-  "extends": ["plugin:prettier/recommended", "plugin:@next/next/recommended"],
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
   "env": {
     "node": true,
@@ -9,30 +14,35 @@
     "es6": true
   },
   "rules": {
-    "simple-import-sort/imports": 0,
-    "simple-import-sort/exports": 0,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
     "prettier/prettier": [
-      0,
+      "error",
       {
         "singleQuote": true
       }
     ],
-    "react/display-name": 0,
-    "react/prop-types": 0,
-    "react/no-unescaped-entities": 0,
-    "import/no-anonymous-default-export": 0,
-    // for use in edge api routes
-    "@next/next/no-server-import-in-page": 0,
+    "react/prop-types": "off",
+    "react/display-name": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/ban-types": 0,
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-extra-semi": 0,
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "@next/next/no-html-link-for-pages": "off"
   },
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "tsconfigRootDir": "__dirname",
+    " project": ["./tsconfig.json"]
+  },
   "settings": {
     "react": {
       "pragma": "React",

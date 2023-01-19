@@ -9,8 +9,8 @@ const coverImage = {
       title: 'Image caption',
       description: 'Appears below image.',
       options: {
-        isHighlighted: true,
-      },
+        isHighlighted: true
+      }
     },
     {
       name: 'alt',
@@ -18,13 +18,13 @@ const coverImage = {
       title: 'Alternative text',
       description: 'Important for SEO and accessiblity.',
       options: {
-        isHighlighted: true,
-      },
-    },
+        isHighlighted: true
+      }
+    }
   ],
   options: {
-    hotspot: true,
-  },
-}
+    hotspot: true
+  }
+};
 
-export default coverImage
+export default coverImage;

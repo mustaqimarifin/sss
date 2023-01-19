@@ -111,7 +111,7 @@ function MagicLinkView({
             className="px-4 py-2 rounded shadow-sm w-full flex items-center justify-center border border-gray-300 text-gray-800 focus-ring"
             onClick={() =>
               supabase.auth.signIn(
-                { provider: 'twitter' },
+                { provider: 'github' },
                 {
                   redirectTo: (window.location.href =
                     location.protocol +

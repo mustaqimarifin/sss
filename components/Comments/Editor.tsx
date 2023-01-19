@@ -1,4 +1,3 @@
-// @ts-ignore
 import { IconBold, IconCode, IconItalic, IconList } from '@supabase/ui';
 import { Editor as IEditor } from '@tiptap/core';
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
@@ -6,9 +5,9 @@ import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import clsx from 'clsx';
 import { lowlight } from 'lowlight/lib/core';
 import React, { FC, forwardRef, ReactNode, useImperativeHandle } from 'react';
-import { XD } from 'services/xD';
 
 import { useCommentsContext } from './CommentsProvider';
 import styles from './Editor.module.css';
@@ -82,18 +81,18 @@ const Editor: FC<EditorProps> = forwardRef(
 
     return (
       <div
-        className={XD(
+        className={clsx(
           readOnly ? styles.viewer : styles.editor,
           'tiptap-editor text-alpha-80 border-alpha-10 rounded-md'
         )}
       >
         <EditorContent
-          className={XD('h-full', readOnly ? null : 'pb-8')}
+          className={clsx('h-full', readOnly ? null : 'pb-8')}
           editor={editor}
         />
         {!readOnly && (
           <div
-            className={XD(
+            className={clsx(
               'border-t-2 border-alpha-10',
               'absolute bottom-0 left-0 right-0 flex items-center h-8 z-10'
             )}
@@ -107,7 +106,7 @@ const Editor: FC<EditorProps> = forwardRef(
               title="Bold"
             >
               <IconBold
-                className={XD(
+                className={clsx(
                   'h-6 w-6 p-1.5 font-bold rounded-full',
                   editor?.isActive('bold') && activeStyles
                 )}
@@ -122,7 +121,7 @@ const Editor: FC<EditorProps> = forwardRef(
               title="Italic"
             >
               <IconItalic
-                className={XD(
+                className={clsx(
                   'h-6 w-6 p-1.5 font-bold rounded-full',
                   editor?.isActive('italic') && activeStyles
                 )}
@@ -137,7 +136,7 @@ const Editor: FC<EditorProps> = forwardRef(
               title="Code Block"
             >
               <IconCode
-                className={XD(
+                className={clsx(
                   'h-6 w-6 p-1.5 font-bold rounded-full',
                   editor?.isActive('codeBlock') && activeStyles
                 )}
@@ -155,7 +154,7 @@ const Editor: FC<EditorProps> = forwardRef(
                 stroke="currentColor"
                 fill="currentColor"
                 fillOpacity=".75"
-                className={XD(
+                className={clsx(
                   'h-6 w-6 p-1.5 font-bold rounded-full',
                   editor?.isActive('bulletList') && activeStyles
                 )}
@@ -180,7 +179,7 @@ const Editor: FC<EditorProps> = forwardRef(
                 stroke="currentColor"
                 fill="currentColor"
                 fillOpacity=".75"
-                className={XD(
+                className={clsx(
                   'h-6 w-6 p-1.5 font-bold rounded-full',
                   editor?.isActive('orderedList') && activeStyles
                 )}

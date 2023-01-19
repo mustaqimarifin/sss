@@ -14,6 +14,7 @@ interface Props {
 
 const globalNavigationContext = {
   isOpen: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setIsOpen: (val: boolean) => {}
 };
 

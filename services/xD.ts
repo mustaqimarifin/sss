@@ -1,3 +1,3 @@
-export function XD(...classes: string[]) {
+export function clsx(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }

@@ -12,7 +12,7 @@ import reSHART from 'remark-gfm';
 //import { BUNDLED_LANGUAGES, getHighlighter } from 'shiki';
 // import rehypePrism from 'rehype-prism-plus';
 
-// ?? `Just goin full on stupid with URL Imports since it got me all nostalgic on how webdev was for a good while XD //
+// ?? `Just goin full on stupid with URL Imports since it got me all nostalgic on how webdev was for a good while clsx //
 
 /* import reCODE from 'https://cdn.skypack.dev/-/rehype-code-titles@v1.1.0-rce7VeQLvZaNixdqcQJt/dist=es2019,mode=imports/optimized/rehype-code-titles.js';
 import reSLUG from 'https://cdn.skypack.dev/pin/rehype-slug@v5.0.1-syjjWioHvkx5fSuy1T2Z/mode=imports,min/optimized/rehype-slug.js';

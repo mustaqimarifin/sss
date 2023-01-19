@@ -1,7 +1,7 @@
 import { Typography } from '@supabase/ui';
+import clsx from 'clsx';
 import { useUser } from 'hooks';
 import React, { FC } from 'react';
-import { XD } from 'services/xD';
 
 import Avatar from './Avatar';
 import { useCommentsContext } from './CommentsProvider';
@@ -24,16 +24,16 @@ const User: FC<UserProps> = ({
   className
 }) => {
   const context = useCommentsContext();
-  const query = useUser({ id: id! }, { enabled: !!id });
+  const query = useUser({ id: id }, { enabled: !!id });
 
   const user = query.data;
 
   return (
-    <div className={XD('flex items-center space-x-2', className)}>
+    <div className={clsx('flex items-center space-x-2', className)}>
       {showAvatar && (
         <Avatar
           key={user?.avatar}
-          className={XD(user && 'cursor-pointer')}
+          className={clsx(user && 'cursor-pointer')}
           onClick={() => {
             if (user && propagateClick) {
               context.onUserClick?.(user);

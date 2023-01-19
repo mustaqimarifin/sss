@@ -8,7 +8,7 @@ const post = {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'slug',
@@ -16,60 +16,61 @@ const post = {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96,
-      },
+        maxLength: 96
+      }
     },
     {
       name: 'excerpt',
       title: 'Excerpt',
-      description: 'The excerpt is used in blog feeds, and also for search results',
+      description:
+        'The excerpt is used in blog feeds, and also for search results',
       type: 'string',
 
-      validation: (Rule) => Rule.max(200),
+      validation: (Rule) => Rule.max(200)
     },
     {
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: {type: 'author'},
+      to: { type: 'author' }
     },
     {
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'coverImage',
+      type: 'coverImage'
     },
 
     {
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'tag'}}],
+      of: [{ type: 'reference', to: { type: 'tag' } }]
     },
     {
       name: 'date',
       title: 'Date',
-      type: 'datetime',
+      type: 'datetime'
     },
     {
       name: 'content',
       title: 'Content',
-      type: 'markdown',
-    },
+      type: 'markdown'
+    }
   ],
 
   preview: {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'coverImage',
+      media: 'coverImage'
     },
     prepare(selection) {
-      const {author} = selection
+      const { author } = selection;
       return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
-      })
-    },
-  },
-}
+        subtitle: author && `by ${author}`
+      });
+    }
+  }
+};
 
-export default post
+export default post;

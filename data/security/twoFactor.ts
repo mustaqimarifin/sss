@@ -18,15 +18,15 @@ export default {
       url: 'https://1password.com/',
       offer: {
         label: 'Sign up to get 3 months free',
-        url: 'https://start.1password.com/sign-up/family?c=SECURELIST-FJN7FIKQ',
+        url: 'https://start.1password.com/sign-up/family?c=SECURELIST-FJN7FIKQ'
       },
       sources: {
         windows: 'https://1password.com/downloads/windows/',
         macos: 'https://1password.com/downloads/mac/',
         ios: 'https://1password.com/downloads/ios/',
         android: 'https://1password.com/downloads/android/',
-        linux: 'https://1password.com/downloads/linux/',
-      },
+        linux: 'https://1password.com/downloads/linux/'
+      }
     },
     {
       name: 'Authy',
@@ -36,9 +36,8 @@ export default {
         windows: 'https://authy.com/download/',
         macos: 'https://authy.com/download/',
         ios: 'https://itunes.apple.com/us/app/authy/id494168017',
-        android:
-          'https://play.google.com/store/apps/details?id=com.authy.authy',
-      },
+        android: 'https://play.google.com/store/apps/details?id=com.authy.authy'
+      }
     },
     {
       name: 'Google Authenticator',
@@ -47,8 +46,8 @@ export default {
       sources: {
         ios: 'https://itunes.apple.com/us/app/google-authenticator/id388497605',
         android:
-          'https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_us',
-      },
+          'https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_us'
+      }
     },
     {
       name: 'LastPass',
@@ -61,8 +60,8 @@ export default {
           'https://itunes.apple.com/us/app/lastpass/id926036361?ls=1&mt=12',
         ios: 'https://itunes.apple.com/us/app/lastpass-password-manager/id324613447',
         android: 'https://lastpass.com/android_market.php',
-        linux: 'https://lastpass.com/misc_download2.php',
-      },
+        linux: 'https://lastpass.com/misc_download2.php'
+      }
     },
     {
       name: 'Microsoft Authenticator',
@@ -71,39 +70,39 @@ export default {
       sources: {
         ios: 'https://itunes.apple.com/app/microsoft-authenticator/id983156458',
         android:
-          'https://play.google.com/store/apps/details?id=com.azure.authenticator',
-      },
+          'https://play.google.com/store/apps/details?id=com.azure.authenticator'
+      }
     },
     {
       name: 'YubiKey',
       image: 'yubico.jpg',
-      url: 'https://www.yubico.com/',
-    },
+      url: 'https://www.yubico.com/'
+    }
   ],
   resources: [
     {
       name: 'What is two-factor authentication?',
-      url: 'https://authy.com/what-is-2fa/',
+      url: 'https://authy.com/what-is-2fa/'
     },
     {
       name: 'Two-factor authentication: a little goes a long way',
-      url: 'https://securityintelligence.com/two-factor-authentication-a-little-goes-a-long-way/',
+      url: 'https://securityintelligence.com/two-factor-authentication-a-little-goes-a-long-way/'
     },
     {
       name: 'So hey, you should stop using texts for two-factor authentication',
-      url: 'https://www.wired.com/2016/06/hey-stop-using-texts-two-factor-authentication/',
+      url: 'https://www.wired.com/2016/06/hey-stop-using-texts-two-factor-authentication/'
     },
     {
       name: 'List of websites and whether or not they support 2FA.',
-      url: 'https://twofactorauth.org/',
+      url: 'https://twofactorauth.org/'
     },
     {
       name: 'Step-by-step instructions on enabling 2FA',
-      url: 'https://www.turnon2fa.com/',
+      url: 'https://www.turnon2fa.com/'
     },
     {
       name: 'List of websites and whether or not they support One Time Passwords (OTP) or Universal 2nd Factor (U2F)',
-      url: 'https://www.dongleauth.info/',
-    },
-  ],
-}
+      url: 'https://www.dongleauth.info/'
+    }
+  ]
+};

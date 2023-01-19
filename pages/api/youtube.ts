@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 // import { google } from 'googleapis';
 import { youtube } from '@googleapis/youtube';
 import gAuth from 'lib/google';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
   req: NextApiRequest,

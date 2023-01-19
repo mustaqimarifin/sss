@@ -15,8 +15,8 @@ export default {
         macos: 'https://www.ivpn.net/apps-macos',
         ios: 'https://www.ivpn.net/apps-ios',
         android: 'https://www.ivpn.net/apps-android',
-        linux: 'https://www.ivpn.net/setup/gnu-linux-terminal.html',
-      },
+        linux: 'https://www.ivpn.net/setup/gnu-linux-terminal.html'
+      }
     },
     {
       name: 'Encrypt.me',
@@ -27,8 +27,8 @@ export default {
         macos: 'https://app.encrypt.me/transition/download/osx/latest/',
         ios: 'https://itunes.apple.com/us/app/encrypt-me/id473835722?ls=1&mt=8',
         android:
-          'https://play.google.com/store/apps/details?id=com.stackpath.cloak',
-      },
+          'https://play.google.com/store/apps/details?id=com.stackpath.cloak'
+      }
     },
     {
       name: 'ExpressVPN',
@@ -36,7 +36,7 @@ export default {
       url: 'https://www.expressvpn.com/',
       offer: {
         label: 'Get 30 days free',
-        url: 'https://www.expressrefer.com/refer-friend?referrer_id=44490458&utm_campaign=referrals&utm_medium=copy_link&utm_source=referral_dashboard',
+        url: 'https://www.expressrefer.com/refer-friend?referrer_id=44490458&utm_campaign=referrals&utm_medium=copy_link&utm_source=referral_dashboard'
       },
       sources: {
         windows: 'https://www.expressvpn.com/vpn-software/vpn-windows',
@@ -44,8 +44,8 @@ export default {
         ios: 'https://www.expressvpn.com/vpn-software/vpn-ios',
         android: 'https://www.expressvpn.com/vpn-software/vpn-android',
         linux:
-          'https://www.expressvpn.com/support/vpn-setup/manual-config-for-linux-with-openvpn/',
-      },
+          'https://www.expressvpn.com/support/vpn-setup/manual-config-for-linux-with-openvpn/'
+      }
     },
     {
       name: 'NordVPN',
@@ -56,8 +56,8 @@ export default {
         macos: 'https://nordvpn.com/download/mac/',
         ios: 'https://nordvpn.com/download/ios/',
         android: 'https://nordvpn.com/download/android/',
-        linux: 'https://nordvpn.com/tutorials/linux/',
-      },
+        linux: 'https://nordvpn.com/tutorials/linux/'
+      }
     },
     {
       name: 'ProtonVPN',
@@ -69,8 +69,8 @@ export default {
         ios: 'https://itunes.apple.com/us/app/protonvpn-fast-secure-vpn/id1437005085',
         android:
           'https://play.google.com/store/apps/details?id=ch.protonvpn.android',
-        linux: 'https://protonvpn.com/download/#dl-clients',
-      },
+        linux: 'https://protonvpn.com/download/#dl-clients'
+      }
     },
     {
       name: 'Private Internet Access',
@@ -85,8 +85,8 @@ export default {
         android:
           'https://play.google.com/store/apps/details?id=com.privateinternetaccess.android&hl=en',
         linux:
-          'https://www.privateinternetaccess.com/installer/x/download_installer_linux',
-      },
+          'https://www.privateinternetaccess.com/installer/x/download_installer_linux'
+      }
     },
     {
       name: 'PureVPN',
@@ -97,34 +97,34 @@ export default {
         macos: 'https://www.purevpn.com/download/mac-vpn',
         ios: ' https://www.purevpn.com/download/ios-vpn',
         android: 'https://www.purevpn.com/download/android-vpn',
-        linux: 'https://www.purevpn.com/download/linux-vpn',
-      },
+        linux: 'https://www.purevpn.com/download/linux-vpn'
+      }
     },
     {
       name: 'Guardian Firewall',
       image: 'guardian.png',
       url: 'https://guardianapp.com',
       sources: {
-        ios: 'https://itunes.apple.com/us/app/guardian-firewall/id1363796315',
-      },
-    },
+        ios: 'https://itunes.apple.com/us/app/guardian-firewall/id1363796315'
+      }
+    }
   ],
   resources: [
     {
       name: 'Why you should be using a VPN',
-      url: 'https://lifehacker.com/5940565/why-you-should-start-using-a-vpn-and-how-to-choose-the-best-one-for-your-needs',
+      url: 'https://lifehacker.com/5940565/why-you-should-start-using-a-vpn-and-how-to-choose-the-best-one-for-your-needs'
     },
     {
       name: 'What is a VPN and why you need one',
-      url: 'https://www.pcmag.com/article/352757/you-need-a-vpn-and-heres-why',
+      url: 'https://www.pcmag.com/article/352757/you-need-a-vpn-and-heres-why'
     },
     {
       name: 'Why you should use a VPN on a public Wi-Fi network',
-      url: 'https://www.macworld.com/article/3322951/security/why-you-should-use-a-vpn-on-a-public-wi-fi-network.html',
+      url: 'https://www.macworld.com/article/3322951/security/why-you-should-use-a-vpn-on-a-public-wi-fi-network.html'
     },
     {
       name: 'A detailed VPN provider comparison chart',
-      url: 'https://thatoneprivacysite.net/vpn-comparison-chart/',
-    },
-  ],
-}
+      url: 'https://thatoneprivacysite.net/vpn-comparison-chart/'
+    }
+  ]
+};

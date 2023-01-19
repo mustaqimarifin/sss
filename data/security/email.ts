@@ -14,8 +14,8 @@ export default {
         ios: 'https://itunes.apple.com/us/app/fastmail-email-calendar/id931370077',
         android:
           'https://play.google.com/store/apps/details?id=com.fastmail.app',
-        linux: 'https://www.fastmail.com/',
-      },
+        linux: 'https://www.fastmail.com/'
+      }
     },
     {
       name: 'ProtonMail',
@@ -27,8 +27,8 @@ export default {
         ios: 'https://itunes.apple.com/app/protonmail-encrypted-email/id979659905',
         android:
           'https://play.google.com/store/apps/details?id=ch.protonmail.android',
-        linux: 'https://protonmail.com/',
-      },
+        linux: 'https://protonmail.com/'
+      }
     },
     {
       name: 'SimpleLogin',
@@ -38,8 +38,8 @@ export default {
         windows: 'https://simplelogin.io/',
         linux: 'https://simplelogin.io/',
         macos:
-          'https://apps.apple.com/us/app/simplelogin/id1494051017?mt=12&fbclid=IwAR0M0nnEKgoieMkmx91TSXrtcScj7GouqRxGgXeJz2un_5ydhIKlbAI79Io',
-      },
+          'https://apps.apple.com/us/app/simplelogin/id1494051017?mt=12&fbclid=IwAR0M0nnEKgoieMkmx91TSXrtcScj7GouqRxGgXeJz2un_5ydhIKlbAI79Io'
+      }
     },
     {
       name: 'Mailfence',
@@ -50,8 +50,8 @@ export default {
         macos: 'https://mailfence.com',
         ios: 'https://mailfence.com/m/',
         android: 'https://mailfence.com/m/',
-        linux: 'https://mailfence.com',
-      },
+        linux: 'https://mailfence.com'
+      }
     },
     {
       name: 'Tutanota',
@@ -64,8 +64,8 @@ export default {
         android:
           'https://play.google.com/store/apps/details?id=de.tutao.tutanota',
         linux:
-          'https://mail.tutanota.com/desktop/tutanota-desktop-linux.AppImage',
-      },
+          'https://mail.tutanota.com/desktop/tutanota-desktop-linux.AppImage'
+      }
     },
     {
       name: 'Burner Mail',
@@ -73,38 +73,38 @@ export default {
       url: 'https://burnermail.io/',
       sources: {
         windows: 'https://burnermail.io/',
-        macos: 'https://burnermail.io/',
-      },
-    },
+        macos: 'https://burnermail.io/'
+      }
+    }
   ],
   resources: [
     {
       name: 'Gmail vs FastMail',
-      url: 'https://hiverhq.com/blog/gmail-vs-fastmail-a-blunt-comparison/',
+      url: 'https://hiverhq.com/blog/gmail-vs-fastmail-a-blunt-comparison/'
     },
     {
       name: 'Stop the paranoia: it doesn’t matter if Google reads our email',
-      url: 'https://www.maxmasnick.com/2012/02/12/gmail_paranoia/',
+      url: 'https://www.maxmasnick.com/2012/02/12/gmail_paranoia/'
     },
     {
       name: 'How Google is destroying privacy and collecting your data',
-      url: 'https://www.salon.com/2014/02/05/4_ways_google_is_destroying_privacy_and_collecting_your_data_partner/',
+      url: 'https://www.salon.com/2014/02/05/4_ways_google_is_destroying_privacy_and_collecting_your_data_partner/'
     },
     {
       name: 'Privacy-friendly alternatives to Google that don’t track you',
-      url: 'https://nomoregoogle.com/',
+      url: 'https://nomoregoogle.com/'
     },
     {
       name: 'Opt out of global data surveillance programs like PRISM, XKeyscore and Tempora.',
-      url: 'https://prism-break.org/en/',
+      url: 'https://prism-break.org/en/'
     },
     {
       name: 'Knowledge and tools to protect your privacy against global mass surveillance',
-      url: 'https://www.privacytools.io/',
+      url: 'https://www.privacytools.io/'
     },
     {
       name: 'We should have a different email for each website',
-      url: 'https://simplelogin.io/blog/an-email-for-each-website/',
-    },
-  ],
-}
+      url: 'https://simplelogin.io/blog/an-email-for-each-website/'
+    }
+  ]
+};

@@ -9,23 +9,23 @@ export default {
   resources: [
     {
       name: 'SIM swap attacks and what you need to know',
-      url: 'https://www.dailydot.com/debug/sim-swap-attacks/',
+      url: 'https://www.dailydot.com/debug/sim-swap-attacks/'
     },
     {
       name: 'SIM hijacking explained',
-      url: 'https://www.pandasecurity.com/mediacenter/security/sim-hijacking-explained/',
+      url: 'https://www.pandasecurity.com/mediacenter/security/sim-hijacking-explained/'
     },
     {
       name: 'Verizon FAQ',
-      url: 'https://www.verizonwireless.com/support/account-pin-faqs/',
+      url: 'https://www.verizonwireless.com/support/account-pin-faqs/'
     },
     {
       name: 'AT&T FAQ',
-      url: 'https://www.att.com/esupport/article.html#!/wireless/KM1049472',
+      url: 'https://www.att.com/esupport/article.html#!/wireless/KM1049472'
     },
     {
       name: 'T-Mobile FAQ',
-      url: 'https://support.t-mobile.com/docs/DOC-37477',
-    },
-  ],
-}
+      url: 'https://support.t-mobile.com/docs/DOC-37477'
+    }
+  ]
+};

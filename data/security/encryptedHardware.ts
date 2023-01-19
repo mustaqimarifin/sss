@@ -7,27 +7,27 @@ export default {
   resources: [
     {
       name: 'Why you should encrypt your computer',
-      url: 'https://theintercept.com/2015/04/27/encrypting-laptop-like-mean/',
+      url: 'https://theintercept.com/2015/04/27/encrypting-laptop-like-mean/'
     },
     {
       name: 'Why you should be encrypting your devices, and how to easily do it',
-      url: 'https://gizmodo.com/why-you-should-be-encrypting-your-devices-and-how-to-ea-1798698901',
+      url: 'https://gizmodo.com/why-you-should-be-encrypting-your-devices-and-how-to-ea-1798698901'
     },
     {
       name: 'Encrypt your iOS backups',
-      url: 'https://support.apple.com/en-us/HT205220',
+      url: 'https://support.apple.com/en-us/HT205220'
     },
     {
       name: 'Encrypt your Android devices',
-      url: 'https://www.howtogeek.com/141953/how-to-encrypt-your-android-phone-and-why-you-might-want-to/',
+      url: 'https://www.howtogeek.com/141953/how-to-encrypt-your-android-phone-and-why-you-might-want-to/'
     },
     {
       name: 'Enable full-disk encryption on Windows PCs',
-      url: 'https://www.howtogeek.com/234826/how-to-enable-full-disk-encryption-on-windows-10/',
+      url: 'https://www.howtogeek.com/234826/how-to-enable-full-disk-encryption-on-windows-10/'
     },
     {
       name: 'Encrypt your Mac',
-      url: 'https://support.apple.com/en-us/HT204837',
-    },
-  ],
-}
+      url: 'https://support.apple.com/en-us/HT204837'
+    }
+  ]
+};

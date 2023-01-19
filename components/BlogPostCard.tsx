@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import useSWR from 'swr';
-// import cn from 'classnames';
+// import cn from ''clsx';
 
 import fetcher from 'lib/fetcher';
 import { Views } from 'lib/types';
-import { XD } from 'services/xD';
+import clsx from 'clsx';
 
 export default function BlogPostCard({ title, slug, gradient }) {
   const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);
@@ -13,7 +13,7 @@ export default function BlogPostCard({ title, slug, gradient }) {
   return (
     <Link href={`/blog/${slug}`}>
       <a
-        className={XD(
+        className={clsx(
           'transform hover:scale-[1.01] transition-all',
           'rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1',
           gradient

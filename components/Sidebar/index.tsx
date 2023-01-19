@@ -1,14 +1,14 @@
 import { TitleBar } from 'components/ListDetail/TitleBar';
 import { GlobalNavigationContext } from 'components/Providers';
-import * as React from 'react';
+import { useContext, useRef } from 'react';
 
 import { SidebarNavigation } from './Navigation';
 import { SidebarOverlay } from './Overlay';
 import { UserFooter } from './UserFooter';
 
 export function Sidebar() {
-  const { isOpen } = React.useContext(GlobalNavigationContext);
-  const scrollContainerRef = React.useRef(null);
+  const { isOpen } = useContext(GlobalNavigationContext);
+  const scrollContainerRef = useRef(null);
   return (
     <>
       <nav

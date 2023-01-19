@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseSearchUsersQuery {

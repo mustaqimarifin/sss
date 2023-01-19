@@ -1,7 +1,7 @@
 import { Dropdown, IconPlus, Typography } from '@supabase/ui';
+import clsx from 'clsx';
 import { useReactions } from 'hooks';
 import React, { FC } from 'react';
-import { XD } from 'services/xD';
 
 import Reaction from './Reaction';
 
@@ -25,7 +25,7 @@ const ReactionSelector: FC<ReactionSelectorProps> = ({
           }}
           icon={
             <div
-              className={XD(
+              className={clsx(
                 'p-0.5 -ml-2 border-2 rounded-full',
                 activeReactions.has(reaction.type)
                   ? 'bg-[color:var(--sce-accent-50)] border-[color:var(--sce-accent-200)] dark:bg-[color:var(--sce-accent-900)] dark:border-[color:var(--sce-accent-600)]'

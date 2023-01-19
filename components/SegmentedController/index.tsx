@@ -1,28 +1,28 @@
 // learned from https://samuelkraft.com/blog/segmented-control-framer-motion
-import { AnimateSharedLayout, motion } from 'framer-motion'
-import { useState } from 'react'
+import { AnimateSharedLayout, motion } from 'framer-motion';
+import { useState } from 'react';
 
 type Item = {
-  id: string
-  label: string
-}
+  id: string;
+  label: string;
+};
 
 type SegmentedControlProps = {
-  onSetActiveItem: Function
-  items: Array<Item>
-  active: String
-}
+  onSetActiveItem: Function;
+  items: Array<Item>;
+  active: String;
+};
 
 const SegmentedControl = ({
   onSetActiveItem,
   items,
-  active,
+  active
 }: SegmentedControlProps): JSX.Element => {
-  const [activeItem, setActiveitem] = useState(active)
+  const [activeItem, setActiveitem] = useState(active);
 
   function onChange(i) {
-    setActiveitem(items[i].id)
-    onSetActiveItem(items[i].id)
+    setActiveitem(items[i].id);
+    onSetActiveItem(items[i].id);
   }
 
   return (
@@ -31,7 +31,7 @@ const SegmentedControl = ({
         className={`flex list-none rounded-md bg-black bg-opacity-5 p-1 dark:bg-white dark:bg-opacity-5`}
       >
         {items.map((item, i) => {
-          const isActive = items[i].id === activeItem
+          const isActive = items[i].id === activeItem;
           return (
             <motion.li
               className="relative flex-1 leading-none"
@@ -56,11 +56,11 @@ const SegmentedControl = ({
                 <span className="z-2 relative">{item.label}</span>
               </button>
             </motion.li>
-          )
+          );
         })}
       </ol>
     </AnimateSharedLayout>
-  )
-}
+  );
+};
 
-export default SegmentedControl
+export default SegmentedControl;

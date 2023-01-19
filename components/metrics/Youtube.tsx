@@ -1,8 +1,8 @@
-import useSWR from 'swr';
-
+import MetricCard from 'components/metrics/Card';
 import fetcher from 'lib/fetcher';
 import { YouTube } from 'lib/types';
-import MetricCard from 'components/metrics/Card';
+import useSWR from 'swr';
+
 import Analytics from './Analytics';
 
 export default function YouTubeCard() {

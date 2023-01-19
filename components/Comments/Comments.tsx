@@ -1,7 +1,7 @@
 import { Button, IconAlertCircle, Loading, Typography } from '@supabase/ui';
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { XD } from 'services/xD';
-
+import clsx from 'clsx';
+import { GhostButton } from 'components/Button';
+import { SignInDialog } from 'components/SignInDialog';
 import {
   useAddComment,
   useComments,
@@ -10,15 +10,15 @@ import {
 } from 'hooks';
 import useAuthUtils from 'hooks/useAuthUtils';
 import useUser from 'hooks/useUser';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { SignOut } from 'supabase/funkshunz/SignOut';
 import { getMentionedUserIds } from 'utils';
+
 import Comment from './Comment';
 import { useCommentsContext } from './CommentsProvider';
 import Editor, { EditorRefHandle } from './Editor';
 import { useReplyManager } from './ReplyManagerProvider';
 import User from './User';
-import { GhostButton } from 'components/Button';
-import { SignInDialog } from 'components/SignInDialog';
-import { SignOut } from 'supabase/funkshunz/SignOut';
 
 export enum CommentType {
   AppDissection = 'APPDX',
@@ -65,7 +65,7 @@ const Comments: FC<CommentsProps> = ({ topic, section, parentId = null }) => {
           Submit
         </Button>
         <button
-          className={XD(
+          className={clsx(
             '!px-[6px] !py-[3px] m-[3px] text-pink-400 hover:text-gray-50 hover:bg-teal-400  text-xs border border-transparent duration-200 ease-in-out focus-ring rounded'
           )}
           aria-label="Sign Out"
@@ -94,7 +94,7 @@ const Comments: FC<CommentsProps> = ({ topic, section, parentId = null }) => {
 
   const queries = {
     comments: useComments({ topic, parentId }),
-    user: useUser({ id: auth.user?.id! }, { enabled: !!auth.user?.id })
+    user: useUser({ id: auth.user?.id }, { enabled: !!auth.user?.id })
   };
 
   const mutations = {
@@ -133,7 +133,7 @@ const Comments: FC<CommentsProps> = ({ topic, section, parentId = null }) => {
   const user = queries.user.data;
 
   return (
-    <div className={XD(context.mode, 'sce-comments relative')}>
+    <div className={clsx(context.mode, 'sce-comments relative')}>
       {queries.comments.isLoading && (
         <div className="grid p-4 place-items-center">
           <div className="mr-4">
@@ -153,7 +153,7 @@ const Comments: FC<CommentsProps> = ({ topic, section, parentId = null }) => {
       )}
       {queries.comments.data && (
         <div
-          className={XD(
+          className={clsx(
             'relative space-y-1 rounded-md',
             !layoutReady ? 'invisible' : 'visible'
           )}

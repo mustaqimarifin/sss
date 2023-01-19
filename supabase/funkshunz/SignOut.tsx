@@ -13,3 +13,13 @@ export const TwitterLogin = async () => {
     }
   );
 };
+
+export const GithubLogin = async () => {
+  await supabase.auth.signIn(
+    { provider: 'github' },
+    {
+      redirectTo: (window.location.href =
+        location.protocol + '//' + location.host + location.pathname)
+    }
+  );
+};

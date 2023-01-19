@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseCommentQuery {
@@ -22,7 +23,7 @@ const useComment = (
     },
     {
       staleTime: Infinity,
-      enabled: options.enabled,
+      enabled: options.enabled
     }
   );
 };

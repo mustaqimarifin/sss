@@ -10,45 +10,45 @@ const siteConfig = {
       name: 'metadata',
       options: {
         collapsible: true,
-        collapsed: false,
-      },
+        collapsed: false
+      }
     },
     {
       title: 'Social Media',
-      name: 'social',
+      name: 'social'
     },
     {
       title: 'Website Logo',
       name: 'logos',
       options: {
         collapsible: true,
-        collapsed: false,
-      },
-    },
+        collapsed: false
+      }
+    }
   ],
   fields: [
     {
       name: 'title',
       type: 'string',
-      title: 'Site title',
+      title: 'Site title'
     },
     {
       title: 'URL',
       name: 'url',
       type: 'url',
-      description: 'The main site url. Used to create canonical url',
+      description: 'The main site url. Used to create canonical url'
     },
     {
       name: 'copyright',
       type: 'string',
       title: 'Copyright Name',
-      description: 'Enter company name to appear in footer after ©',
+      description: 'Enter company name to appear in footer after ©'
     },
     {
       title: 'Social Links',
       name: 'social',
       type: 'social',
-      fieldset: 'social',
+      fieldset: 'social'
     },
 
     /*  {
@@ -98,15 +98,15 @@ const siteConfig = {
           /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
           {
             name: 'email', // Error message is "Does not match email-pattern"
-            invert: false, // Boolean to allow any value that does NOT match pattern
+            invert: false // Boolean to allow any value that does NOT match pattern
           }
-        ),
+        )
     },
 
     {
       name: 'phone',
       type: 'string',
-      title: 'Support Phone',
+      title: 'Support Phone'
     },
 
     {
@@ -114,7 +114,7 @@ const siteConfig = {
       type: 'string',
       title: 'Web3Forms Access Key',
       description:
-        'Enter Access key obtained from web3forms.com. It is required to make the form work.',
+        'Enter Access key obtained from web3forms.com. It is required to make the form work.'
     },
 
     {
@@ -124,7 +124,7 @@ const siteConfig = {
       type: 'text',
       rows: 5,
       validation: (Rule) => Rule.min(20).max(200),
-      description: 'Enter SEO Meta Description',
+      description: 'Enter SEO Meta Description'
     },
 
     {
@@ -132,9 +132,9 @@ const siteConfig = {
       type: 'image',
       title: 'Open Graph Image',
       description: 'Image for sharing previews on Facebook, Twitter etc.',
-      fieldset: 'metadata',
-    },
-  ],
-}
+      fieldset: 'metadata'
+    }
+  ]
+};
 
-export default siteConfig
+export default siteConfig;

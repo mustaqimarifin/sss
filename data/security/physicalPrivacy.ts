@@ -8,11 +8,11 @@ export default {
   resources: [
     {
       name: 'Webcam covers (3 pack) on Amazon · No affiliate link',
-      url: 'https://www.amazon.com/0-027in-MacBook-Smartphone-Protecting-Security/dp/B077ZT29P2/ref=sr_1_4?s=pc&ie=UTF8&qid=1547412984&sr=1-4&keywords=webcam+cover',
+      url: 'https://www.amazon.com/0-027in-MacBook-Smartphone-Protecting-Security/dp/B077ZT29P2/ref=sr_1_4?s=pc&ie=UTF8&qid=1547412984&sr=1-4&keywords=webcam+cover'
     },
     {
       name: 'Laptop privacy screen reviews',
-      url: 'https://www.bestconsumerreviews.com/laptop-privacy-screen-reviews/',
-    },
-  ],
-}
+      url: 'https://www.bestconsumerreviews.com/laptop-privacy-screen-reviews/'
+    }
+  ]
+};

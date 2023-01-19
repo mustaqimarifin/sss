@@ -294,7 +294,7 @@ const CommentData: FC<CommentDataProps> = ({ comment }) => {
         </div>
         <div>
           {repliesVisible && !isReply && (
-            <div className="my-3">
+            <div className="my-2">
               <Comments topic={comment.topic} parentId={comment.id} />
             </div>
           )}

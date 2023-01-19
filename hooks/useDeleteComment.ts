@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
+
 import useApi from './useApi';
 
 interface UseDeleteCommentPayload {
@@ -17,9 +18,9 @@ const useDeleteComment = () => {
       onSuccess: (data) => {
         queryClient.invalidateQueries([
           'comments',
-          { topic: data.topic, parentId: data.parent_id },
+          { topic: data.topic, parentId: data.parent_id }
         ]);
-      },
+      }
     }
   );
 };

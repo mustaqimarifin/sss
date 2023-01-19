@@ -12,74 +12,74 @@ export default {
       sources: {
         ios: 'https://apps.apple.com/us/app/jumbo-privacy/id1454039975',
         android:
-          'https://play.google.com/store/apps/details?id=com.jumboprivacy',
-      },
-    },
+          'https://play.google.com/store/apps/details?id=com.jumboprivacy'
+      }
+    }
   ],
   resources: [
     {
       name: 'Facebook privacy settings',
-      url: 'https://www.facebook.com/settings?tab=privacy',
+      url: 'https://www.facebook.com/settings?tab=privacy'
     },
     {
       name: 'Facebook ad personalization settings',
-      url: 'https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen',
+      url: 'https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen'
     },
     {
       name: 'Facebook location history',
-      url: 'https://www.facebook.com/settings?tab=location',
+      url: 'https://www.facebook.com/settings?tab=location'
     },
     {
       name: 'Facebook face recognition settings',
-      url: 'https://www.facebook.com/settings?tab=facerec',
+      url: 'https://www.facebook.com/settings?tab=facerec'
     },
     {
       name: 'Your Facebook information',
-      url: 'https://www.facebook.com/settings?tab=your_facebook_information',
+      url: 'https://www.facebook.com/settings?tab=your_facebook_information'
     },
     {
       name: 'Facebook security settings',
-      url: 'https://www.facebook.com/settings?tab=security',
+      url: 'https://www.facebook.com/settings?tab=security'
     },
     {
       name: 'Twitter personalization settings',
-      url: 'https://twitter.com/settings/account/personalization',
+      url: 'https://twitter.com/settings/account/personalization'
     },
     {
       name: 'Twitter privacy and safety settings',
-      url: 'https://twitter.com/settings/safety',
+      url: 'https://twitter.com/settings/safety'
     },
     {
       name: 'Google activity',
-      url: 'https://myactivity.google.com/myactivity',
+      url: 'https://myactivity.google.com/myactivity'
     },
     {
       name: 'Google location history',
-      url: 'https://www.google.com/maps/timeline?authuser=0&pb',
+      url: 'https://www.google.com/maps/timeline?authuser=0&pb'
     },
     {
       name: 'Google ad personalization settings',
-      url: 'https://adssettings.google.com/authenticated',
+      url: 'https://adssettings.google.com/authenticated'
     },
     {
       name: 'Google purchase history',
-      url: 'https://myaccount.google.com/purchases?utm_source=google-account&utm_medium=web',
+      url: 'https://myaccount.google.com/purchases?utm_source=google-account&utm_medium=web'
     },
     {
       name: 'Google subscription history',
-      url: 'https://myaccount.google.com/subscriptions?utm_source=google-account&utm_medium=web',
+      url: 'https://myaccount.google.com/subscriptions?utm_source=google-account&utm_medium=web'
     },
     {
       name: 'Google reservation history',
-      url: 'https://myaccount.google.com/reservations?utm_source=google-account&utm_medium=web&continue=https%3A%2F%2Fmyaccount.google.com%2Fpayments-and-subscriptions',
+      url: 'https://myaccount.google.com/reservations?utm_source=google-account&utm_medium=web&continue=https%3A%2F%2Fmyaccount.google.com%2Fpayments-and-subscriptions'
     },
     {
       name: 're:consent browser extension gives you more privacy control on the web',
-      url: 'https://cliqz.com/en/magazine/re-consent',
+      url: 'https://cliqz.com/en/magazine/re-consent'
     },
     {
       name: 'Opt out of all the data sharing you wouldn’t opt in to',
-      url: 'http://simpleoptout.com/',
-    },
-  ],
-}
+      url: 'http://simpleoptout.com/'
+    }
+  ]
+};

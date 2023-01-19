@@ -1,8 +1,8 @@
-import { Session } from '@supabase/gotrue-js';
+import { Session } from '@supabase/supabase-js';
 import { Modal } from '@supabase/ui';
+import clsx from 'clsx';
 import { useLatestRef } from 'hooks/useLatestRef';
 import React, { ComponentProps, FC, useEffect } from 'react';
-import { XD } from 'services/xD';
 
 import Auth from './Auth';
 import { useSupabaseClient } from './CommentsProvider';
@@ -47,10 +47,10 @@ const AuthModal: FC<AuthModalProps> = ({
       onCancel={onClose}
       hideFooter
       size="medium"
-      className={XD(' min-w-[300px]', className)}
+      className={clsx(' min-w-[300px]', className)}
     >
       <div
-        className={XD(
+        className={clsx(
           'w-full',
           otherProps.providers && otherProps.providers?.length > 0
             ? null
