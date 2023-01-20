@@ -1,6 +1,8 @@
 // import { Settings } from 'react-feather';
 //import { Avatar } from 'components/Avatar';
 import { GhostButton } from 'components/Button';
+import ThemeToggle from 'components/Button/ThemeToggle'
+import { User } from 'components/Comments';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { SignInDialog } from 'components/SignInDialog';
 import Link from 'next/link';
@@ -11,7 +13,6 @@ import { useModal } from 'supabase/hooks/useModal';
 import { useUser } from 'supabase/hooks/useUser';
 import Avatar from 'supabase/SBComponents/comments/Avatar';
 import SignInModal from 'supabase/SBComponents/comments/SignInModal';
-import { User } from 'components/Comments';
 
 //import { useViewerQuery } from 'graphql/types.generated';
 import { GlobalNavigationContext } from '../Providers';
@@ -85,6 +86,8 @@ export function UserFooter() {
           <Avatar profile={profile} />
         </button>
         <GhostButton size="small-square"></GhostButton>
+        
+      <ThemeToggle/>
       </Container>
     );
   }

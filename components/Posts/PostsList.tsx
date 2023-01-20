@@ -1,21 +1,23 @@
+import axios from 'axios';
 import { ListContainer } from 'components/ListDetail/ListContainer';
 import { TitleBar } from 'components/ListDetail/TitleBar';
+import { PostPage, PostPageGroup } from 'lib/types';
 //import { posts } from 'data/postIndex';
 //import fetcher from 'lib/fetcher';
 import { useRouter } from 'next/router';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
-//import useSWR from 'swr';
+import { useQuery } from '@tanstack/react-query';
 
+//import useSWR from 'swr';
 //import LoadingSpinner from '../LoadingSpinner';
 import { PostListItem } from './PostListItem';
 
-export const PostsList = React.memo(() => {
+export const PostsList = () => {
   const router = useRouter();
-  let [scrollContainerRef, setScrollContainerRef] = React.useState(null);
+  const [scrollContainerRef, setScrollContainerRef] = React.useState(null);
 
   //** Fetch directly from Sanity Studio through API route */
-  const [posts, setPosts] = useState([]);
+  /*   const [posts, setPosts] = useState([]);
   useEffect(() => {
     async function fetchPosts() {
       const res = await fetch('/api/posts');
@@ -23,23 +25,26 @@ export const PostsList = React.memo(() => {
       setPosts(fetchedPosts);
     }
     fetchPosts();
-  }, [setPosts]);
+  }, [setPosts]); */
+
+  const { data: posts } = useQuery<PostPageGroup>({
+    queryKey: ['posts'],
+    queryFn: async () => await axios.get(`/api/posts`).then((res) => res.data)
+  });
 
   return (
-    <ListContainer data-cy="posts-list" onRef={setScrollContainerRef}>
-      <TitleBar scrollContainerRef={scrollContainerRef} title="Blog" />
+    <>
+      <ListContainer data-cy="posts-list" onRef={setScrollContainerRef}>
+        <TitleBar scrollContainerRef={scrollContainerRef} title="Blog" />
 
-      <div className="lg:space-y-1 lg:p-3">
-        {posts.map((post) => {
-          const active = router.query?.slug === post.slug;
+        <div className="lg:space-y-1 lg:p-3">
+          {posts?.map((post: PostPage) => {
+            const active = router.query?.slug === post.slug;
 
-          return (
-            <ul key={post.slug}>
-              <PostListItem key={post.slug} post={post} active={active} />
-            </ul>
-          );
-        })}
-      </div>
-    </ListContainer>
+            return <PostListItem key={post.slug} post={post} active={active} />;
+          })}
+        </div>
+      </ListContainer>
+    </>
   );
-});
+};

@@ -1,10 +1,17 @@
 import { ListDetailView, SiteLayout } from 'components/Layouts';
+import { PostListItem } from 'components/Posts/PostListItem';
 import { PostsList } from 'components/Posts/PostsList';
 import { withProviders } from 'components/Providers/withProviders';
 import routes from 'config/routes';
-import { indexQuery, postQuery, postquery } from 'lib/sanity/queries';
-import { getClient } from 'lib/sanity/server';
+import {
+  indexQuery,
+  postQuery,
+  postquery,
+  postSlugsQuery
+} from 'lib/sanity/queries';
+import { getClient, sanityClient } from 'lib/sanity/server';
 import { Post, PostPage } from 'lib/types';
+import { InferGetStaticPropsType } from 'next/types';
 import { NextSeo } from 'next-seo';
 import * as React from 'react';
 
@@ -14,13 +21,7 @@ import * as React from 'react';
 //import { addApolloState, initApolloClient } from 'lib/apollo';
 import { pathquery } from '../../lib/sanity/queries';
 
-/* export async function getStaticProps({ preview = false }) {
-  const posts: PostPage[] = await getClient(preview).fetch(pathquery);
-
-  return { props: { posts } };
-}
- */
-function PostIndex() {
+export function PostIndex({ posts }) {
   return (
     <NextSeo
       title={routes.blog.seo.title}
@@ -30,9 +31,7 @@ function PostIndex() {
   );
 }
 
-PostIndex.getLayout = withProviders(function getLayout(
-  page: React.ReactElement<any, string | React.JSXElementConstructor<any>>
-) {
+PostIndex.getLayout = withProviders(function getLayout(page) {
   return (
     <SiteLayout>
       <ListDetailView list={<PostsList />} hasDetail={false} detail={page} />
@@ -41,3 +40,8 @@ PostIndex.getLayout = withProviders(function getLayout(
 });
 
 export default PostIndex;
+
+export async function getStaticProps() {
+  const posts = await sanityClient.fetch(indexQuery);
+  return { props: { posts } };
+}

@@ -1,6 +1,6 @@
-import Image, { ImageProps } from 'next/image';
-import { imageBuilder } from 'lib/sanity/sanity';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { imageBuilder } from 'lib/sanity/sanity';
+import Image, { ImageProps } from 'next/image';
 
 interface MyImageProps extends Omit<ImageProps, 'src'> {
   src: SanityImageSource;

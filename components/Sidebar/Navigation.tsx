@@ -9,18 +9,18 @@ import {
   GitHubIcon,
   HackerNewsIcon,
   HomeIcon,
-  SoundcloudIcon,
+  MidnightOilIcon,
   SecurityChecklistIcon,
+  SoundcloudIcon,
   StackIcon,
   StaffDesignIcon,
   TwitterIcon,
-  WritingIcon,
-  MidnightOilIcon,
-  VideoIcon
+  VideoIcon,
+  WritingIcon
 } from 'components/Icon';
 import { useRouter } from 'next/router';
 import * as React from 'react';
-
+import ThemeToggle from 'components/Button/ThemeToggle'
 import { NavigationLink } from './NavigationLink';
 
 export function SidebarNavigation() {
@@ -168,7 +168,8 @@ export function SidebarNavigation() {
           isActive: false,
           trailingAction: null,
           isExternal: true
-        }
+        },
+   
       ]
     }
   ];

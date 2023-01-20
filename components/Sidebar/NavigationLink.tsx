@@ -1,7 +1,6 @@
+import { GlobalNavigationContext } from 'components/Providers';
 import Link from 'next/link';
 import * as React from 'react';
-
-import { GlobalNavigationContext } from 'components/Providers';
 
 export function NavigationLink({
   link: {

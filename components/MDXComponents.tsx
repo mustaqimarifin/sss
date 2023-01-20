@@ -4,10 +4,13 @@ import ImageWithTheme from 'components/ImageWithTheme';
 import Analytics from 'components/metrics/Analytics';
 import ProsCard from 'components/ProsCard';
 import Step from 'components/Step';
-import Image from 'next/future/image';
+import { getMDXComponent, MDXContentProps } from 'mdx-bundler/client';
+import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 
 import DickPics from './Pics';
+import Tweet from './Tweet';
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -23,7 +26,6 @@ const CustomLink = (props) => {
 
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
-
 function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
@@ -37,11 +39,10 @@ function Callout(props) {
   );
 }
 
-const MDXComponents = {
+export const MDXComponents = {
   Image: RoundedImage,
   ImageWithTheme,
   DickPics,
-
   a: CustomLink,
   Callout,
   Analytics,
@@ -50,4 +51,16 @@ const MDXComponents = {
   Step
 };
 
-export default MDXComponents;
+interface Props {
+  mdx: string;
+  [key: string]: unknown;
+}
+
+export const MDSEX = ({ mdx, ...rest }: Props) => {
+  const MDXLayout = React.useMemo(
+    (): React.FunctionComponent<MDXContentProps> => getMDXComponent(mdx),
+    [mdx]
+  );
+
+  return <MDXLayout {...rest} />;
+};

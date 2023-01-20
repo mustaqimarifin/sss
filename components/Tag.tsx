@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import Label from './Label';
 
 export default function Tag({ tags }) {

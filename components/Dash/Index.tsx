@@ -1,14 +1,12 @@
+import { Detail } from 'components/ListDetail/Detail';
+import { TitleBar } from 'components/ListDetail/TitleBar';
+import Analytics from 'components/metrics/Analytics';
+import YouTube from 'components/metrics/Youtube';
+import TopTracks from 'components/TopTracks';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
-
-import Analytics from 'components/metrics/Analytics';
-
-import YouTube from 'components/metrics/Youtube';
-import TopTracks from 'components/TopTracks';
-import { Detail } from 'components/ListDetail/Detail';
-import { TitleBar } from 'components/ListDetail/TitleBar';
-import dynamic from 'next/dynamic';
 
 function SectionTitle(props) {
   return (

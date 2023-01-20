@@ -1,12 +1,8 @@
-import { NextSeo } from 'next-seo';
-import * as React from 'react';
-import { MDXRemote } from 'next-mdx-remote';
-
 import { ListDetailView, SiteLayout } from 'components/Layouts';
 import { SecurityChecklist } from 'components/SecurityChecklist';
 import routes from 'config/routes';
-import { mdxToHtml } from 'lib/mdx';
-import { descriptions } from 'data/security';
+import { NextSeo } from 'next-seo';
+import * as React from 'react';
 
 export default function SecurityChecklistPage({ resource }) {
   return (

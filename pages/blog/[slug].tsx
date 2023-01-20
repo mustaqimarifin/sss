@@ -1,20 +1,23 @@
 /* eslint-disable react/no-children-prop */
 //import { mdxToHtml } from 'components/MarkdownRenderer';
-//import { Post } from 'lib/types';
+//import { dehydrate, QueryClient, useQuery } from '@tanstack/@tanstack/react-query';
+
 import { ListDetailView, SiteLayout } from 'components/Layouts';
 import { Detail } from 'components/ListDetail/Detail';
-import components from 'components/MDXComponents';
+import { MDSEX, MDXComponents } from 'components/MDXComponents';
 import { PostDetail } from 'components/Posts/PostDetail';
 import { PostsList } from 'components/Posts/PostsList';
 import { withProviders } from 'components/Providers/withProviders';
 //import BlogLayout from 'layouts/blog';
 import Tweet from 'components/Tweet';
-import { mdxToHtml } from 'lib/mdx';
+import { mdxToHtml } from 'lib/mdxBundler';
 import { postQuery, postSlugsQuery } from 'lib/sanity/queries';
+import { getPostBySlug } from 'lib/sanity/sanity.client';
 import { getClient, sanityClient } from 'lib/sanity/server';
 import { getTweets } from 'lib/twitter';
-import { MDXRemote } from 'next-mdx-remote';
+import { Post } from 'lib/types';
 
+//import { MDXRemote } from 'next-mdx-remote';
 import LoadingSpinner from '../../components/LoadingSpinner';
 
 function PostPage({ post, loading }) {
@@ -27,45 +30,44 @@ function PostPage({ post, loading }) {
 
   return (
     <PostDetail post={post}>
-      <MDXRemote
-        {...post.content}
-        components={
-          {
-            ...components,
-            StaticTweet
-          } as any
-        }
+      <MDSEX
+        mdx={post.content}
+        components={{ ...MDXComponents, StaticTweet }}
       />
     </PostDetail>
   );
 }
 
+// pages/posts.jsx
+
 export async function getStaticPaths() {
   const paths = await sanityClient.fetch(postSlugsQuery);
   return {
     paths: paths.map((slug) => ({ params: { slug } })),
-    fallback: false
+    fallback: true
   };
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const post = await getClient(preview).fetch(postQuery, {
-    slug: params.slug
-  });
+  const post: Post = await getPostBySlug(params.slug);
 
   if (!post) {
     return { notFound: true };
   }
 
-  const { html, tweetIDs } = await mdxToHtml(post.content);
+  const { mdx, tweetIDs, wordCount, readingTime } = await mdxToHtml(
+    post.content
+  );
   const tweets = await getTweets(tweetIDs);
 
   return {
     props: {
       post: {
         ...post,
-        content: html,
-        tweets
+        content: mdx,
+        tweets,
+        wordCount,
+        readingTime
       },
       revalidate: 60 * 60
     }

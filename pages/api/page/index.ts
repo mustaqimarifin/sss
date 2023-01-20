@@ -6,7 +6,7 @@ export default async function handler(
 ) {
   const { data } = await supabase.from('pages').select();
 
-  const total = data?.reduce((acc, row) => acc + row.views, 0);
+  const total = data?.reduce((acc, row) => acc + row.view_count, 0);
   console.log('DATA', total);
   return res.status(200).json({
     total

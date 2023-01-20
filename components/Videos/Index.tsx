@@ -1,18 +1,18 @@
 // @ts-nocheck
-import Image from 'next/image';
-import Link from 'next/link';
-import * as React from 'react';
-import type { Video, Stat } from 'lib/types';
-import videos from 'data/videoIndex';
-import { useRouter } from 'next/router';
-import VidDisplay from 'components/metrics/VidDisplay';
-import Wrapper from 'components/metrics/Wrapper';
 //import YoutubeStats from 'components/metrics/YoutubeStats';
 // import { zZZ } from 'services/functions';
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
-import dynamic from 'next/dynamic';
+import VidDisplay from 'components/metrics/VidDisplay';
+import Wrapper from 'components/metrics/Wrapper';
 import YouTubeCard from 'components/metrics/Youtube';
+import videos from 'data/videoIndex';
+import type { Stat, Video } from 'lib/types';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import * as React from 'react';
 
 function SectionTitle(props) {
   return (

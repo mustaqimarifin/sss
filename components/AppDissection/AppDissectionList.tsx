@@ -1,16 +1,15 @@
 /* eslint-disable react/display-name */
-import { useRouter } from 'next/router';
-import * as React from 'react';
-
 import { ListContainer } from 'components/ListDetail/ListContainer';
 import { TitleBar } from 'components/ListDetail/TitleBar';
 import { summaries } from 'data/appDissections';
+import { useRouter } from 'next/router';
+import * as React from 'react';
 
 import { AppDissectionListItem } from './AppDissectionListItem';
 
 export const AppDissectionList = React.memo(() => {
   const router = useRouter();
-  let [scrollContainerRef, setScrollContainerRef] = React.useState(null);
+  const [scrollContainerRef, setScrollContainerRef] = React.useState(null);
 
   return (
     <ListContainer data-cy="apps-list" onRef={setScrollContainerRef}>

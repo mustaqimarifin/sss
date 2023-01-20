@@ -1,5 +1,5 @@
-import { type NextRequest } from 'next/server';
 import { getNowPlaying } from 'lib/spotify';
+import { type NextRequest } from 'next/server';
 
 export const config = {
   runtime: 'experimental-edge'

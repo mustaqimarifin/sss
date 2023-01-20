@@ -1,3 +1,6 @@
+//import forms from '@tailwindcss/forms';
+//import lineClamp from '@tailwindcss/line-clamp';
+//import typography from '@tailwindcss/typography';
 const colors = require('tailwindcss/colors');
 
 const { fontFamily } = require('tailwindcss/defaultTheme');
@@ -257,6 +260,7 @@ module.exports = {
   variants: {
     typography: ['dark']
   },
+  // plugins: [typography, forms, lineClamp]
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),

@@ -11,13 +11,23 @@ const postFields = `
   "slug": slug.current
 `;
 
+const pathFields = `
+  _id,
+  title,
+  date,
+  "tags": tags[]->title,
+  "slug": slug.current
+`;
+
+export const settingsQuery = groq`*[_type == "settings"][0]`;
+
 export const indexQuery = groq`
 *[_type == "post"] | order(priority desc, _updatedAt desc) {
-  ${postFields}
+_id, title, date, 'slug': slug.current
 }`;
 
 export const pathquery = groq`
-*[_type == "post"] { _id, title, date, "caption" : coverImage.caption,'slug': slug.current,
+*[_type == "post"] { _id, title, date, 'slug': slug.current,
 }
 `;
 
@@ -79,3 +89,11 @@ export const snippetBySlugQuery = `
   ${snippetFields}
 }
 `;
+
+export interface Settings {
+  title?: string;
+  description?: any[];
+  ogImage?: {
+    title?: string;
+  };
+}

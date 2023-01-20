@@ -1,6 +1,7 @@
 import { NextPageContext } from 'next';
 import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ModalProvider, useModal } from 'supabase/hooks/useModal';
 import { UserContextProvider } from 'supabase/hooks/useUser';
 import SignInModal from 'supabase/SBComponents/comments/SignInModal';
@@ -27,6 +28,7 @@ export function Providers({ children }: Props) {
     isOpen: false,
     setIsOpen
   };
+  const queryClient = new QueryClient();
 
   const [state, setState] = React.useState(initialState);
 
@@ -37,15 +39,17 @@ export function Providers({ children }: Props) {
   return (
     <>
       <Toast />
-      <UserContextProvider supabaseClient={supabase}>
-        <ModalProvider>
-          <ThemeProvider attribute="class">
-            <GlobalNavigationContext.Provider value={state}>
-              {children}
-            </GlobalNavigationContext.Provider>
-          </ThemeProvider>
-        </ModalProvider>
-      </UserContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <UserContextProvider supabaseClient={supabase}>
+          <ModalProvider>
+            <ThemeProvider attribute="class">
+              <GlobalNavigationContext.Provider value={state}>
+                {children}
+              </GlobalNavigationContext.Provider>
+            </ThemeProvider>
+          </ModalProvider>
+        </UserContextProvider>
+      </QueryClientProvider>
     </>
   );
 }

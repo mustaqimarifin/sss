@@ -1,5 +1,5 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 
 const DickPics = (props) => {
   const { src, alt, blurDataURL } = props;

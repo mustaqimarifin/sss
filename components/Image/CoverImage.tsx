@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import Image from 'next/future/image';
 import { useState } from 'react';
-import clsx from 'clsx';
 export default function CoverImage({ src }) {
   const [isLoading, setLoading] = useState(true);
 

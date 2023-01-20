@@ -117,27 +117,22 @@ export function PostDetail({ post, children }) {
               </div>
             </div>
 
-            <div className="prose w-full max-w-3xl">
-              {children}
-              <div className="not-prose ">
-                {canReply && !loadComments ? (
-                  <>
-                    <div>
-                      <h2 className="text-center font-mono font-semibold my-8">
-                        Comments
-                      </h2>
-                      <button
-                        className=" text-gray-600 hover:shadow-lg hover:bg-pink-400 hover:text-gray-50 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
-                        onClick={() => setComments(!loadComments)}
-                      >
-                        Load Comments 👺
-                      </button>
-                    </div>
-                  </>
-                ) : (
-                  <SBComments slug={post.slug} />
-                )}
-              </div>
+            <div className="prose w-full max-w-3xl">{children}</div>
+            <div className="py-6 px-8 ">
+              {canReply && !loadComments ? (
+                <>
+                  <div className="flex justify-center space-y-2">
+                    <button
+                      className=" text-gray-600 hover:shadow-lg hover:bg-pink-400 hover:text-gray-50 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
+                      onClick={() => setComments(!loadComments)}
+                    >
+                      Load Comments 👺
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <SBComments slug={post.slug} />
+              )}
             </div>
 
             {/*               <div className=" my-4 text-sm text-gray-700 dark:text-gray-300">

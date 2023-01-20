@@ -1,6 +1,5 @@
-import * as React from 'react';
-
 import { GlobalNavigationContext } from 'components/Providers';
+import * as React from 'react';
 
 export function SidebarOverlay() {
   const { isOpen, setIsOpen } = React.useContext(GlobalNavigationContext);

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Footer from 'components/Footer';
 import Kitteh from 'lib/Kitteh';
 import Head from 'next/head';
@@ -5,7 +6,6 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import clsx from 'clsx';
 
 export function NavItem({ href, text }) {
   const router = useRouter();

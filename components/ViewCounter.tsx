@@ -15,7 +15,7 @@ export default function ViewCounter({ slug }) {
       });
 
     registerView();
-  }, []);
+  }, [slug]);
 
   return <span>{`${views > 0 ? views.toLocaleString() : '–––'} views`}</span>;
 }

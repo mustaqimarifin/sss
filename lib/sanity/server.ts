@@ -3,17 +3,15 @@
  * utilities we use on the client side, we are able to tree-shake (remove)
  * code that is not used on the client side.
  */
-import { createClient, createPreviewSubscriptionHook } from 'next-sanity';
+import { createClient } from 'next-sanity';
 
 import { sanityConfig } from './config';
 
 export const sanityClient = createClient(sanityConfig);
-export const usePreviewSubscription =
-  createPreviewSubscriptionHook(sanityConfig);
 
 export const previewClient = createClient({
   ...sanityConfig,
-  useCdn: true,
+  useCdn: false,
   //token: process.env.SANITY_API_TOKEN
   token: process.env.SANITY_API_READ_TOKEN
 });

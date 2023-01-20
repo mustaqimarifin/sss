@@ -1,8 +1,7 @@
-import Image from 'next/image';
-import * as React from 'react';
-
 import { ListItem } from 'components/ListDetail/ListItem';
 import { DesignDetailsPostSummary } from 'data/appDissections';
+import Image from 'next/image';
+import * as React from 'react';
 
 interface Props {
   summary: DesignDetailsPostSummary;

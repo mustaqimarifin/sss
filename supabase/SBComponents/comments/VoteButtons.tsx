@@ -1,4 +1,4 @@
-import cn from ''clsx';
+import cn from 'clsx';
 import { Heart, ThumbsUp } from 'react-feather';
 import { useComments } from 'supabase/hooks/useComments';
 //import React from 'react';

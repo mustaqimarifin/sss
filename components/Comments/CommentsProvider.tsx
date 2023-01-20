@@ -1,4 +1,5 @@
 import { SupabaseClient } from '@supabase/supabase-js';
+import { Query, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ApiError, DisplayUser } from 'api';
 import { useCssPalette } from 'hooks';
 import React, {
@@ -9,7 +10,6 @@ import React, {
   useEffect,
   useMemo
 } from 'react';
-import { Query, QueryClient, QueryClientProvider } from 'react-query';
 
 import Auth from './Auth';
 import {

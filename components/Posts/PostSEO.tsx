@@ -1,8 +1,7 @@
-import { NextSeo } from 'next-seo';
-import * as React from 'react';
-
 import { baseUrl } from 'config/seo';
 import { Post } from 'lib/types';
+import { NextSeo } from 'next-seo';
+import * as React from 'react';
 
 type Props = {
   post: Post;

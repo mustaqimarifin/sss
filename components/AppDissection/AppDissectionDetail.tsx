@@ -1,13 +1,12 @@
-import Image from 'next/image';
-import * as React from 'react';
-
 import { DesignDetailMedia } from 'components/AppDissection/DetailMedia';
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
-import dynamic from 'next/dynamic';
 import { DesignDetailsPost } from 'data/appDissections';
 import dayjs from 'dayjs';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote';
+import * as React from 'react';
 // import { Post } from 'lib/types';
 //import { timestampToCleanTime } from 'lib/transformers';
 const SBComments = dynamic(

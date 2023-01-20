@@ -17,8 +17,8 @@ export function DialogComponent({
   title,
   modalContent
 }: DialogProps) {
-  let [isOpen, setIsOpen] = useState(false);
-  let closeButtonRef = React.useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const closeButtonRef = React.useRef(null);
 
   function closeModal() {
     setIsOpen(false);

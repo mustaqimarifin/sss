@@ -1,12 +1,11 @@
-import React from 'react';
-
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
 import routes from 'config/routes';
 import data from 'data/security/allSecurity';
+import dynamic from 'next/dynamic';
+import React from 'react';
 
 import { ChecklistItem } from './ChecklistItem';
-import dynamic from 'next/dynamic';
 
 const SBComments = dynamic(
   () => {

@@ -1,10 +1,10 @@
 import { DesignDetail } from 'data/appDissections';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
 export type Post = {
   _id: string;
   slug: string;
   name: string;
-  content: MDXRemoteSerializeResult;
+  content: string;
   title: string;
   date: string;
   excerpt: string;
@@ -19,7 +19,7 @@ export type Snippets = {
   _id: string;
   slug: string;
   name: string;
-  content: MDXRemoteSerializeResult;
+  content: string;
   title: string;
   date: string;
   excerpt: string;
@@ -33,7 +33,7 @@ export type Snippets = {
 export type ADD = {
   slug: string;
   title: string;
-  description: MDXRemoteSerializeResult;
+  description: string;
   createdAt: string;
   details: Array<DesignDetail>;
   tint: string;
@@ -53,7 +53,7 @@ export interface VideoPage {
 }
 
 export type PostPageGroup = {
-  map(arg0: (post: any) => JSX.Element): import('react').ReactNode;
+  map(arg0: (post: PostPage) => JSX.Element): import('react').ReactNode;
   posts: Array<PostPage>;
 };
 export enum Form {
