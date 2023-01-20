@@ -1,7 +1,7 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { NextPageContext } from 'next';
 import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ModalProvider, useModal } from 'supabase/hooks/useModal';
 import { UserContextProvider } from 'supabase/hooks/useUser';
 import SignInModal from 'supabase/SBComponents/comments/SignInModal';

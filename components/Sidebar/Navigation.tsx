@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-key */
+import ThemeToggle from 'components/Button/ThemeToggle';
 import {
   AMAIcon,
   AppDissectionIcon,
@@ -20,7 +21,7 @@ import {
 } from 'components/Icon';
 import { useRouter } from 'next/router';
 import * as React from 'react';
-import ThemeToggle from 'components/Button/ThemeToggle'
+
 import { NavigationLink } from './NavigationLink';
 
 export function SidebarNavigation() {
@@ -168,8 +169,7 @@ export function SidebarNavigation() {
           isActive: false,
           trailingAction: null,
           isExternal: true
-        },
-   
+        }
       ]
     }
   ];

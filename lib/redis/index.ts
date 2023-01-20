@@ -21,7 +21,6 @@ export function createRedisInstance() {
       }
     };
 
-
     const redis = new Redis(options);
 
     redis.on('error', (error: unknown) => {

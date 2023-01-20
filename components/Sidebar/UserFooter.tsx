@@ -1,7 +1,7 @@
 // import { Settings } from 'react-feather';
 //import { Avatar } from 'components/Avatar';
 import { GhostButton } from 'components/Button';
-import ThemeToggle from 'components/Button/ThemeToggle'
+import ThemeToggle from 'components/Button/ThemeToggle';
 import { User } from 'components/Comments';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { SignInDialog } from 'components/SignInDialog';
@@ -86,8 +86,8 @@ export function UserFooter() {
           <Avatar profile={profile} />
         </button>
         <GhostButton size="small-square"></GhostButton>
-        
-      <ThemeToggle/>
+
+        <ThemeToggle />
       </Container>
     );
   }
