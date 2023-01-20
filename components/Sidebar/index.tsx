@@ -1,4 +1,5 @@
 import { TitleBar } from 'components/ListDetail/TitleBar';
+import NowPlaying from 'components/NowPlaying';
 import { GlobalNavigationContext } from 'components/Providers';
 import { useContext, useRef } from 'react';
 
@@ -25,6 +26,9 @@ export function Sidebar() {
           title="[eff1gy]"
         />
         <SidebarNavigation />
+        <div className="p-6">
+          <NowPlaying />
+        </div>
         <UserFooter />
       </nav>
 

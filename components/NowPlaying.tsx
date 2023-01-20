@@ -1,9 +1,13 @@
+//import useSWR from 'swr';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import got from 'got';
 import fetcher from 'lib/fetcher';
 import { NowPlayingSong } from 'lib/types';
+import { yespls } from 'lib/yespls';
 import { animate } from 'motion';
 import { useEffect } from 'react';
 import useSWR from 'swr';
-
 function AnimatedBars() {
   useEffect(() => {
     animate(
@@ -59,25 +63,29 @@ function AnimatedBars() {
     <div className="w-auto flex items-end overflow-hidden">
       <span
         id="bar1"
-        className="w-1 mr-[3px] h-2 bg-gray-300 dark:bg-gray-500 opacity-75"
+        className="w-1 mr-[3px] h-2 bg-pink-300 dark:bg-gray-500 opacity-75"
       />
       <span
         id="bar2"
-        className="w-1 mr-[3px] h-1 bg-gray-300 dark:bg-gray-500"
+        className="w-1 mr-[3px] h-1 bg-rose-300 dark:bg-gray-500"
       />
       <span
         id="bar3"
-        className="w-1 h-3 bg-gray-300 dark:bg-gray-500 opacity-80"
+        className="w-1 h-3 bg-rose-400 dark:bg-gray-500 opacity-80"
       />
     </div>
   );
 }
 
 export default function NowPlaying() {
-  const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher);
+  const { data } = useSWR<NowPlayingSong>('/api/now-playing', yespls);
 
+  /*   const { data } = useQuery<NowPlayingSong>({
+    queryKey: ['now_playing'],
+    queryFn: async () => await got(`/api/now-playing`).then((res) => res.end)
+  }); */
   return (
-    <div className="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
+    <div className="flex flex-row-reverse align-baseline items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
       {data?.songUrl ? (
         <AnimatedBars />
       ) : (
@@ -91,7 +99,7 @@ export default function NowPlaying() {
       <div className="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
         {data?.songUrl ? (
           <a
-            className="capsize text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate"
+            className=" text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate"
             href={data.songUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -99,14 +107,14 @@ export default function NowPlaying() {
             {data.title}
           </a>
         ) : (
-          <p className="capsize text-gray-800 dark:text-gray-200 font-medium">
+          <p className=" text-gray-800 dark:text-gray-200 font-medium">
             Not Playing
           </p>
         )}
-        <span className="capsize mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
+        <span className="mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
           {' – '}
         </span>
-        <p className="capsize text-gray-500 dark:text-gray-300 max-w-max truncate">
+        <p className=" text-gray-500 dark:text-gray-300 max-w-max truncate">
           {data?.artist ?? 'Spotify'}
         </p>
       </div>

@@ -6,9 +6,9 @@
     "dev": "next dev",
     "start": "next start",
     "sanity-start": "sanity start",
-    "format": "npx prettier --write . --ignore-path .gitignore",
+    "format": "pnpx prettier --write . --ignore-path .gitignore",
     "lint": "next lint -- --ignore-path .gitignore",
-    "lint:fix": "npm run format && npm run lint -- --fix"
+    "lint:fix": "pnpm format && pnpm run lint -- --fix"
   },
   "dependencies": {
     "@googleapis/youtube": "^6.0.0",
@@ -36,6 +36,7 @@
     "esbuild": "^0.17.3",
     "feed": "^4.2.2",
     "framer-motion": "^6.5.1",
+    "got": "^12.5.3",
     "groq": "^2.33.2",
     "ioredis": "^5.2.5",
     "lowlight": "^2.8.0",

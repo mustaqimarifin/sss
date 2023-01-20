@@ -1,12 +1,15 @@
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { ListContainer } from 'components/ListDetail/ListContainer';
 import { TitleBar } from 'components/ListDetail/TitleBar';
+import { posts } from 'data/postIndex';
 import { PostPage, PostPageGroup } from 'lib/types';
+import { yespls } from 'lib/yespls';
 //import { posts } from 'data/postIndex';
 //import fetcher from 'lib/fetcher';
-import { useRouter } from 'next/router';
+import router, { useRouter } from 'next/router';
 import * as React from 'react';
-import { useQuery } from '@tanstack/react-query';
+import useSWR from 'swr';
 
 //import useSWR from 'swr';
 //import LoadingSpinner from '../LoadingSpinner';
@@ -26,11 +29,12 @@ export const PostsList = () => {
     }
     fetchPosts();
   }, [setPosts]); */
+  const { data: posts } = useSWR<PostPageGroup>('/api/posts', yespls);
 
-  const { data: posts } = useQuery<PostPageGroup>({
+  /*   const { data: posts } = useQuery<PostPageGroup>({
     queryKey: ['posts'],
     queryFn: async () => await axios.get(`/api/posts`).then((res) => res.data)
-  });
+  }); */
 
   return (
     <>

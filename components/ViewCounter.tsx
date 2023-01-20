@@ -1,10 +1,10 @@
-import fetcher from 'lib/fetcher';
 import { Views } from 'lib/types';
+import { yespls } from 'lib/yespls';
 import { useEffect } from 'react';
 import useSWR from 'swr';
 
 export default function ViewCounter({ slug }) {
-  const { data } = useSWR<Views>(`/api/page/${slug}`, fetcher);
+  const { data } = useSWR<Views>(`/api/page/${slug}`, yespls);
 
   const views = new Number(data?.total);
 
