@@ -1,5 +1,6 @@
-import allPosts from './allPosts';
 import { PostPage } from 'lib/types';
+
+import allPosts from './allPosts';
 
 /* export interface PostPage {
   title: string;
@@ -8,11 +9,11 @@ import { PostPage } from 'lib/types';
   date: string;
 }
  */
-function extractSummary({ title, slug, _id, date }: PostPage) {
+function extractSummary({ title, slug, id, date }: PostPage) {
   return {
     title,
     slug,
-    _id,
+    id,
     date
   };
 }

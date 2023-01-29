@@ -1,7 +1,7 @@
 import { DesignDetail } from 'data/appDissections';
 
 export type Post = {
-  _id: string;
+  id: string;
   slug: string;
   name: string;
   content: string;
@@ -39,7 +39,7 @@ export type ADD = {
   tint: string;
 };
 export type PostPage = {
-  _id: string;
+  id: string;
   slug: string;
   title: string;
   date: string;
@@ -130,4 +130,14 @@ export type Stat = {
   videoCount: string;
   viewCount: string;
   SubscriberCount: string;
+};
+
+export type Tweet = {
+  text: string;
+  id: string;
+  author: any;
+  media: any;
+  created_at: string;
+  public_metrics: any;
+  referenced_tweets: any;
 };

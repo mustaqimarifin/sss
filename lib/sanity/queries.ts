@@ -1,7 +1,7 @@
 import groq from 'groq';
 
-const postFields = `
-  _id,
+const postFields = groq`
+  "id": _id,
   title,
   date,
   excerpt,
@@ -11,7 +11,7 @@ const postFields = `
   "slug": slug.current
 `;
 
-const pathFields = `
+const pathFields = groq`
   _id,
   title,
   date,
@@ -23,11 +23,11 @@ export const settingsQuery = groq`*[_type == "settings"][0]`;
 
 export const indexQuery = groq`
 *[_type == "post"] | order(priority desc, _updatedAt desc) {
-_id, title, date, 'slug': slug.current
+'id': _id, title, date, 'slug': slug.current
 }`;
 
 export const pathquery = groq`
-*[_type == "post"] { _id, title, date, 'slug': slug.current,
+*[_type == "post"] { 'id': _id, title, date, 'slug': slug.current,
 }
 `;
 

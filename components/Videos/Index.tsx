@@ -43,13 +43,13 @@ function SectionContainer(props) {
   { ssr: false }
 ); */
 
-const SBComments = dynamic(
+/* const SBComments = dynamic(
   () => {
     return import('components/Comments/SBComments');
   },
   { ssr: false }
 );
-
+ */
 export function VideoPage() {
   const router = useRouter();
 
@@ -134,7 +134,7 @@ export function VideoPage() {
         </div>
       </Detail.ContentContainer>
       <div className="py-6 px-8 ">
-        {canReply && !loadComments ? (
+        {/*         {canReply && !loadComments ? (
           <>
             <div className="flex justify-center space-y-2">
               <button
@@ -147,7 +147,7 @@ export function VideoPage() {
           </>
         ) : (
           <SBComments id={`Videos`} />
-        )}
+        )} */}
       </div>
     </Detail.Container>
   );

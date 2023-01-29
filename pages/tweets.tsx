@@ -1,27 +1,23 @@
-import Container from 'components/Container';
-import Tweet from 'components/Tweet';
+import { ListDetailView, SiteLayout } from 'components/Layouts';
+import { withProviders } from 'components/Providers/withProviders';
+import { Tweet } from 'components/Tweet';
+import TweetPage from 'components/Tweets/Tweetpage';
+import routes from 'config/routes';
 import { getTweets } from 'lib/twitter';
+import { NextSeo } from 'next-seo';
 
-export default function Tweets({ tweets }) {
+function Tweetx({ tweets }) {
   return (
-    <Container
-      title="Tweets – Mustaqim Arifin"
-      description="A collection of tweets that inspire me, make me laugh, and make me think."
-    >
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 px-8">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-          Tweets
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          This is a collection of tweets I've enjoyed. I use Twitter quite a
-          bit, so I wanted a place to publicly share what inspires me, makes me
-          laugh, and makes me think.
-        </p>
-        {tweets.map((tweet) => (
-          <Tweet key={tweet.id} {...tweet} />
-        ))}
-      </div>
-    </Container>
+    <TweetPage>
+      <NextSeo
+        title={routes.tweets.seo.title}
+        description={routes.tweets.seo.description}
+        openGraph={routes.tweets.seo.openGraph}
+      />
+      {tweets.map((tweet) => (
+        <Tweet key={tweet.id} {...tweet} />
+      ))}
+    </TweetPage>
   );
 }
 
@@ -55,3 +51,15 @@ export async function getStaticProps() {
 
   return { props: { tweets } };
 }
+
+Tweetx.getLayout = withProviders(function getLayout(
+  page: React.ReactElement<any, string | React.JSXElementConstructor<any>>
+) {
+  return (
+    <SiteLayout>
+      <ListDetailView list={null} hasDetail detail={page} />
+    </SiteLayout>
+  );
+});
+
+export default Tweetx;

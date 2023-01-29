@@ -1,14 +1,11 @@
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
-import Analytics from 'components/metrics/Analytics';
 import YouTube from 'components/metrics/Youtube';
 import TopTracks from 'components/TopTracks';
-import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 
-function SectionTitle(props) {
+function SectionTitle(props: any) {
   return (
     <h4
       className="col-span-2 pt-8 text-lg font-extrabold text-black dark:text-white md:pt-0 md:text-right md:text-base md:font-normal md:text-opacity-40"
@@ -29,13 +26,6 @@ function SectionContainer(props) {
     />
   );
 }
-
-const SBComments = dynamic(
-  () => {
-    return import('components/Comments/SBComments');
-  },
-  { ssr: false }
-);
 
 export function DashPage() {
   const [loadComments, setComments] = React.useState(false);
@@ -96,22 +86,7 @@ export function DashPage() {
           </SectionContainer>
         </div>
       </Detail.ContentContainer>
-      <div className="py-6 px-8 ">
-        {canReply && !loadComments ? (
-          <>
-            <div className="flex justify-center space-y-2">
-              <button
-                className=" text-gray-600 hover:shadow-lg hover:bg-pink-400 hover:text-gray-50 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
-                onClick={() => setComments(!loadComments)}
-              >
-                Load Comments 👺
-              </button>
-            </div>
-          </>
-        ) : (
-          <SBComments id={`Dashboard`} />
-        )}
-      </div>
+      <div className="py-6 px-8 "></div>
     </Detail.Container>
   );
 }

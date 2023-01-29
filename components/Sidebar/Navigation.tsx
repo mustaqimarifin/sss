@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-key */
-import ThemeToggle from 'components/Button/ThemeToggle';
 import {
   AMAIcon,
   AppDissectionIcon,
@@ -20,7 +19,6 @@ import {
   WritingIcon
 } from 'components/Icon';
 import { useRouter } from 'next/router';
-import * as React from 'react';
 
 import { NavigationLink } from './NavigationLink';
 
@@ -66,11 +64,11 @@ export function SidebarNavigation() {
       label: 'Me',
       items: [
         {
-          href: '/bookmarks',
-          label: 'Bookmarks',
+          href: '/tweets',
+          label: 'Tweets',
           icon: BookmarksIcon,
           trailingAccessory: null,
-          isActive: router.asPath.indexOf('/bookmarks') >= 0,
+          isActive: router.asPath.indexOf('/tweets') >= 0,
 
           isExternal: false
         },
@@ -119,7 +117,7 @@ export function SidebarNavigation() {
           trailingAction: null,
           isExternal: true
         },
-        {
+        /*         {
           href: '/app-dissection',
           label: 'App Dissection',
           icon: AppDissectionIcon,
@@ -127,8 +125,8 @@ export function SidebarNavigation() {
           isActive: router.asPath.indexOf('/app-dissection') >= 0,
           trailingAction: null,
           isExternal: false
-        },
-        {
+        }, */
+        /*         {
           href: '/security',
           label: 'Security Checklist',
           icon: SecurityChecklistIcon,
@@ -136,7 +134,7 @@ export function SidebarNavigation() {
           isActive: router.asPath.indexOf('/security') >= 0,
           trailingAction: null,
           isExternal: false
-        },
+        }, */
         {
           href: '/videos',
           label: 'Videos',
@@ -169,6 +167,30 @@ export function SidebarNavigation() {
           isActive: false,
           trailingAction: null,
           isExternal: true
+        }
+      ]
+    },
+    {
+      label: 'Misc',
+      items: [
+        {
+          href: '/privacypolicy',
+          label: 'Privacy Policy',
+          icon: StackIcon,
+          trailingAccessory: null,
+          isActive: router.asPath.indexOf('/privacypolicy') >= 0,
+          trailingAction: null,
+          isExternal: false
+        },
+
+        {
+          href: '/termsofservice',
+          label: 'Terms of Service',
+          icon: StackIcon,
+          trailingAccessory: null,
+          isActive: router.asPath.indexOf('/termsofservice') >= 0,
+          trailingAction: null,
+          isExternal: false
         }
       ]
     }

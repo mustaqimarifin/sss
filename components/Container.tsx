@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
+//@ts-ignore
 export function NavItem({ href, text }) {
   const router = useRouter();
   const isActive = router.asPath === href;
@@ -26,7 +27,7 @@ export function NavItem({ href, text }) {
     </NextLink>
   );
 }
-
+//@ts-ignore
 export default function Container(props) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();

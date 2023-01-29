@@ -1,13 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { ListContainer } from 'components/ListDetail/ListContainer';
 import { TitleBar } from 'components/ListDetail/TitleBar';
-import { posts } from 'data/postIndex';
+//import { posts } from 'data/postIndex';
 import { PostPage, PostPageGroup } from 'lib/types';
 import { yespls } from 'lib/yespls';
 //import { posts } from 'data/postIndex';
 //import fetcher from 'lib/fetcher';
-import router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 import useSWR from 'swr';
 

@@ -1,6 +1,6 @@
 import { ListItem } from 'components/ListDetail/ListItem';
 import { timestampToCleanTime } from 'lib/transformers';
-import { PostPage } from 'lib/types';
+import type { PostPage } from 'lib/types';
 import * as React from 'react';
 
 interface Props {
@@ -15,7 +15,6 @@ export const PostListItem = React.memo<Props>(({ post, active }) => {
       href="/blog/[slug]"
       as={`/blog/${post.slug}`}
       title={post.title}
-      description={null}
       byline={post.date ? publishedAt.formatted : 'Draft'}
       active={active}
     />

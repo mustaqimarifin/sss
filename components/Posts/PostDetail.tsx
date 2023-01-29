@@ -1,5 +1,9 @@
 /* eslint-disable react/no-children-prop */
 //import Link from 'next/link';
+//import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+//import { AuthModal, CommentsProvider } from 'components/Comments 2';
+//import SBComments from 'components/Comments/SBComments';
 import { CoverImage } from 'components/Image';
 import ImageWithTheme from 'components/ImageWithTheme';
 import { Detail } from 'components/ListDetail/Detail';
@@ -7,9 +11,10 @@ import { TitleBar } from 'components/ListDetail/TitleBar';
 import LoadingSpinner from 'components/LoadingSpinner';
 import ViewCounter from 'components/ViewCounter';
 import dayjs from 'dayjs';
-import dynamic from 'next/dynamic';
+import type { Post } from 'lib/types';
 import * as React from 'react';
-import {
+
+/* import {
   CommentsContextProvider,
   useComments
 } from 'supabase/hooks/useComments';
@@ -19,7 +24,7 @@ import SignInModal from 'supabase/SBComponents/comments/SignInModal';
 import SupaDupa from 'supabase/SBComponents/SupaDupa';
 //import SupaDupa from 'supabase/SBComponents/SupaDupa';
 import supabase from 'supabase/supaPublic';
-
+import { CommentType } from 'supabase/types/interface'; */
 //import { Comments, CommentsProvider } from 'SupaComponents';
 import PageTitle from './PageTitle';
 //import { MarkdownRenderer } from 'components/MarkdownRenderer';
@@ -27,21 +32,14 @@ import PageTitle from './PageTitle';
 //import { timestampToCleanTime } from 'lib/transformers'
 //import { PostActions } from './PostActions'
 import { PostSEO } from './PostSEO';
-const SBComments = dynamic(
-  () => {
-    return import('components/Comments/SBComments');
-  },
-  { ssr: false }
-);
+type Props = {
+  children: React.ReactNode;
+  post: Post;
+};
 
-export function PostDetail({ post, children }) {
+export function PostDetail({ children, post }: Props) {
   const scrollContainerRef = React.useRef(null);
   const titleRef = React.useRef(null);
-
-  const [loadComments, setComments] = React.useState(false);
-  const canReply = Boolean(true);
-
-  //const { data: post, error } = useSWR('/api/blog', fetcher);
 
   //if (error) return <div>failed to load</div>;
   // if (!post) return <div>loading...</div>;
@@ -73,7 +71,9 @@ export function PostDetail({ post, children }) {
           backButtonHref={'/blog'}
           magicTitle
           title={post.title}
+          //@ts-ignore
           titleRef={titleRef}
+          //@ts-ignore
           scrollContainerRef={scrollContainerRef}
           // trailingAccessory={<PostActions post={post} />}
         />
@@ -112,28 +112,17 @@ export function PostDetail({ post, children }) {
                   {post.tags?.length &&
                     post.tags
                       .slice(0)
-                      .map((tag, index) => <div key={index}>{tag}</div>)}
+                      .map((tag: any, index: any) => (
+                        <div key={index}>{tag}</div>
+                      ))}
                 </div>
               </div>
             </div>
 
-            <div className="prose w-full max-w-3xl">{children}</div>
-            <div className="py-6 px-8 ">
-              {canReply && !loadComments ? (
-                <>
-                  <div className="flex justify-center space-y-2">
-                    <button
-                      className=" text-gray-600 hover:shadow-lg hover:bg-pink-400 hover:text-gray-50 rounded-md dark:hover:text-primary dark:hover:bg-white transition px-2 py-1 uppercase font-semibold text-xs text-center"
-                      onClick={() => setComments(!loadComments)}
-                    >
-                      Load Comments 👺
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <SBComments slug={post.slug} />
-              )}
+            <div className="prose dark:prose-dark w-full max-w-3xl">
+              {children}
             </div>
+            <div></div>
 
             {/*               <div className=" my-4 text-sm text-gray-700 dark:text-gray-300">
                 <a
@@ -155,6 +144,9 @@ export function PostDetail({ post, children }) {
                 </a>
               </div> */}
           </article>
+          {/*          <CommentsContextProvider commentId={commentId}>
+            <Comments topic={post.slug} />
+          </CommentsContextProvider> */}
         </Detail.ContentContainer>
       </Detail.Container>
     </>

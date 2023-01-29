@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 //import forms from '@tailwindcss/forms';
 //import lineClamp from '@tailwindcss/line-clamp';
 //import typography from '@tailwindcss/typography';
@@ -17,13 +18,10 @@ const mono = [
   'monospace'
 ];
 module.exports = {
-  experimental: {
-    optimizeUniversalDefaults: true
-  },
   content: [
-    './pages/**/*.tsx',
-    './components/**/*.tsx',
-    './layouts/**/*.tsx',
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './layouts/**/*.{ts,tsx}',
     './supabase/**/*.{jsx,tsx}'
   ],
   darkMode: 'class',

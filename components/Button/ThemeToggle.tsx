@@ -1,5 +1,5 @@
 import { Switch } from '@headlessui/react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -19,7 +19,7 @@ const ThemeToggle = () => {
       onChange={() => {
         isDark ? setTheme('light') : setTheme('dark');
       }}
-      className={clsx('relative flex items-center h-6 rounded-full w-12', {
+      className={clsx('relative flex items-center h-4 rounded-full w-12', {
         'bg-white/10': isDark,
         'bg-black/10': !isDark
       })}

@@ -16,9 +16,12 @@ export default async function handler(req: NextRequest) {
   const repositories = await userReposResponse.json();
 
   const mine = repositories.filter((repo) => !repo.fork);
-  const stars = mine.reduce((accumulator, repository) => {
-    return accumulator + repository['stargazers_count'];
-  }, 0);
+  const stars = mine.reduce(
+    (accumulator: any, repository: { [x: string]: any }) => {
+      return accumulator + repository['stargazers_count'];
+    },
+    0
+  );
 
   return new Response(
     JSON.stringify({

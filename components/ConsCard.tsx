@@ -1,3 +1,4 @@
+//@ts-nocheck
 export default function ConsCard({ title, cons }) {
   return (
     <div className="border border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-900 rounded-xl p-6 my-6 w-full">

@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import { Tweet } from 'lib/types';
 import Image from 'next/future/image';
 
 /**
@@ -7,7 +8,7 @@ import Image from 'next/future/image';
  * Needs support for images, GIFs, and replies maybe?
  * Styles use !important to override Tailwind .prose inside MDX.
  */
-export default function Tweet({
+export function Tweet({
   text,
   id,
   author,
@@ -15,12 +16,12 @@ export default function Tweet({
   created_at,
   public_metrics,
   referenced_tweets
-}) {
-  const authorUrl = `https://twitter.com/${author.username}`;
+}: Tweet) {
+  const authorUrl = `https://twitter.com/${author?.username}`;
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${id}`;
   const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${id}`;
   const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${id}`;
-  const tweetUrl = `https://twitter.com/${author.username}/status/${id}`;
+  const tweetUrl = `https://twitter.com/${author?.username}/status/${id}`;
   const createdAt = new Date(created_at);
 
   const formattedText = text

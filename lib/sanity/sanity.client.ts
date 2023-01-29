@@ -1,13 +1,13 @@
-import { Post } from 'lib/types';
+import type { Post } from 'lib/types';
 import { createClient } from 'next-sanity';
 
 import { apiVersion, dataset, projectId, useCdn } from './config';
+import type { Settings } from './queries';
 import {
   indexQuery,
   postBySlugQuery,
   postQuery,
   postSlugsQuery,
-  Settings,
   settingsQuery
 } from './queries';
 

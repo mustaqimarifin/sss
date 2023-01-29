@@ -8,16 +8,14 @@ import * as React from 'react';
 function Terms() {
   return (
     <NextSeo
-      title={routes.dashboard.seo.title}
-      description={routes.dashboard.seo.description}
-      openGraph={routes.dashboard.seo.openGraph}
+      title={routes.terms.seo.title}
+      description={routes.terms.seo.description}
+      openGraph={routes.terms.seo.openGraph}
     />
   );
 }
 
-Terms.getLayout = withProviders(function getLayout(
-  page: React.ReactElement<any, string | React.JSXElementConstructor<any>>
-) {
+Terms.getLayout = withProviders(function getLayout(page) {
   return (
     <SiteLayout>
       <ListDetailView list={null} hasDetail detail={<TOS />} />

@@ -1,5 +1,4 @@
-import { createRedisInstance } from '.';
-const redis = createRedisInstance();
+import { redis } from '.';
 
 const fetch = async <T>(key: string, fetcher: () => T, expires: number) => {
   const existing = await get<T>(key);

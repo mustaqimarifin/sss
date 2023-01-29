@@ -1,5 +1,5 @@
+import supabase from 'lib/supabase';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import supabase from 'supabase/supaPublic';
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse

@@ -8,16 +8,14 @@ import * as React from 'react';
 function Privacy() {
   return (
     <NextSeo
-      title={routes.dashboard.seo.title}
-      description={routes.dashboard.seo.description}
-      openGraph={routes.dashboard.seo.openGraph}
+      title={routes.privacy.seo.title}
+      description={routes.privacy.seo.description}
+      openGraph={routes.privacy.seo.openGraph}
     />
   );
 }
 
-Privacy.getLayout = withProviders(function getLayout(
-  page: React.ReactElement<any, string | React.JSXElementConstructor<any>>
-) {
+Privacy.getLayout = withProviders(function getLayout(page) {
   return (
     <SiteLayout>
       <ListDetailView list={null} hasDetail detail={<PP />} />

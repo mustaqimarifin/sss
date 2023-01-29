@@ -4,15 +4,20 @@ import ImageWithTheme from 'components/ImageWithTheme';
 import Analytics from 'components/metrics/Analytics';
 import ProsCard from 'components/ProsCard';
 import Step from 'components/Step';
-import { getMDXComponent, MDXContentProps } from 'mdx-bundler/client';
+import type { MDXContentProps } from 'mdx-bundler/client';
+import { getMDXComponent } from 'mdx-bundler/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+import { CodeBlock } from './CodeBlock';
 import DickPics from './Pics';
-import Tweet from './Tweet';
 
-const CustomLink = (props) => {
+const CustomLink = (
+  props: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLAnchorElement> &
+    React.AnchorHTMLAttributes<HTMLAnchorElement>
+) => {
   const href = props.href;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
@@ -39,6 +44,36 @@ function Callout(props) {
   );
 }
 
+const Predator = ({ node, inline, className, children, ...props }) => {
+  const match = /language-(\w+)/.exec(className || '');
+  return !inline && match ? (
+    <CodeBlock
+      language={match[1]}
+      className={className}
+      text={String(children).replace(/\n$/, '')}
+      {...props}
+    />
+  ) : (
+    <>{children}</>
+  );
+};
+
+const Codex = ({ node, inline, className, children, ...props }) => {
+  const match = /language-(\w+)/.exec(className || '');
+  return !inline && match ? (
+    <CodeBlock
+      className={className}
+      text={String(children).replace(/\n$/, '')}
+      language={match[1]}
+      {...props}
+    />
+  ) : (
+    <code className={className} {...props}>
+      {children}
+    </code>
+  );
+};
+
 export const MDXComponents = {
   Image: RoundedImage,
   ImageWithTheme,
@@ -48,7 +83,9 @@ export const MDXComponents = {
   Analytics,
   ConsCard,
   ProsCard,
-  Step
+  Step,
+  pre: Predator,
+  code: Codex
 };
 
 interface Props {

@@ -2,16 +2,7 @@
  * @type {import('next').NextConfig}
  */
 module.exports = {
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs'
-      config.resolve.fallback = {
-        fs: false
-      };
-    }
-
-    return config;
-  },
+  eslint: { ignoreDuringBuilds: !!process.env.CI },
   swcMinify: true,
   reactStrictMode: true,
   images: {
@@ -27,8 +18,7 @@ module.exports = {
   experimental: {
     legacyBrowsers: false,
     esmExternals: 'loose',
-    browsersListForSwc: true,
-    urlImports: ['https://cdn.skypack.dev/', 'https://cdn.jsdelivr.net/']
+    browsersListForSwc: true
   }
   /* async headers() {
     return [

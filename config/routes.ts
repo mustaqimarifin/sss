@@ -44,14 +44,14 @@ const routes = {
       url: 'videos'
     })
   },
-  appDissection: {
-    label: 'App Dissection',
-    path: '/app-dissection',
+  tweets: {
+    label: 'Tweets',
+    path: '/tweets',
     seo: extendSEO({
-      title: 'App Dissection',
-      description: 'In-depth design explorations.',
+      title: 'Tweets',
+      description: 'Collection of Fav Tweets',
       image: 'og/app-dissection.png',
-      url: 'app-dissection'
+      url: 'tweets'
     })
   },
   /*  crit: {
@@ -113,6 +113,26 @@ const routes = {
       description: 'Just messing with all things tech.',
       image: 'og/stack.png',
       url: 'dashboard'
+    })
+  },
+  privacy: {
+    label: 'Privacy Policy',
+    path: '/privacypolicy',
+    seo: extendSEO({
+      title: 'Privacy Policy',
+      description: null,
+      image: 'og/pp.png',
+      url: 'privacypolicy'
+    })
+  },
+  terms: {
+    label: 'Terms of Service',
+    path: '/termsofservice',
+    seo: extendSEO({
+      title: 'Terms of Service',
+      description: null,
+      image: 'og/tos.png',
+      url: 'termsofservice'
     })
   }
   /*  settings: {

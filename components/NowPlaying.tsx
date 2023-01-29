@@ -1,8 +1,5 @@
 //import useSWR from 'swr';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import got from 'got';
-import fetcher from 'lib/fetcher';
+
 import { NowPlayingSong } from 'lib/types';
 import { yespls } from 'lib/yespls';
 import { animate } from 'motion';

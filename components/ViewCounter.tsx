@@ -1,4 +1,5 @@
-import { Views } from 'lib/types';
+//@ts-nocheck
+import type { Views } from 'lib/types';
 import { yespls } from 'lib/yespls';
 import { useEffect } from 'react';
 import useSWR from 'swr';
