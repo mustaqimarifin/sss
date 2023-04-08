@@ -8,9 +8,7 @@ export default function Tag({ tags }) {
       {tags?.length &&
         tags.slice(0).map((tag, index) => (
           <Link href="#" key={index}>
-            <a>
-              <Label color={tag.color}>{tag.title}</Label>
-            </a>
+            <Label color={tag.color}>{tag.title}</Label>
           </Link>
         ))}
     </div>

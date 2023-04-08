@@ -1,32 +1,26 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider         = "prisma-client-js"
+  precountFeatures = "(array)"
+  relationMode     = "foreignKeys"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("SQL")
 }
 
-model Example {
-  id String @id @default(cuid())
-}
-
-// Necessary for Next auth
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id @default(dbgenerated("concat('acc', xid())")) @db.Char(23)
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -34,23 +28,28 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(dbgenerated("concat('sss', xid())")) @db.Char(23)
   sessionToken String   @unique
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String      @id @default(dbgenerated("concat('usr', xid())")) @db.Char(23)
+  //role          Role        @default(USER)
   name          String
-  email         String?   @unique
+  email         String?     @unique
   emailVerified DateTime?
+  isAdmin       Boolean     @default(false)
   image         String?
   accounts      Account[]
-  sessions      Session[]
   comments      Comment[]
   likes         Like[]
+  sessions      Session[]
+  messages      Guestbook[]
 }
 
 model VerificationToken {
@@ -61,34 +60,44 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model Guestbook {
+  id        BigInt   @id @default(autoincrement())
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
 model Post {
-  id       String @unique
-  title    String 
-  slug     String? @unique
+  id       String    @id @default(dbgenerated("concat('pos', xid())")) @db.Char(23)
+  slug     String?   @unique
+  count    BigInt    @default(1)
   comments Comment[]
 }
 
 model Comment {
-  id        String    @id @default(uuid())
-  message   String
+  id        String    @id @default(dbgenerated("concat('com', xid())")) @db.Char(23)
+  text      String
   createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    String
-  slug      String
-  parent    Comment?  @relation("ParentChild", fields: [parentId], references: [id], onDelete: Cascade)
-  children  Comment[] @relation("ParentChild")
+  updatedAt DateTime? @updatedAt
+  userId    String?
   parentId  String?
+  slug      String?
+  parent    Comment?  @relation("ParentChild", fields: [parentId], references: [id], onDelete: Cascade)
+  replies   Comment[] @relation("ParentChild")
+  post      Post?     @relation(fields: [slug], references: [slug])
+  user      User?     @relation(fields: [userId], references: [id])
   likes     Like[]
-  Post      Post?     @relation(fields: [postId], references: [id])
-  postId    String?
+
+  @@index([userId, slug])
 }
 
 model Like {
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  comment   Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
   userId    String
   commentId String
+  comment   Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, commentId])
 }

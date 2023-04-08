@@ -1,6 +1,6 @@
 import MetricCard from 'components/metrics/Card';
 import fetcher from 'lib/fetcher';
-import { YouTube } from 'lib/types';
+import { type YouTube } from 'lib/types';
 import useSWR from 'swr';
 
 import Analytics from './Analytics';

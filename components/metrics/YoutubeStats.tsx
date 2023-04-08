@@ -1,5 +1,5 @@
 import fetcher from 'lib/fetcher';
-import { YouTube } from 'lib/types';
+import { type YouTube } from 'lib/types';
 import useSWR from 'swr';
 
 interface Props {

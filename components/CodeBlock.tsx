@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import { PrismLight as Shh } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import graphql from 'react-syntax-highlighter/dist/cjs/languages/prism/graphql';

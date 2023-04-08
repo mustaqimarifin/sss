@@ -1,4 +1,4 @@
-import Portal from '@reach/portal';
+import { Portal } from '@reach/portal';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 type key = string;
 

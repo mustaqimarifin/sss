@@ -1,12 +1,10 @@
-import Button from 'components/Button';
 import { TraceImage } from 'components/Image';
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
 import { MapPin } from 'components/ProsCard';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
-
 function SectionTitle(props) {
   return (
     <h4
@@ -174,10 +172,10 @@ export function Intro() {
             alt="Mustaqim Arifin"
             height={176}
             width={176}
-            src="/wookie.png"
+            src="/avatar.jpg"
             sizes="30vw"
             priority
-            className="rounded-full dark:invert transition-colors duration-200"
+            className="rounded-full transition-colors duration-200"
           />
         </div>
         <div className="pb-24 space-y-8 md:space-y-16">
@@ -209,7 +207,7 @@ export function Intro() {
                   </a>
                   ,{' '}
                   <Link href="/writing" passHref>
-                    <a>audio engineer</a>
+                    audio engineer
                   </Link>
                   , and{' '}
                   <a

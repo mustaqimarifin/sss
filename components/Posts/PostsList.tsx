@@ -1,7 +1,7 @@
 import { ListContainer } from 'components/ListDetail/ListContainer';
 import { TitleBar } from 'components/ListDetail/TitleBar';
 //import { posts } from 'data/postIndex';
-import { PostPage, PostPageGroup } from 'lib/types';
+import { type PostPage, type PostPageGroup } from 'lib/types';
 import { yespls } from 'lib/yespls';
 //import { posts } from 'data/postIndex';
 //import fetcher from 'lib/fetcher';

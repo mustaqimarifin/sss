@@ -1,4 +1,4 @@
-import { DesignDetail } from 'data/appDissections';
+import { type DesignDetail } from 'data/appDissections';
 
 export type Post = {
   id: string;

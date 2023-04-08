@@ -1,6 +1,6 @@
 import { ListDetailView, SiteLayout } from 'components/Layouts';
 import { withProviders } from 'components/Providers/withProviders';
-import { Tweet } from 'components/Tweet';
+import Tweet from 'components/teets';
 import TweetPage from 'components/Tweets/Tweetpage';
 import routes from 'config/routes';
 import { getTweets } from 'lib/twitter';

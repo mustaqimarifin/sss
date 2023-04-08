@@ -169,8 +169,8 @@ export function SidebarNavigation() {
           isExternal: true
         }
       ]
-    },
-    {
+    }
+    /* {
       label: 'Misc',
       items: [
         {
@@ -193,7 +193,7 @@ export function SidebarNavigation() {
           isExternal: false
         }
       ]
-    }
+    } */
   ];
 
   return (
@@ -204,7 +204,7 @@ export function SidebarNavigation() {
             {section.label && (
               <h4
                 key={i}
-                className="px-2 pt-5 pb-2 text-xs font-semibold text-gray-1000 text-opacity-40 dark:text-white"
+                className="px-2 pt-5 pb-2 text-sm font-semibold text-bulma text-opacity-40 dark:text-white"
               >
                 {section.label}
               </h4>

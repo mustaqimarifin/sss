@@ -1,7 +1,5 @@
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
-import { Tweet } from 'components/Tweet';
-import { getTweets } from 'lib/twitter';
 import * as React from 'react';
 
 function SectionTitle(props: any) {

@@ -1,9 +1,9 @@
 import { Switch } from '@headlessui/react';
+import { OtherMoon, OtherSun } from '@heathmont/moon-icons-tw';
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { Moon, Sun } from 'react-feather';
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
@@ -24,7 +24,7 @@ const ThemeToggle = () => {
         'bg-black/10': !isDark
       })}
     >
-      <span className="sr-only">Change Color Mode</span>
+      <span className="sr-only dark:invert">Change Color Mode</span>
       {isDark ? (
         <AnimatePresence>
           <motion.span
@@ -35,7 +35,7 @@ const ThemeToggle = () => {
               transition: { ease: [0.11, 0.7, 0, 1] }
             }}
           >
-            <Moon />
+            <OtherMoon className="text-moon-24 text-goten" />
           </motion.span>
         </AnimatePresence>
       ) : (
@@ -49,7 +49,7 @@ const ThemeToggle = () => {
               transition: { ease: [0.11, 0.7, 0, 1] }
             }}
           >
-            <Sun />
+            <OtherSun />
           </motion.span>
         </AnimatePresence>
       )}

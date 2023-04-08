@@ -1,6 +1,6 @@
 //import useSWR from 'swr';
 
-import { NowPlayingSong } from 'lib/types';
+import { type NowPlayingSong } from 'lib/types';
 import { yespls } from 'lib/yespls';
 import { animate } from 'motion';
 import { useEffect } from 'react';

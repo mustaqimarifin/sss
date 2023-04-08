@@ -1,10 +1,16 @@
-export const getTweets = async (ids) => {
-  if (ids.length === 0) {
+// react-static-tweets isn't currently working
+// https://github.com/transitive-bullshit/react-static-tweets/issues/55
+// so using the API directly for now, maybe change later
+//
+// You can view previous version with react-static-tweets in the PR commits
+// https://github.com/leerob/leerob.io/pull/564
+export const getTweets = async (id: any[]) => {
+  if (id?.length === 0) {
     return [];
   }
 
   const queryParams = new URLSearchParams({
-    ids: ids.join(','),
+    ids: id?.join(','),
     expansions:
       'author_id,attachments.media_keys,referenced_tweets.id,referenced_tweets.id.author_id',
     'tweet.fields':
@@ -60,4 +66,18 @@ export const getTweets = async (ids) => {
       return [tweetWithAuthor, ...allTweets];
     }, []) || [] // If the Twitter API key isn't set, don't break the build
   );
+};
+
+export const getTweetCount = async () => {
+  const response = await fetch(
+    `https://api.twitter.com/2/users/by/username/vmprmyth?user.fields=public_metrics`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.TWITTER_API_KEY}`
+      }
+    }
+  );
+
+  const { data } = await response.json();
+  return Number(data.public_metrics.tweet_count);
 };

@@ -1,5 +1,5 @@
-import fetcher from 'lib/fetcher';
-import { Views } from 'lib/types';
+import { type Views } from 'lib/types';
+import { yespls } from 'lib/yespls';
 import Link from 'next/link';
 import useSWR from 'swr';
 
@@ -12,7 +12,7 @@ export default function BlogPost({
   title: string;
   excerpt: string;
 }) {
-  const { data } = useSWR<Views>(`/api/page/${slug}`, fetcher);
+  const { data } = useSWR<Views>(`/api/views/${slug}`, yespls);
   const views = data?.total;
 
   return (

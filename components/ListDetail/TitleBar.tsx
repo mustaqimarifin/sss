@@ -79,9 +79,11 @@ export function TitleBar({
   }, [titleRef, scrollContainerRef]);
 
   React.useEffect(() => {
-    scrollContainerRef?.current?.addEventListener('scroll', handler);
-    return () =>
-      scrollContainerRef?.current?.removeEventListener('scroll', handler);
+    const testes = scrollContainerRef?.current?.addEventListener(
+      'scroll',
+      handler
+    );
+    return () => testes;
   }, [handler, scrollContainerRef]);
 
   React.useEffect(() => {
@@ -122,10 +124,11 @@ export function TitleBar({
             )}
 
             {backButton && (
-              <Link href={backButtonHref}>
-                <a className="text-primary flex items-center justify-center rounded-md p-2 hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden">
-                  <ArrowLeft className="text-primary" />
-                </a>
+              <Link
+                href={backButtonHref}
+                className="text-primary flex items-center justify-center rounded-md p-2 hover:bg-gray-200 dark:hover:bg-gray-800 lg:hidden"
+              >
+                <ArrowLeft className="text-primary" />
               </Link>
             )}
 

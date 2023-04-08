@@ -1,25 +1,31 @@
 import { redis } from '.';
 
-const fetch = async <T>(key: string, fetcher: () => T, expires: number) => {
-  const existing = await get<T>(key);
+export const fetch = async <T>(
+  key: string,
+  fetcher: () => T,
+  expires: number
+) => {
+  const existing = await redis.get(key);
   if (existing !== null) return existing;
   return set(key, fetcher, expires);
 };
 
-const get = async <T>(key: string): Promise<T> => {
-  const value = await redis.get(key);
+export const get = async <T>(key: string): Promise<T> => {
+  const value: string = await redis.get(key);
   if (value === null) return null;
   return JSON.parse(value);
 };
 
-const set = async <T>(key: string, fetcher: () => T, expires: number) => {
+export const set = async <T>(
+  key: string,
+  fetcher: () => T,
+  expires: number
+): Promise<T> => {
   const value = await fetcher();
   await redis.set(key, JSON.stringify(value), 'EX', expires);
   return value;
 };
 
-const del = async (key: string) => {
+export const del = async (key: string) => {
   await redis.del(key);
 };
-
-export default { fetch, set, get, del };

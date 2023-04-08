@@ -1,4 +1,4 @@
-import { GithubButton, GoogleButton, TwitterButton } from 'components/Button';
+import { GoogleButton } from 'components/Button';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 

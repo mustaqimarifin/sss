@@ -1,16 +1,15 @@
-/* eslint-disable react/display-name */
-import { FigmaIcon } from 'components/Icon';
-// import { Compass } from 'react-feather';
+import { SportAthletics } from '@heathmont/moon-icons-tw';
+import Button from 'components/Button';
 import LoadingSpinner from 'components/LoadingSpinner';
+import Image from 'next/image';
 import * as React from 'react';
 
-import Button from '../Button';
 import { TitleBar } from './TitleBar';
 
 function ContentContainer(props) {
   return (
     <div
-      className="mx-auto w-full max-w-4xl px-4 py-12 pb-10 md:px-8"
+      className="mx-auto  max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl px-3 py-12   lg:px-4 "
       {...props}
     />
   );
@@ -24,9 +23,10 @@ const Container = React.forwardRef<HTMLDivElement, DetailContainerProps>(
   (props, ref) => {
     return (
       <div
+        suppressHydrationWarning
         ref={ref}
         id="main"
-        className="relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-black"
+        className="relative flex max-h-screen w-full flex-col overflow-y-auto bg-white dark:bg-zinc-900 "
         {...props}
       />
     );
@@ -42,13 +42,7 @@ interface TitleProps {
 }
 
 const Title = React.forwardRef<HTMLHeadingElement, TitleProps>((props, ref) => {
-  return (
-    <div
-      ref={ref}
-      className="text-primary font-sans text-2xl font-bold xl:text-3xl"
-      {...props}
-    />
-  );
+  return <div ref={ref} className="text-4xl font-bold " {...props} />;
 });
 
 function Loading() {
@@ -66,11 +60,19 @@ function Null() {
     <Container>
       <TitleBar title="Not found" />
       <div className="flex flex-1 flex-col items-center justify-center space-y-6 px-8 text-center lg:px-16">
-        <FigmaIcon />
+        <Image
+          src="/static/clip/brickluke.webp"
+          width={200}
+          height={200}
+          alt="brickluke"
+          className="justify-center"
+        />
+        <SportAthletics />
         <div className="flex flex-col space-y-1">
           <p className="text-primary font-semibold">
             What you seek does not exist.
           </p>
+
           <p className="text-tertiary">
             Maybe this link is broken. Maybe something was deleted, or moved. In
             any case, there’s nothing to see here...

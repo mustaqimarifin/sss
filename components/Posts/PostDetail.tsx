@@ -1,36 +1,14 @@
-/* eslint-disable react/no-children-prop */
-//import Link from 'next/link';
-//import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-//import { AuthModal, CommentsProvider } from 'components/Comments 2';
-//import SBComments from 'components/Comments/SBComments';
+import CommentComponent from 'components/CommentComponent';
 import { CoverImage } from 'components/Image';
 import ImageWithTheme from 'components/ImageWithTheme';
 import { Detail } from 'components/ListDetail/Detail';
 import { TitleBar } from 'components/ListDetail/TitleBar';
-import LoadingSpinner from 'components/LoadingSpinner';
 import ViewCounter from 'components/ViewCounter';
 import dayjs from 'dayjs';
 import type { Post } from 'lib/types';
 import * as React from 'react';
 
-/* import {
-  CommentsContextProvider,
-  useComments
-} from 'supabase/hooks/useComments';
-import { ModalProvider, useModal } from 'supabase/hooks/useModal';
-import Comments from 'supabase/SBComponents/comments/Comments';
-import SignInModal from 'supabase/SBComponents/comments/SignInModal';
-import SupaDupa from 'supabase/SBComponents/SupaDupa';
-//import SupaDupa from 'supabase/SBComponents/SupaDupa';
-import supabase from 'supabase/supaPublic';
-import { CommentType } from 'supabase/types/interface'; */
-//import { Comments, CommentsProvider } from 'SupaComponents';
 import PageTitle from './PageTitle';
-//import { MarkdownRenderer } from 'components/MarkdownRenderer';
-//import { CommentType, useGetPostQuery } from 'graphql/types.generated'
-//import { timestampToCleanTime } from 'lib/transformers'
-//import { PostActions } from './PostActions'
 import { PostSEO } from './PostSEO';
 type Props = {
   children: React.ReactNode;
@@ -88,27 +66,14 @@ export function PostDetail({ children, post }: Props) {
               </Detail.Title>
             </Detail.Header>
 
-            <div className="mb-16 flex flex-col items-start  justify-between w-full mt-2 md:flex-row md:items-center">
-              <div className="flex items-center">
-                <ImageWithTheme
-                  alt="Mustaqim Arifin"
-                  height={28}
-                  width={28}
-                  sizes="20vw"
-                  src="/wookie.png"
-                  className="rounded-full dark:invert"
-                />
-                <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                  {'Mustaqim Arifin | '}
-                  {dayjs(post.date).format('MMMM DD, YYYY')}
-                </p>
-              </div>
-              <div className="flex gap-2 items-center mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0">
-                {post.readingTime}
+            <div className="mb-16 flex flex-col items-start uppercase text-center font-semibold  justify-between w-full mt-2 md:flex-row md:items-center">
+              <div className="flex gap-2  items-center mt-2 text-sm text-gray-600 dark:text-gray-400  md:mt-0">
+                {dayjs(post.date).format('MMMM DD, YYYY')}
                 {` • `}
+
                 <ViewCounter slug={post.slug} />
                 {` • `}
-                <div className="flex">
+                <div className="flex space-x-2">
                   {post.tags?.length &&
                     post.tags
                       .slice(0)
@@ -119,9 +84,11 @@ export function PostDetail({ children, post }: Props) {
               </div>
             </div>
 
-            <div className="prose dark:prose-dark w-full max-w-3xl">
+            <div className="prose dark:prose-dark font-imp w-full max-w-3xl">
               {children}
             </div>
+            <CommentComponent slug={post.slug} />
+
             <div></div>
 
             {/*               <div className=" my-4 text-sm text-gray-700 dark:text-gray-300">

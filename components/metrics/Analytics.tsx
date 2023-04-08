@@ -1,6 +1,6 @@
 import MetricCard from 'components/metrics/Card';
 import fetcher from 'lib/fetcher';
-import { Views } from 'lib/types';
+import { type Views } from 'lib/types';
 import useSWR from 'swr';
 
 export default function AnalyticsCard() {

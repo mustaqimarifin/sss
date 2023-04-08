@@ -1,5 +1,4 @@
-import Container from 'components/Container';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 // import LickPics from 'components/LickPics';
 import desk from '../public/static/images/gear/desk.jpg';
@@ -7,10 +6,7 @@ import desk from '../public/static/images/gear/desk.jpg';
 
 export default function Uses() {
   return (
-    <Container
-      title="Uses – Mustaqim Arifin"
-      description="Here's what tech I'm currently using for coding, videos, and music."
-    >
+    <>
       <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full px-8">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           My Gear
@@ -92,6 +88,6 @@ export default function Uses() {
           </ul>
         </div>
       </article>
-    </Container>
+    </>
   );
 }

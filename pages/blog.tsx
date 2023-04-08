@@ -1,13 +1,11 @@
 import BlogPost from 'components/BlogPost';
-import Container from 'components/Container';
 import { ListDetailView, SiteLayout } from 'components/Layouts';
-import { PostsList } from 'components/Posts/PostsList';
 import { withProviders } from 'components/Providers/withProviders';
 import routes from 'config/routes';
 import { indexQuery } from 'lib/sanity/queries';
 import { getClient } from 'lib/sanity/server';
-import { Post } from 'lib/types';
-import { InferGetStaticPropsType } from 'next';
+import { type Post } from 'lib/types';
+import { type InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
@@ -26,9 +24,9 @@ function PostIndex({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
       />
 
       <div className="flex flex-col items-start justify-center max-w-3xl mx-auto mb-16 px-8">
-        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
-          Blog
-        </h1>
+        <div className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+          Posts
+        </div>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
           {`I've been writing online since 2014, mostly about web development and tech careers.
             In total, I've written ${posts.length} articles on my blog.
@@ -57,9 +55,9 @@ function PostIndex({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
             />
           </svg>
         </div>
-        <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+        {/*         <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
           All Posts
-        </h3>
+        </h3> */}
         {!filteredBlogPosts.length && (
           <p className="mb-4 text-gray-600 dark:text-gray-400">
             No posts found.

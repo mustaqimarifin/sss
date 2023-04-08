@@ -23,7 +23,7 @@
 }
 
 .prose table {
-  @apply my-2 border border-gray-200 rounded-md text-gray-1000 dark:border-gray-800 dark:text-gray-50;
+  @apply my-2 border border-gray-200 rounded-md text-gray-900 dark:border-gray-800 dark:text-gray-50;
 }
 
 .prose.comment table {
@@ -98,7 +98,7 @@
 .prose h4 a,
 .prose h5 a,
 .prose h6 a {
-  @apply font-sans font-bold no-underline text-gray-1000 dark:text-gray-100;
+  @apply font-sans font-bold no-underline text-gray-900 dark:text-gray-100;
 }
 
 .prose h5 {
@@ -149,10 +149,10 @@
   margin-top: 0;
 }
 
- .prose code {
+.prose code {
   @apply rounded-md border-gray-100 bg-gray-100 px-1 py-0.5 text-gray-800 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200;
 }
- 
+
 .prose code,
 .prose pre {
   @apply text-sm  whitespace-pre-wrap;

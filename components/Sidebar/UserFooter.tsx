@@ -1,17 +1,11 @@
 import { Avatar } from 'components/Avatar';
-import Button, { GhostButton } from 'components/Button';
+import { GhostButton } from 'components/Button';
 import LoadingSpinner from 'components/LoadingSpinner';
-import { SignInDialog } from 'components/SignInDialog';
 import Link from 'next/link';
 import { signIn, useSession } from 'next-auth/react';
-import * as React from 'react';
+import { useContext } from 'react';
 import { Settings } from 'react-feather';
 
-//import { SignOut, TwitterLogin } from 'supabase/funkshunz/SignOut';
-//import { useModal } from 'supabase/hooks/useModal';
-//import { useUser } from 'supabase/hooks/useUser';
-//import Avatar from 'supabase/SBComponents/comments/Avatar';
-//import SignInModal from 'supabase/SBComponents/comments/SignInModal';
 import { GlobalNavigationContext } from '../Providers';
 
 function Container(
@@ -30,22 +24,25 @@ function Container(
 
 export function UserFooter() {
   const { data: session, status } = useSession();
-  const { setIsOpen } = React.useContext(GlobalNavigationContext);
+  const { setIsOpen } = useContext(GlobalNavigationContext);
 
   function signInButton() {
     return (
-      <Button
-        style={{ width: '100%' }}
-        href={`/api/auth/signin`}
-        onClick={(e) => {
-          e.preventDefault();
-          signIn();
-        }}
-      >
-        Sign in
-      </Button>
+      <>
+        <GhostButton
+          href={`/api/auth/signin`}
+          onClick={(e) => {
+            e.preventDefault();
+            signIn();
+          }}
+          style={{ width: '100%' }}
+        >
+          Sign in
+        </GhostButton>
+      </>
     );
   }
+
   if (!session) {
     return <Container>{signInButton()}</Container>;
   }

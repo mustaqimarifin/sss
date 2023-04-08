@@ -12,25 +12,26 @@ import React from 'react';
 
 import { CodeBlock } from './CodeBlock';
 import DickPics from './Pics';
+import Tweet from './teets';
 
-const CustomLink = (
-  props: JSX.IntrinsicAttributes &
-    React.ClassAttributes<HTMLAnchorElement> &
-    React.AnchorHTMLAttributes<HTMLAnchorElement>
-) => {
+const CustomLink = (props) => {
   const href = props.href;
-  const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
-  if (isInternalLink) {
+  if (href.startsWith('/')) {
     return (
-      <Link href={href}>
-        <a {...props}>{props.children}</a>
+      <Link href={href} {...props}>
+        {props.children}
       </Link>
     );
   }
 
+  if (href.startsWith('#')) {
+    return <a {...props} />;
+  }
+
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
+
 function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
@@ -89,15 +90,21 @@ export const MDXComponents = {
 };
 
 interface Props {
-  mdx: string;
+  mdx?: string;
+  tweets?: Record<string, any>;
+
   [key: string]: unknown;
 }
 
-export const MDSEX = ({ mdx, ...rest }: Props) => {
+export const MDSEX = ({ mdx, tweets, ...rest }: Props) => {
   const MDXLayout = React.useMemo(
     (): React.FunctionComponent<MDXContentProps> => getMDXComponent(mdx),
     [mdx]
   );
+  const StaticTweet = ({ id }) => {
+    const tweet = tweets.find((tweet) => tweet.id === id);
+    return <Tweet {...tweet} />;
+  };
 
-  return <MDXLayout {...rest} />;
+  return <MDXLayout components={{ ...MDXComponents, StaticTweet }} />;
 };

@@ -2,7 +2,6 @@
 import type { User as PrismaUser, UserRole } from '@prisma/client';
 import type { DefaultSession } from 'next-auth';
 import NextAuth, { Session } from 'next-auth';
-import { UseQueryOptions } from 'react-query';
 
 declare module 'next-auth' {
   /**
@@ -12,7 +11,7 @@ declare module 'next-auth' {
     user: {
       /** HOKAGE */
       id: string;
-      role: UserRole;
+      // role: UserRole;
     } & DefaultSession['user'];
     isAdmin: boolean;
     userId: string;

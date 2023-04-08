@@ -1,20 +1,14 @@
-import type { NextPageContext } from 'next';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { Session } from 'next-auth';
 import { SessionProvider, useSession } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
-//import { ModalProvider, useModal } from 'supabase/hooks/useModal';
-//import { UserContextProvider } from 'supabase/hooks/useUser';
-//import SignInModal from 'supabase/SBComponents/comments/SignInModal';
-//import supabase from 'supabase/supaPublic';
 import { Toast } from './Toaster';
 interface Props {
   children?: React.ReactNode;
   pageProps: {
     session: Session;
-    pageProps: NextPageContext;
   };
 }
 
@@ -27,7 +21,7 @@ const globalNavigationContext = {
 export const GlobalNavigationContext = React.createContext(
   globalNavigationContext
 );
-export function Providers({ children, pageProps }: Props) {
+export function Providers({ children, pageProps: { session } }: Props) {
   const initialState = {
     isOpen: false,
     setIsOpen
@@ -43,15 +37,15 @@ export function Providers({ children, pageProps }: Props) {
   return (
     <>
       <Toast />
-      <QueryClientProvider client={queryClient}>
-        <SessionProvider session={pageProps.session}>
-          <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class">
+        <QueryClientProvider client={queryClient}>
+          <SessionProvider session={session}>
             <GlobalNavigationContext.Provider value={state}>
               {children}
             </GlobalNavigationContext.Provider>
-          </ThemeProvider>
-        </SessionProvider>
-      </QueryClientProvider>
+          </SessionProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
     </>
   );
 }

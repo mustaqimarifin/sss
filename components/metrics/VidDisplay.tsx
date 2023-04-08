@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 // import { Video } from 'lib/types';
 
 export default function VidDisplay({ vid }) {
@@ -8,9 +8,9 @@ export default function VidDisplay({ vid }) {
   const description = vid.snippet.description;
   const url = `https://www.youtube.com/watch?v=${id}`;
   return (
-    <li>
-      <a href={url}>
-        <div className="grid grid-cols-3 my-4 gap-4">
+    <a href={url}>
+      <div className="grid grid-cols-3 my-4 gap-4">
+        <div className="px-4 py-5 bg-gray-800 shadow rounded-md overflow-hidden sm:p-6">
           <div className="hidden sm:flex relative col-span-1 rounded-md">
             <Image
               src={thumbnail}
@@ -24,12 +24,12 @@ export default function VidDisplay({ vid }) {
             <h2 className="text-xl font-semibold text-gray-600 dark:text-gray-300">
               {title}
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            {/*            <p className="text-sm text-gray-600 dark:text-gray-300">
               {description}
-            </p>
+            </p> */}
           </div>
         </div>
-      </a>
-    </li>
+      </div>
+    </a>
   );
 }
