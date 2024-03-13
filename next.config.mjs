@@ -2,24 +2,34 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
  * This is especially useful for Docker builds.
  */
-!process.env.SKIP_ENV_VALIDATION && (await import('./env.mjs'));
+//!process.env.SKIP_ENV_VALIDATION && (await import('./env.mjs'));
 
 /** @type {import("next").NextConfig} */
 const config = {
-  swcMinify: true,
-  reactStrictMode: true,
-  staticPageGenerationTimeout: 300,
+  //staticPageGenerationTimeout: 300,
   eslint: { ignoreDuringBuilds: !!process.env.CI },
   images: {
     formats: ['image/avif', 'image/webp'],
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com', // Twi,
-      'cdn.sanity.io',
-      'lh3.googleusercontent.com',
-      'i.ytimg.com',
-      'avatars.githubusercontent.com',
-      'img1-tw.alphaxcdn.com'
+    remotePatterns: [
+      { protocol: 'https', hostname: '*.twimg.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'i.ytimg.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'cdn.sanity.io', pathname: '/**' },
+      { protocol: 'https', hostname: 'i.scdn.co', pathname: '/**' },
+      {
+        protocol: 'https',
+        hostname: 'ik.imagekit.io',
+        pathname: '/mstqmarfn/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/**'
+      }
     ],
     dangerouslyAllowSVG: true
   }

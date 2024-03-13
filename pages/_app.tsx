@@ -1,6 +1,6 @@
 import 'styles/global.tailwind.css';
 import '@heathmont/moon-themes-tw/lib/moon.css';
-import 'styles/prism.css';
+import '@code-hike/mdx/styles';
 
 import { SiteLayout } from 'components/Layouts';
 import { Providers } from 'components/Providers';
@@ -9,7 +9,6 @@ import type { AppType } from 'next/dist/shared/lib/utils';
 import Head from 'next/head';
 import type { NextPage } from 'next/types';
 import * as React from 'react';
-import { api } from 'utils/api';
 
 export type NextPageWithLayout<
   TProps = Record<string, unknown>,
@@ -46,4 +45,4 @@ const MyApp = (({ Component, pageProps }: AppPropsWithLayout) => {
   );
 }) as AppType;
 
-export default api.withTRPC(MyApp);
+export default MyApp;

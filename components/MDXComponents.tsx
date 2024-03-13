@@ -11,6 +11,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { CodeBlock } from './CodeBlock';
+import IKImage from './Image/lazyboy';
 import DickPics from './Pics';
 import Tweet from './teets';
 
@@ -45,7 +46,7 @@ function Callout(props) {
   );
 }
 
-const Predator = ({ node, inline, className, children, ...props }) => {
+/* const Predator = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || '');
   return !inline && match ? (
     <CodeBlock
@@ -58,8 +59,8 @@ const Predator = ({ node, inline, className, children, ...props }) => {
     <>{children}</>
   );
 };
-
-const Codex = ({ node, inline, className, children, ...props }) => {
+ */
+/* const Codex = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || '');
   return !inline && match ? (
     <CodeBlock
@@ -73,20 +74,29 @@ const Codex = ({ node, inline, className, children, ...props }) => {
       {children}
     </code>
   );
-};
+}; */
+function Bust(props) {
+  return (
+    <strong className="font-quad text-2xl italic text-orange-500 ">
+      {props.children}
+    </strong>
+  );
+}
 
 export const MDXComponents = {
   Image: RoundedImage,
+  Bust,
   ImageWithTheme,
   DickPics,
+  IKImage,
   a: CustomLink,
   Callout,
   Analytics,
   ConsCard,
   ProsCard,
-  Step,
-  pre: Predator,
-  code: Codex
+  Step
+  // pre: Predator,
+  //code: Codex
 };
 
 interface Props {

@@ -70,9 +70,9 @@ export function PostDetail({ children, post }: Props) {
               <div className="flex gap-2  items-center mt-2 text-sm text-gray-600 dark:text-gray-400  md:mt-0">
                 {dayjs(post.date).format('MMMM DD, YYYY')}
                 {` • `}
-
                 <ViewCounter slug={post.slug} />
                 {` • `}
+                {post.readingTime}
                 <div className="flex space-x-2">
                   {post.tags?.length &&
                     post.tags
@@ -84,10 +84,10 @@ export function PostDetail({ children, post }: Props) {
               </div>
             </div>
 
-            <div className="prose dark:prose-dark font-imp w-full max-w-3xl">
+            <div className="prose dark:prose-dark w-full max-w-3xl">
               {children}
             </div>
-            <CommentComponent slug={post.slug} />
+            {/*   <CommentComponent slug={post.slug} /> */}
 
             <div></div>
 

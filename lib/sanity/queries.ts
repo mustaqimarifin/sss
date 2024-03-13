@@ -40,6 +40,11 @@ export const postquery = groq`
 }
 `;
 
+export const postSlugs = groq`
+*[_type == "post"] | order(priority desc, _updatedAt desc) {
+ 'slug': slug.current
+}`;
+
 export const postQuery = groq` 
 *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
     ...,

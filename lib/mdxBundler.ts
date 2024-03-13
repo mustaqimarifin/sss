@@ -1,8 +1,9 @@
+import { remarkCodeHike } from '@code-hike/mdx';
 import { bundleMDX } from 'mdx-bundler';
 import path from 'path';
 import readingTime from 'reading-time';
 import reLINK from 'rehype-autolink-headings';
-import reCODE from 'rehype-code-titles';
+import reCODE from 'rehype-pretty-code';
 //!! DONT DELETE YET !!//
 import reSLUG from 'rehype-slug';
 import reSHART from 'remark-gfm';
@@ -10,6 +11,25 @@ import reSHART from 'remark-gfm';
 import imageMetadata from './image-metadata';
 
 const root = process.cwd();
+
+const codeOptions = {
+  //theme: JSON.parse(fs.readFileSync('./lib/moonlight-ii.json', 'utf-8')),
+  theme: 'one-dark-pro',
+  onVisitLine(node) {
+    // Prevent lines from collapsing in `display: grid` mode, and
+    // allow empty lines to be copy/pasted
+    if (node.children.length === 0) {
+      node.children = [{ type: 'text', value: ' ' }];
+    }
+  },
+  // Feel free to add classNames that suit your docs
+  onVisitHighlightedLine(node) {
+    node.properties.className.push('highlighted');
+  },
+  onVisitHighlightedChars(node) {
+    node.properties.className = ['word'];
+  }
+};
 
 export async function mdxToHtml(source: string) {
   if (process.platform === 'win32') {
@@ -30,16 +50,15 @@ export async function mdxToHtml(source: string) {
   }
   const { code } = await bundleMDX({
     source: source,
-    cwd: path.join(root, 'components'),
+    //cwd: path.join(root, 'components'),
     mdxOptions(options) {
       options.remarkPlugins = [...(options.remarkPlugins ?? []), reSHART];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         [
           reSLUG,
-          reCODE,
+          [remarkCodeHike, { theme: 'one-dark-pro' }],
           imageMetadata,
-
           [
             reLINK,
             {

@@ -7,7 +7,7 @@ import { withProviders } from 'components/Providers/withProviders';
 import Tweet from 'components/teets';
 import { mdxToHtml } from 'lib/mdxBundler';
 import { postQuery, postSlugsQuery } from 'lib/sanity/queries';
-import { getPostBySlug } from 'lib/sanity/sanity.client';
+import { getPost, getSlugs } from 'lib/sanity/sanity.client';
 import { getClient, sanityClient } from 'lib/sanity/server';
 import { getTweets } from 'lib/twitter';
 import type { Post } from 'lib/types';
@@ -25,23 +25,26 @@ function PostPage({ post, loading }: PPage) {
   if (loading) return <LoadingSpinner />;
 
   return (
-    //@ts-ignore
     <PostDetail post={post}>
-      <MDSEX mdx={post.content} tweets={post.tweets} />
+      <MDSEX mdx={post?.content} tweets={post.tweets} />
     </PostDetail>
   );
 }
 
 export async function getStaticPaths() {
-  const paths = await sanityClient.fetch(postSlugsQuery);
+  const posts = await getSlugs();
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug }
+  }));
+  console.log(paths);
   return {
-    paths: paths.map((slug: any) => ({ params: { slug } })),
-    fallback: 'blocking'
+    paths,
+    fallback: false
   };
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const post: Post = await getPostBySlug(params.slug);
+  const post: Post = await getPost(params.slug);
 
   if (!post) {
     return { notFound: true };
@@ -62,7 +65,7 @@ export async function getStaticProps({ params, preview = false }) {
         readingTime
       },
 
-      revalidate: 60 * 60
+      revalidate: 0
     }
   };
 }

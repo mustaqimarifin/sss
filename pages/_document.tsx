@@ -52,7 +52,7 @@ class MyDocument extends Document {
           />
         </Head>
 
-        <body className="subpixel-antialiased ">
+        <body className="antialiased ">
           <span className="text-tertiary absolute flex -translate-y-full transform space-x-1 border-b border-gray-150 bg-gray-0 p-2 focus-within:relative focus-within:translate-y-0 dark:border-gray-800 dark:bg-gray-900">
             <a className="text-primary font-semibold" href="#main">
               Skip to content

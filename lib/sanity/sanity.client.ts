@@ -1,4 +1,5 @@
 import type { Post } from 'lib/types';
+import { revalidatePath } from 'next/cache';
 import { createClient } from 'next-sanity';
 
 import { apiVersion, dataset, projectId, useCdn } from './config';
@@ -7,6 +8,7 @@ import {
   indexQuery,
   postBySlugQuery,
   postQuery,
+  postSlugs,
   postSlugsQuery,
   settingsQuery
 } from './queries';
@@ -25,9 +27,9 @@ export async function getSettings(): Promise<Settings> {
   return {};
 }
 
-export async function getAllPosts(): Promise<Post[]> {
+export async function getSlugs(): Promise<Post[]> {
   if (client) {
-    return (await client.fetch(indexQuery)) || [];
+    return (await client.fetch(postSlugs)) || [];
   }
   return [];
 }
@@ -40,9 +42,11 @@ export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
   return [];
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
+export const getPost = async (slug: string) => {
   if (client) {
-    return (await client.fetch(postQuery, { slug })) || ({} as any);
+    return (await client.fetch(postQuery, { slug })) || {};
   }
-  return {} as any;
-}
+  revalidatePath('/posts/[slug]', 'page');
+
+  return {};
+};

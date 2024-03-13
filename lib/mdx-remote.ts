@@ -34,7 +34,7 @@ import rehypePrism from 'https://cdn.jsdelivr.net/npm/rehype-prism-plus@1.5.0/di
 console.log(customer.address); */
 const options = {
   //theme: JSON.parse(fs.readFileSync('./lib/moonlight-ii.json', 'utf-8')),
-  theme: 'slack-ochin',
+  theme: 'one-dark-pro',
   onVisitLine(node) {
     // Prevent lines from collapsing in `display: grid` mode, and
     // allow empty lines to be copy/pasted
@@ -46,7 +46,7 @@ const options = {
   onVisitHighlightedLine(node) {
     node.properties.className.push('highlighted');
   },
-  onVisitHighlightedWord(node) {
+  onVisitHighlightedChars(node) {
     node.properties.className = ['word'];
   }
 };
@@ -58,6 +58,7 @@ export async function mdxToHtml(source: string) {
       rehypePlugins: [
         reSLUG,
         reCODE,
+        //@ts-ignore
         [rehypePrettyCode, options],
 
         [
